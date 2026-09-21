@@ -8,10 +8,10 @@
 const PRODUCTS = [
   {
     id: "bucket-hat",
-    name: "Pour Dawgz Black Wide-Brim Logo Bucket Hat (Large-XL)",
+    name: "Pour Dawgz Black Wide-Brim Floppy Hat with Logo (Large-XL)",
     price: 29.99,
-    description: "Black wide-brim Pour Dawgz logo bucket hat, Large-XL. Pour Dawgz Owner Picks.",
-    image: "images/bucket-hat.png",
+    description: "Black wide-brim floppy hat with the Pour Dawgz logo, Large-XL. The one Steven wears. Pour Dawgz Owner Picks.",
+    image: "images/wide-brim-hat.png",
     squareLink: "#",
     seller: "Pour Dawgz Owner Picks",
     type: "fixed",
