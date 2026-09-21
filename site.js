@@ -25,6 +25,8 @@
       btn = '<a class="buy-btn" href="contact.html">Bid / Ask About This</a>';
     } else if (p.squareLink && p.squareLink !== "#") {
       btn = '<a class="buy-btn" href="' + escapeHtml(p.squareLink) + '">Buy Now</a>';
+    } else if (p.orderLink) {
+      btn = '<a class="buy-btn" href="' + escapeHtml(p.orderLink) + '">Message Us to Order</a>';
     } else {
       btn = '<a class="buy-btn" href="#" title="Secure Square checkout link coming soon">Buy Now</a>';
     }
