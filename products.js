@@ -3,6 +3,7 @@
    - price: number in USD, or null if not yet carried over from the old site.
    - image: local file under images/ (downloaded from the old site).
    - squareLink: Square payment link for this product. "#" = not yet connected.
+   - orderLink: link for the "Message Us to Order" button (used while Square checkout is not connected).
    - type: "fixed" (buy now) or "auction" (bid / ask).
    - available: false disables the buy button (e.g. crib listing). */
 const PRODUCTS = [
@@ -118,6 +119,45 @@ const PRODUCTS = [
     squareLink: "#",
     seller: "witchy witch drop in",
     type: "auction",
+    available: true
+  },
+  {
+    id: "yofidra-angle-grinder",
+    name: "YOFIDRA Brushless 125mm (5-inch) Cordless Angle Grinder",
+    price: 34.09,
+    description: "Brushless cordless angle grinder with 125mm (5-inch) disc, 20,000 RPM max speed, and 14mm disc bore. 4.9-star rating with 1,000+ sold. Tool only - battery NOT included. Free US shipping, delivery Sep 26 - Oct 1.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Se3f478c0ed214ac29c437470f2142ed1v.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    externalLink: "https://www.aliexpress.us/item/3256810467309266.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "electric-goddess-recip-saw",
+    name: "Electric Goddess Cordless Reciprocating Saw",
+    price: 38.09,
+    description: "Sawzall-style cordless reciprocating saw for cutting wood and metal. 4.9-star rating, 99 sold. Tool only - battery NOT included (fits DeWalt 20V batteries). Free US shipping, delivery Sep 26 - Oct 1.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sda0836da87b2475b9d78b067f6b87b5ap.png",
+    squareLink: "#",
+    orderLink: "contact.html",
+    externalLink: "https://www.aliexpress.us/item/3256809419115120.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "yofidra-multi-tool",
+    name: "YOFIDRA Oscillating Multi-Tool",
+    price: 57.13,
+    description: "600W oscillating multi-tool: up to 20,000 oscillations/min with a 4-degree oscillation angle for cutting, sanding, and scraping. 4.7-star rating, 700+ sold, 124 reviews. Tool only - battery NOT included (works with 21V/18V batteries). Free US shipping, delivery Sep 26 - Sep 30.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Se6e59eaca5b74767b1e4598db79719c0L.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    externalLink: "https://www.aliexpress.us/item/3256807462426939.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
     available: true
   }
 ];
