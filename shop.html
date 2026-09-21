@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* My Kit — personal picks with outbound links (styled apart from product cards) */
+  .my-kit .col-card { display: flex; flex-direction: column; gap: 10px; }
+  .my-kit .kit-price { font-family: "Oswald", sans-serif; font-size: 1.15rem; color: var(--hi-vis); }
+  .my-kit .outbound { margin-top: auto; }
+  .my-kit .outbound .btn { display: block; text-align: center; }
+  .my-kit .fineprint { margin-top: 18px; }
+</style>
 </head>
 <body>
 
@@ -33,6 +41,37 @@
     <p class="lede">Work gear and local finds from Pour Dawgz and independent sellers. Every purchase checks out securely through Square &mdash; no account needed.</p>
     <div class="product-grid" id="product-grid"></div>
     <p class="fineprint">Questions about a listing before you buy? <a href="contact.html">Ask us here</a> &mdash; include the product name. Payment information is never needed in a message.</p>
+  </div>
+</section>
+
+<section class="block my-kit">
+  <div class="wrap">
+    <h2>My Kit</h2>
+    <p class="lede">Stuff I actually use &mdash; my own hands swear by this.</p>
+    <div class="cols">
+      <div class="col-card">
+        <span class="badge">Generic &mdash; same medicine as Voltaren</span>
+        <h3>Diclofenac Sodium Gel 1%</h3>
+        <p>Rubs straight into sore knuckles, wrists, and elbows after a long day of swinging hammers and hauling concrete.</p>
+        <p class="kit-price">Check current price on Amazon</p>
+        <p class="outbound"><a class="btn ghost" href="https://www.amazon.com/dp/B08ZF5LVWQ/ref=cm_sw_r_cso_cp_apin_dp_1D86JH83QA6B1FR6AKY2" target="_blank" rel="noopener">Buy on Amazon</a></p>
+      </div>
+      <div class="col-card">
+        <span class="badge">Cooling menthol gel</span>
+        <h3>Biofreeze Pain Relief Gel</h3>
+        <p>The cooling menthol rub PTs and chiropractors reach for &mdash; eases stiff, overworked hands and sore muscles fast.</p>
+        <p class="kit-price">Check current price on Amazon</p>
+        <p class="outbound"><a class="btn ghost" href="https://www.amazon.com/dp/B01LXFEY6H/ref=as_li_ss_tl" target="_blank" rel="noopener">Buy on Amazon</a></p>
+      </div>
+      <div class="col-card">
+        <span class="badge">My affiliate supplement</span>
+        <h3>Nitric Boost</h3>
+        <p>My own affiliate supplement for blood flow and stamina &mdash; part of my daily routine for keeping the motor running.</p>
+        <p class="kit-price">From $69</p>
+        <p class="outbound"><a class="btn ghost" href="https://getnitricboost.com/?affiliate=pourdawgzg&tid=pourdawgz-deals" target="_blank" rel="noopener">Learn More</a></p>
+      </div>
+    </div>
+    <p class="fineprint">My Kit links open in a new tab and go to external stores &mdash; Amazon for the gels, and my Nitric Boost affiliate page.</p>
   </div>
 </section>
 
