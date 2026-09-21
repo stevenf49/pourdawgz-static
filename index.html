@@ -137,7 +137,9 @@
   // Sticky featured spotlight + Top Sellers.
   (function () {
     // Pin the featured spotlight just under the site header while scrolling;
-    // compact it into a slim strip via the "pinned" class.
+    // compact it into a slim strip via the "pinned" class. A scroll listener
+    // keeps the pinned state in sync on every frame: the sentinel marks the
+    // section's natural top, and a spacer preserves layout while pinned.
     var section = document.getElementById("featured-spotlight");
     var sentinel = document.getElementById("spotlight-sentinel");
     var spacer = document.getElementById("spotlight-spacer");
@@ -157,13 +159,23 @@
           spacer.style.display = "none";
         }
       };
-      if ("IntersectionObserver" in window) {
-        var io = new IntersectionObserver(function (entries) {
-          var rect = entries[0].boundingClientRect;
-          setPinned(rect.bottom <= headerH() && rect.top < headerH());
-        }, { threshold: [0, 1] });
-        io.observe(sentinel);
-      }
+      var ticking = false;
+      var updatePinned = function () {
+        ticking = false;
+        var rect = sentinel.getBoundingClientRect();
+        setPinned(rect.bottom <= headerH() && rect.top < headerH());
+      };
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          ticking = true;
+          if (window.requestAnimationFrame) {
+            window.requestAnimationFrame(updatePinned);
+          } else {
+            window.setTimeout(updatePinned, 16);
+          }
+        }
+      }, { passive: true });
+      updatePinned();
       window.addEventListener("resize", function () {
         if (section.classList.contains("pinned")) {
           section.style.top = headerH() + "px";
