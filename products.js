@@ -61,7 +61,7 @@ const PRODUCTS = [
     seller: "Pour Dawgz",
     type: "fixed",
     available: true,
-    options: "Sizes S\u20133XL"
+    options: "Sizes S–3XL"
   },
   {
     id: "skill-tee",
@@ -73,7 +73,7 @@ const PRODUCTS = [
     seller: "Pour Dawgz",
     type: "fixed",
     available: true,
-    options: "Sizes S\u20133XL"
+    options: "Sizes S–3XL"
   },
   {
     id: "cuff-beanie",
@@ -96,7 +96,7 @@ const PRODUCTS = [
     seller: "Pour Dawgz",
     type: "fixed",
     available: true,
-    options: "Sizes S\u20133XL"
+    options: "Sizes S–3XL"
   },
   {
     id: "crib",
@@ -114,7 +114,7 @@ const PRODUCTS = [
     name: "vintage 1975 South Dakota trailer plate",
     price: 5,
     priceLabel: "Starting bid: $5.00",
-    description: "Vintage 1975 South Dakota trailer plate. Auction \u2014 0 bids, next bid $5, ends Sep 26, 2026, 6:02 PM. Listed by witchy witch drop in. Pickup or shipping.",
+    description: "Vintage 1975 South Dakota trailer plate. Auction — 0 bids, next bid $5, ends Sep 26, 2026, 6:02 PM. Listed by witchy witch drop in. Pickup or shipping.",
     image: "images/trailer-plate.jpg",
     squareLink: "#",
     seller: "witchy witch drop in",
@@ -185,7 +185,7 @@ const PRODUCTS = [
     id: "pourdawgz-tee-handyman-slogan",
     name: "Pour Dawgz Tee - Handyman Slogan",
     price: 34.99,
-    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street \u2014 gotta be handy with the tools.' Sizes XS-5XL.",
+    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street — gotta be handy with the tools.' Sizes XS-5XL.",
     image: "images/browser-download-20260921T180444.572019898Z-1-unisex-staple-t-shirt-black-front-6ab171b11c75a.png",
     squareLink: "#",
     orderLink: "contact.html",
@@ -331,6 +331,30 @@ const PRODUCTS = [
     price: 59.99,
     description: "Cordless 2-in-1 electric nail gun: fires 18-gauge brad nails (F15-F32) and staples. Depth adjustment for flush finishes. 4.9-star rating, 563 sold. Tool only - battery NOT included (fits Makita 18V batteries). Free US shipping.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S171be7719b3e45089ab87e2b55dd8245S.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "heated-motorcycle-winter-gloves",
+    name: "Heated Motorcycle Winter Gloves",
+    price: 34.99,
+    description: "Heated winter motorcycle/tactical gloves: warm thermal lining, waterproof shell, cycling design. 4.9-star rating, 2,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S78da89d7f11c472b83f293191c66a563b.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "electric-heated-winter-gloves",
+    name: "Electric Heated Winter Gloves, Waterproof Rechargeable",
+    price: 29.99,
+    description: "Electric heated winter gloves with rechargeable heating: warm, waterproof, made for snowmobile and motorcycle riding. 4.9-star rating, 1,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sb411a6cc3b6342c588d267246aa92b23p.jpg",
     squareLink: "#",
     orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
