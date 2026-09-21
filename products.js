@@ -168,5 +168,41 @@ const PRODUCTS = [
     seller: "Pour Dawgz Workwear",
     type: "fixed",
     available: true
+  },
+  {
+    id: "pourdawgz-tee-logo-front",
+    name: "Pour Dawgz Tee - Logo Front",
+    price: 34.99,
+    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black with large front logo print. Sizes XS-5XL.",
+    image: "https://files.cdn.printful.com/files/d1e/d1ec2aa5a909f322a3b1d87c4628f71a_thumb.png",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Merch",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pourdawgz-tee-handyman-slogan",
+    name: "Pour Dawgz Tee - Handyman Slogan",
+    price: 34.99,
+    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street \u2014 gotta be handy with the tools.' Sizes XS-5XL.",
+    image: "https://files.cdn.printful.com/files/3d2/3d2555a074fb9373b364669bfb4a41c3_thumb.png",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Merch",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pourdawgz-hoodie-back-logo",
+    name: "Pour Dawgz Hoodie - Back Logo",
+    price: 59.99,
+    description: "Unisex Heavy Blend Hoodie (Gildan 18500) in Black. Big logo on the back, 'Works hard, plays even harder' on the front chest, 'FAFO' and 'GUILD' on the sleeves. Sizes S-5XL.",
+    image: "https://files.cdn.printful.com/files/805/805c42fca284d0f02849c73942c0d77c_thumb.png",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Merch",
+    type: "fixed",
+    available: true
   }
 ];
