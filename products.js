@@ -9,7 +9,7 @@ const PRODUCTS = [
   {
     id: "bucket-hat",
     name: "Pour Dawgz Black Wide-Brim Logo Bucket Hat (Large-XL)",
-    price: 109.95,
+    price: 29.99,
     description: "Black wide-brim Pour Dawgz logo bucket hat, Large-XL. Pour Dawgz Owner Picks.",
     image: "images/bucket-hat.png",
     squareLink: "#",
@@ -56,17 +56,6 @@ const PRODUCTS = [
     price: 139.95,
     description: "Stan Ray shop jacket in Natural Drill, size XL. Pour Dawgz Owner Picks.",
     image: "images/stan-ray-jacket.jpg",
-    squareLink: "#",
-    seller: "Pour Dawgz Owner Picks",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "panama-hat",
-    name: "Wide Brim Braid Straw Panama Floppy Hat, Natural",
-    price: 69.95,
-    description: "Wide brim braid straw Panama floppy hat in Natural. Pour Dawgz Owner Picks.",
-    image: "images/panama-hat.jpg",
     squareLink: "#",
     seller: "Pour Dawgz Owner Picks",
     type: "fixed",
