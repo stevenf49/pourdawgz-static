@@ -360,5 +360,77 @@ const PRODUCTS = [
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
+  },
+  {
+    id: "5-point-safety-harness-ce",
+    name: "5-Point Full-Body Safety Harness, CE Certified",
+    price: 49.99,
+    description: "5-point full-body safety harness for roofing, construction, and high-altitude work. CE certified with heavy-duty webbing and alloy steel D-rings/buckles. Early buyer review: well made, comfortable, sturdy. 5.0-star rating. Free US shipping.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S2ec4d4a8c145422c8373b3376b681782J.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "ce-hard-hat-goggles-visor",
+    name: "CE Construction Hard Hat with Goggles Visor, ABS",
+    price: 29.99,
+    description: "Modern construction hard hat with built-in goggles visor and tough ABS shell. CE certified, ANSI-rated. 4.9-star rating (67 reviews), 600+ sold. Free US shipping.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S7a78a0bb4cd5404b994f473cd5079972U.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "ce-vented-hard-hat-adjustable",
+    name: "CE Vented Construction Hard Hat, Adjustable",
+    price: 30.99,
+    description: "Vented ABS construction hard hat with adjustable ventilation system for all-day comfort on the job site. CE certified. 4.8-star rating (52 reviews). Free US shipping.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S2810a1525fdc4268be2b0fb43fc715f3G.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "safety-glasses-side-shields",
+    name: "Anti-Fog Safety Glasses with Side Shields, Clear",
+    price: 4.99,
+    description: "Clear anti-fog safety glasses with side shields: anti-scratch, anti-blue-light lenses for shop and job-site work. 4.9-star rating (498 reviews).",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Se9d369a1c10140669c8caf9959e9139dg.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "safety-glasses-2pack-ansi-z87",
+    name: "2-Pack Clear Safety Glasses, ANSI Z87",
+    price: 8.99,
+    description: "2-pack of clear safety glasses, ANSI Z87 certified, with anti-fog wrap-around lenses. 5,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S8787d8b6701447d484bd4454458857dcS.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "sport-safety-goggles-antifog",
+    name: "Anti-Fog Sport Safety Goggles, Clear Wrap",
+    price: 1.99,
+    description: "Budget wrap-around anti-fog safety goggles: anti-splash, dust-proof, adjustable for a secure fit. 4.9-star rating (1,330 reviews), 10,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sbb4d3f79d188429f9672f245816b738eX.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
   }
 ];
