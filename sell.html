@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell Your Stuff | Pour Dawgz</title>
+<meta name="description" content="List an item for sale on Pour Dawgz. No shop required, no auction required — just like Facebook Marketplace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pour<span>Dawgz</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="sell.html" class="active">Sell Your Stuff</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Sell your stuff</h2>
+    <p class="lede">Got something to sell? List it right here. No shop required, no auction required &mdash; just tell us what you've got, like Facebook Marketplace.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>How it works</h3>
+        <p style="color: var(--muted); margin-top: 10px;">Fill out the form and hit submit. Every listing is reviewed by the owner and posted in a day or two &mdash; nothing publishes automatically, so what buyers see stays worth their time.</p>
+        <p style="color: var(--muted); margin-top: 10px;">You set the asking price. Pickup, shipping, or both &mdash; say so in the description and we'll work it out with you before it goes live.</p>
+      </div>
+      <div class="contact-card">
+        <!-- FormSubmit activation: the FIRST submission sends an activation email to
+             pourdawgz@gmail.com. Click the link in that email or the form stays silent. -->
+        <form class="note-form" action="https://formsubmit.co/pourdawgz@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New marketplace listing submission">
+          <input type="hidden" name="_template" value="table">
+
+          <label for="sell-name">Your name</label>
+          <input type="text" id="sell-name" name="name" required>
+
+          <label for="sell-contact">Email or phone</label>
+          <input type="text" id="sell-contact" name="contact" required>
+
+          <label for="sell-title">Item title</label>
+          <input type="text" id="sell-title" name="item title" required>
+
+          <label for="sell-price">Asking price</label>
+          <input type="text" id="sell-price" name="asking price" placeholder="$" required>
+
+          <label for="sell-desc">Description</label>
+          <textarea id="sell-desc" name="description" placeholder="Condition, size, pickup or shipping, anything a buyer should know." required></textarea>
+
+          <button type="submit">Submit my listing</button>
+        </form>
+        <p class="fineprint">Email photos to <a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> with your item title after submitting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

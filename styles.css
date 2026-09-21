@@ -1,0 +1,287 @@
+/* Pour Dawgz — rugged workwear theme. Dark, bold, simple. No build step. */
+
+:root {
+  --bg: #16130e;
+  --bg2: #1e1a13;
+  --card: #221d14;
+  --line: #3a3122;
+  --ink: #f2ede1;
+  --muted: #b8ac93;
+  --hi-vis: #ff6a00;
+  --hi-vis-dark: #c24e00;
+  --steel: #8f9aa3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+a { color: var(--hi-vis); }
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 18px; }
+
+/* ---------- header ---------- */
+.site-header {
+  background: #100d08;
+  border-bottom: 4px solid var(--hi-vis);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand span { color: var(--hi-vis); }
+nav.main-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav.main-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+nav.main-nav a:hover, nav.main-nav a.active {
+  background: var(--hi-vis);
+  color: #14100a;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 26px, rgba(255,106,0,0.06) 26px 52px),
+    linear-gradient(180deg, #241c10 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 64px 0 56px;
+  text-align: center;
+}
+.hero .kicker {
+  display: inline-block;
+  background: var(--hi-vis);
+  color: #14100a;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}
+.hero h1 { font-size: clamp(2.6rem, 8vw, 4.6rem); font-weight: 700; }
+.hero h1 span { color: var(--hi-vis); }
+.hero p.tagline {
+  color: var(--muted);
+  font-size: 1.15rem;
+  max-width: 640px;
+  margin: 14px auto 26px;
+}
+.btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 4px;
+  font-size: 1rem;
+  border: 2px solid var(--hi-vis);
+}
+.btn.primary { background: var(--hi-vis); color: #14100a; }
+.btn.primary:hover { background: var(--hi-vis-dark); border-color: var(--hi-vis-dark); }
+.btn.ghost { color: var(--hi-vis); background: transparent; }
+.btn.ghost:hover { background: rgba(255,106,0,0.12); }
+
+/* ---------- sections ---------- */
+section.block { padding: 48px 0; }
+section.block h2 {
+  font-size: 1.9rem;
+  margin-bottom: 8px;
+  padding-left: 14px;
+  border-left: 6px solid var(--hi-vis);
+}
+section.block .lede { color: var(--muted); margin-bottom: 26px; max-width: 720px; }
+
+/* ---------- product grid ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card .img-wrap {
+  aspect-ratio: 1 / 1;
+  background: #0f0c07;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.card .img-wrap .no-img {
+  color: var(--muted);
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 20px;
+  text-align: center;
+}
+.card .body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.card h3 { font-size: 1.05rem; }
+.card .seller { color: var(--steel); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.card .desc { color: var(--muted); font-size: 0.92rem; flex: 1; }
+.card .price { font-family: "Oswald", sans-serif; font-size: 1.35rem; color: var(--hi-vis); }
+.card .price.request { font-size: 1rem; color: var(--muted); font-family: "Inter", sans-serif; }
+.buy-btn {
+  display: block;
+  text-align: center;
+  background: var(--hi-vis);
+  color: #14100a;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+.buy-btn:hover { background: var(--hi-vis-dark); }
+.buy-btn.disabled {
+  background: #3a3325;
+  color: var(--muted);
+  pointer-events: none;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #3a3122;
+  color: var(--ink);
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+/* ---------- feature columns ---------- */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.col-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+}
+.col-card h3 { color: var(--hi-vis); margin-bottom: 8px; font-size: 1.15rem; }
+.col-card p { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- markets ---------- */
+.market-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--hi-vis);
+  border-radius: 8px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.market-card h3 { font-size: 1.4rem; margin-bottom: 4px; }
+.market-card .when { color: var(--hi-vis); font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
+.market-card .where, .market-card .phone { color: var(--muted); }
+.market-card .phone a { color: var(--ink); text-decoration: none; }
+.booth-box {
+  background: linear-gradient(180deg, #2a2113, var(--card));
+  border: 2px dashed var(--hi-vis);
+  border-radius: 8px;
+  padding: 28px;
+  margin-top: 28px;
+}
+.booth-box h3 { font-size: 1.5rem; margin-bottom: 10px; }
+.booth-box .fee { font-family: "Oswald", sans-serif; font-size: 2rem; color: var(--hi-vis); }
+.booth-box ul { margin: 12px 0 0 20px; color: var(--muted); }
+
+/* ---------- contact ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 760px) { .contact-grid { grid-template-columns: 1fr 1.4fr; } }
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+}
+form.note-form label { display: block; margin: 14px 0 6px; font-weight: 600; }
+form.note-form input, form.note-form select, form.note-form textarea {
+  width: 100%;
+  background: #100d08;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 11px 12px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+form.note-form textarea { min-height: 130px; resize: vertical; }
+form.note-form button {
+  margin-top: 18px;
+  background: var(--hi-vis);
+  color: #14100a;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
+  padding: 13px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+form.note-form button:hover { background: var(--hi-vis-dark); }
+.fineprint { color: var(--muted); font-size: 0.85rem; margin-top: 14px; }
+
+/* ---------- footer ---------- */
+footer {
+  background: #100d08;
+  border-top: 4px solid var(--hi-vis);
+  margin-top: 40px;
+  padding: 30px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer a { color: var(--muted); }
+
+/* caution stripe divider */
+.stripe {
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--hi-vis) 0 18px, #14100a 18px 36px);
+}

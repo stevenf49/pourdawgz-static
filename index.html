@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Dawgz | Work Gear, Local Finds &amp; Flea Market</title>
+<meta name="description" content="Pour Dawgz — work gear for working men, local finds, and a real flea market. Newell, SD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pour<span>Dawgz</span></a>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="sell.html">Sell Your Stuff</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker">Newell, South Dakota</span>
+    <h1>Work gear for <span>working men.</span></h1>
+    <p class="tagline">Pour Dawgz mixes the browse-and-find energy of a weekend flea market with tough work gear you can order from home. No big-box polish &mdash; just real finds.</p>
+    <div class="btn-row">
+      <a class="btn primary" href="shop.html">Shop the store</a>
+      <a class="btn ghost" href="markets.html">Flea market schedule</a>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Featured finds</h2>
+    <p class="lede">Real listings from real sellers. Secure checkout through Square &mdash; no account needed.</p>
+    <div class="product-grid" id="featured-grid"></div>
+    <div style="text-align:center; margin-top:28px;">
+      <a class="btn ghost" href="shop.html">See everything in the shop</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="wrap">
+    <h2>A flea market with booths that travel online</h2>
+    <p class="lede">Search the finds, meet independent sellers, and grab local goods without the big-box runaround.</p>
+    <div class="cols">
+      <div class="col-card">
+        <h3>Your own booth</h3>
+        <p>Open a $10 flat-rate booth and sell handmade goods, spare parts, tools, art, soap &mdash; whatever you sell. No cut of your sales, ever.</p>
+      </div>
+      <div class="col-card">
+        <h3>Local pickup friendly</h3>
+        <p>Items can be marked for pickup, shipping, or both. What you see is what you get, straight from the seller.</p>
+      </div>
+      <div class="col-card">
+        <h3>Handyman services</h3>
+        <p>Repair, remodel, install, build &mdash; Pour Dawgz started as a handyman outfit. Ask about a project on the contact page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Real markets, real weekends</h2>
+    <p class="lede">We keep a running schedule of flea markets around the region &mdash; plus our own booths right here.</p>
+    <div class="btn-row" style="justify-content: flex-start;">
+      <a class="btn primary" href="markets.html">See the market schedule</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="site.js"></script>
+<script>
+  renderProducts("featured-grid", ["bucket-hat", "volt-gloves", "powercap-beanie", "duluth-pants"]);
+</script>
+</body>
+</html>

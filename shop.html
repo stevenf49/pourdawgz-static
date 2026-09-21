@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Pour Dawgz</title>
+<meta name="description" content="Shop Pour Dawgz work gear and local finds. Secure checkout through Square.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pour<span>Dawgz</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="sell.html">Sell Your Stuff</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>The shop</h2>
+    <p class="lede">Work gear and local finds from Pour Dawgz and independent sellers. Every purchase checks out securely through Square &mdash; no account needed.</p>
+    <div class="product-grid" id="product-grid"></div>
+    <p class="fineprint">Questions about a listing before you buy? <a href="contact.html">Ask us here</a> &mdash; include the product name. Payment information is never needed in a message.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="site.js"></script>
+<script>
+  renderProducts("product-grid");
+</script>
+</body>
+</html>

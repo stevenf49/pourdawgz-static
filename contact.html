@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Pour Dawgz</title>
+<meta name="description" content="Contact Pour Dawgz — product questions, seller help, booth info, and handyman project quotes. Newell, SD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pour<span>Dawgz</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="sell.html">Sell Your Stuff</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Need a hand or a better find?</h2>
+    <p class="lede">Ask about an item, tell us what you want to sell, or send the first details for a handyman project. One message gets your question to the right counter.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3 style="margin-bottom: 12px;">What we handle</h3>
+        <p style="color: var(--muted); margin-bottom: 12px;"><strong style="color: var(--ink);">Product questions</strong><br>Ask about a listing before you make plans for pickup or shipping.</p>
+        <p style="color: var(--muted); margin-bottom: 12px;"><strong style="color: var(--ink);">Seller help</strong><br>Get pointed in the right direction when you're ready to open a $10 booth.</p>
+        <p style="color: var(--muted); margin-bottom: 12px;"><strong style="color: var(--ink);">Handyman questions</strong><br>Share a project idea &mdash; repair, remodel, install, build.</p>
+        <p style="color: var(--muted);"><strong style="color: var(--ink);">Reach us</strong><br><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a><br>Newell, SD</p>
+      </div>
+
+      <div class="contact-card">
+        <h3 style="margin-bottom: 6px;">Send a note</h3>
+        <p style="color: var(--muted); font-size: 0.92rem;">This opens your email app with everything filled in &mdash; nothing is stored on this site.</p>
+        <form class="note-form" id="note-form">
+          <label for="f-name">Name *</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name">
+
+          <label for="f-email">Email *</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email">
+
+          <label for="f-reason">Reason *</label>
+          <select id="f-reason" name="reason" required>
+            <option value="Product question">Product question</option>
+            <option value="Seller help / booth">Seller help / booth</option>
+            <option value="Handyman project">Handyman project</option>
+            <option value="Flea market schedule">Flea market schedule</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="f-message">Message *</label>
+          <textarea id="f-message" name="message" required placeholder="Share the details needed to answer your question."></textarea>
+
+          <button type="submit">Send via email</button>
+          <p class="fineprint">Payment information is never needed here. Clear details help us send a useful answer.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("note-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("f-name").value.trim();
+    var email = document.getElementById("f-email").value.trim();
+    var reason = document.getElementById("f-reason").value;
+    var msg = document.getElementById("f-message").value.trim();
+    var subject = encodeURIComponent("[PourDawgz] " + reason + " — " + name);
+    var body = encodeURIComponent(msg + "\n\n— " + name + " (" + email + ")");
+    window.location.href = "mailto:pourdawgz@gmail.com?subject=" + subject + "&body=" + body;
+  });
+</script>
+</body>
+</html>
