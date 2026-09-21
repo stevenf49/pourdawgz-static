@@ -40,6 +40,14 @@
 </div>
 <div class="stripe"></div>
 
+<section class="block" style="background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="wrap">
+    <h2>Featured product</h2>
+    <p class="lede">One random pick from the shop &mdash; a new one every 10 seconds.</p>
+    <div class="spotlight" id="spotlight-grid"></div>
+  </div>
+</section>
+
 <section class="block">
   <div class="wrap">
     <h2>Featured finds</h2>
@@ -93,6 +101,25 @@
 <script src="site.js"></script>
 <script>
   renderProducts("featured-grid", ["bucket-hat", "volt-gloves", "powercap-beanie", "duluth-pants"]);
+</script>
+<script>
+  // Featured product spotlight: one random product, rotating every 10 seconds.
+  (function () {
+    var grid = document.getElementById("spotlight-grid");
+    if (!grid || typeof PRODUCTS === "undefined") return;
+    var ids = PRODUCTS.map(function (p) { return p.id; });
+    var current = -1;
+    function showRandom() {
+      var i;
+      do {
+        i = Math.floor(Math.random() * ids.length);
+      } while (ids.length > 1 && i === current);
+      current = i;
+      renderProducts("spotlight-grid", [ids[i]]);
+    }
+    showRandom();
+    setInterval(showRandom, 10000);
+  })();
 </script>
 </body>
 </html>
