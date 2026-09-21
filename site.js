@@ -33,7 +33,7 @@
     var opts = p.options ? '<div class="seller">' + escapeHtml(p.options) + "</div>" : "";
     return (
       '<article class="card">' +
-        '<div class="img-wrap"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;no-img&quot;>Photo coming soon</div>\'"></div>' +
+        '<div class="img-wrap"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;no-img&quot;>Photo coming soon</div>\'">' + "</div>" +
         '<div class="body">' +
           "<h3>" + badge + escapeHtml(p.name) + "</h3>" +
           '<div class="seller">' + escapeHtml(p.seller || "") + "</div>" +
@@ -54,5 +54,13 @@
       ? PRODUCTS.filter(function (p) { return ids.indexOf(p.id) !== -1; })
       : PRODUCTS.slice();
     el.innerHTML = list.map(card).join("");
+  };
+
+  // Render an explicit, pre-ordered list of products (used for ranked grids
+  // such as Top Sellers), reusing the same card markup.
+  window.renderProductList = function (targetId, list) {
+    var el = document.getElementById(targetId);
+    if (!el) return;
+    el.innerHTML = (list || []).map(card).join("");
   };
 })();
