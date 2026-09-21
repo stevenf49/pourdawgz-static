@@ -7,17 +7,6 @@
    - available: false disables the buy button (e.g. crib listing). */
 const PRODUCTS = [
   {
-    id: "bucket-hat",
-    name: "Pour Dawgz Black Wide-Brim Floppy Hat with Logo (Large-XL)",
-    price: 29.99,
-    description: "Black wide-brim floppy hat with the Pour Dawgz logo, Large-XL. The one Steven wears. Pour Dawgz Owner Picks.",
-    image: "images/wide-brim-hat.png",
-    squareLink: "#",
-    seller: "Pour Dawgz Owner Picks",
-    type: "fixed",
-    available: true
-  },
-  {
     id: "duluth-pants",
     name: "Duluth Fire Hose Cargo Work Pants, Desert Khaki 32x32",
     price: 119.99,
