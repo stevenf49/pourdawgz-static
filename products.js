@@ -159,5 +159,18 @@ const PRODUCTS = [
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
+  },
+  {
+    id: "tdfr-multi-pocket-overalls",
+    name: "TDFR Multi-Pocket Denim Overalls - Men's Cargo Bib",
+    price: 36.71,
+    description: "Men's multi-pocket denim cargo bib overalls: durable midweight cotton-blend denim, loose roomy fit, functional tool pockets, zipper fly. 4.6-star rating from verified buyers, 36 sold. Sizes XS-XXL in Blue or Black. Free returns within 15 days; delivery Sep 27 - Oct 3.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sc9168362ea394f33abdf980e467fcd5b8.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    externalLink: "https://www.aliexpress.us/item/3256802713548400.html",
+    seller: "Pour Dawgz Workwear",
+    type: "fixed",
+    available: true
   }
 ];
