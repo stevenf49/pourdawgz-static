@@ -1,4 +1,5 @@
 /* Pour Dawgz — rugged workwear theme. Dark, bold, simple. No build step. */
+@import url("https://fonts.googleapis.com/css2?family=Rye&display=swap");
 
 :root {
   --bg: #16130e;
@@ -37,7 +38,7 @@ img { max-width: 100%; display: block; }
 /* ---------- header ---------- */
 .site-header {
   background: #100d08;
-  border-bottom: 4px solid var(--hi-vis);
+  border-bottom: 3px solid var(--hi-vis);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -46,23 +47,39 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  gap: 28px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .brand {
-  font-size: 1.6rem;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Rye", "Oswald", serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
+  padding: 2px 0;
+}
+.brand::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  background: #000 url("images/browser-download-20260921T180306.622521264Z-0-unisex-staple-t-shirt-black-front-6ab1714e8d231.png") no-repeat 50% 41%;
+  background-size: 330%;
 }
 .brand span { color: var(--hi-vis); }
 .brand img {
-  height: 60px;
+  height: 44px;
   width: auto;
   display: block;
 }
-nav.main-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav.main-nav { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 nav.main-nav a {
   color: var(--ink);
   text-decoration: none;
@@ -70,8 +87,9 @@ nav.main-nav a {
   text-transform: uppercase;
   font-size: 0.95rem;
   letter-spacing: 0.06em;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 4px;
+  white-space: nowrap;
 }
 nav.main-nav a:hover, nav.main-nav a.active {
   background: var(--hi-vis);
@@ -201,6 +219,52 @@ section.block .lede { color: var(--muted); margin-bottom: 26px; max-width: 720px
   border-radius: 3px;
 }
 
+/* ---------- spotlight ---------- */
+.spotlight-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 700px) {
+  .spotlight-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- sticky featured spotlight ---------- */
+#spotlight-sentinel { height: 0; line-height: 0; }
+#spotlight-spacer { display: none; }
+#featured-spotlight.pinned {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding: 10px 0;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+#featured-spotlight.pinned h2,
+#featured-spotlight.pinned .lede { display: none; }
+#featured-spotlight.pinned .spotlight-row { gap: 10px; }
+#featured-spotlight.pinned .card { flex-direction: row; align-items: center; }
+#featured-spotlight.pinned .card .img-wrap {
+  aspect-ratio: auto;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+}
+#featured-spotlight.pinned .card .body { padding: 8px 12px; gap: 2px; min-width: 0; }
+#featured-spotlight.pinned .card h3 {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#featured-spotlight.pinned .card .seller,
+#featured-spotlight.pinned .card .desc { display: none; }
+#featured-spotlight.pinned .card .price { font-size: 1.05rem; }
+#featured-spotlight.pinned .buy-btn { padding: 8px 10px; font-size: 0.78rem; margin-top: 2px; }
+@media (max-width: 700px) {
+  #featured-spotlight.pinned .spotlight-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #featured-spotlight.pinned .card .img-wrap { width: 42px; height: 42px; }
+  #featured-spotlight.pinned .card h3 { font-size: 0.72rem; }
+  #featured-spotlight.pinned .card .price { font-size: 0.9rem; }
+  #featured-spotlight.pinned .buy-btn { font-size: 0.68rem; padding: 6px 8px; }
+}
+
 /* ---------- feature columns ---------- */
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 .col-card {
@@ -216,7 +280,6 @@ section.block .lede { color: var(--muted); margin-bottom: 26px; max-width: 720px
 .market-card {
   background: var(--card);
   border: 1px solid var(--line);
-  border-left: 6px solid var(--hi-vis);
   border-radius: 8px;
   padding: 22px;
   margin-bottom: 16px;
@@ -289,4 +352,30 @@ footer a { color: var(--muted); }
 .stripe {
   height: 10px;
   background: repeating-linear-gradient(-45deg, #ff6a00 0 18px, #14100a 18px 36px);
+}
+
+/* ---------- mobile nav: compact 2-column grid ---------- */
+@media (max-width: 700px) {
+  .site-header .wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .brand { font-size: 1.35rem; }
+  .brand::before { width: 30px; height: 30px; }
+  nav.main-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    width: 100%;
+  }
+  nav.main-nav a {
+    font-size: 0.78rem;
+    padding: 6px 8px;
+    text-align: center;
+  }
+  nav.main-nav a[href="markets.html"] { order: -2; }
+  nav.main-nav a[href="handyman.html"] { order: -1; }
 }
