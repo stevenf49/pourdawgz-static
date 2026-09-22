@@ -14,7 +14,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">Pour<span>Dawgz</span></a>
+    <a class="brand" href="index.html"><img src="images/pourdawgz-logo.png" alt="Pourdawgz"></a>
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="handyman.html">Handyman</a>
@@ -39,24 +39,6 @@
   </div>
 </div>
 <div class="stripe"></div>
-
-<div id="spotlight-sentinel" aria-hidden="true"></div>
-<div id="spotlight-spacer" aria-hidden="true"></div>
-<section class="block" id="featured-spotlight" style="background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-  <div class="wrap">
-    <h2>Featured products</h2>
-    <p class="lede">Three random picks from the shop &mdash; three new ones every 10 seconds.</p>
-    <div class="product-grid spotlight-row" id="spotlight-grid"></div>
-  </div>
-</section>
-
-<section class="block" id="top-sellers">
-  <div class="wrap">
-    <h2>Top Sellers</h2>
-    <p class="lede">Our highest-rated products, ranked by star rating.</p>
-    <div class="product-grid" id="top-sellers-grid"></div>
-  </div>
-</section>
 
 <section class="block">
   <div class="wrap">
@@ -111,93 +93,6 @@
 <script src="site.js"></script>
 <script>
   renderProducts("featured-grid", ["bucket-hat", "volt-gloves", "powercap-beanie", "duluth-pants"]);
-</script>
-<script>
-  // Featured products: three different random products, rotating every 10 seconds.
-  (function () {
-    var grid = document.getElementById("spotlight-grid");
-    if (!grid || typeof PRODUCTS === "undefined") return;
-    var ids = PRODUCTS.map(function (p) { return p.id; });
-    function pickThree() {
-      var pool = ids.slice();
-      var chosen = [];
-      while (chosen.length < 3 && pool.length) {
-        chosen.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
-      }
-      return chosen;
-    }
-    function showRandom() {
-      renderProducts("spotlight-grid", pickThree());
-    }
-    showRandom();
-    setInterval(showRandom, 10000);
-  })();
-</script>
-<script>
-  // Sticky featured spotlight + Top Sellers.
-  (function () {
-    // Pin the featured spotlight just under the site header while scrolling;
-    // compact it into a slim strip via the "pinned" class. A scroll listener
-    // keeps the pinned state in sync on every frame: the sentinel marks the
-    // section's natural top, and a spacer preserves layout while pinned.
-    var section = document.getElementById("featured-spotlight");
-    var sentinel = document.getElementById("spotlight-sentinel");
-    var spacer = document.getElementById("spotlight-spacer");
-    var header = document.querySelector(".site-header");
-    if (section && sentinel && spacer && header) {
-      var headerH = function () { return header.offsetHeight; };
-      var setPinned = function (on) {
-        var isPinned = section.classList.contains("pinned");
-        if (on && !isPinned) {
-          spacer.style.height = section.offsetHeight + "px";
-          spacer.style.display = "block";
-          section.style.top = headerH() + "px";
-          section.classList.add("pinned");
-        } else if (!on && isPinned) {
-          section.classList.remove("pinned");
-          section.style.top = "";
-          spacer.style.display = "none";
-        }
-      };
-      var ticking = false;
-      var updatePinned = function () {
-        ticking = false;
-        var rect = sentinel.getBoundingClientRect();
-        setPinned(rect.bottom <= headerH() && rect.top < headerH());
-      };
-      window.addEventListener("scroll", function () {
-        if (!ticking) {
-          ticking = true;
-          if (window.requestAnimationFrame) {
-            window.requestAnimationFrame(updatePinned);
-          } else {
-            window.setTimeout(updatePinned, 16);
-          }
-        }
-      }, { passive: true });
-      updatePinned();
-      window.addEventListener("resize", function () {
-        if (section.classList.contains("pinned")) {
-          section.style.top = headerH() + "px";
-        }
-      });
-    }
-
-    // Top Sellers: the 6 highest-rated products. The store has no sales history
-    // yet, so the star rating stated in each product's description stands in
-    // for the ranking. No sales numbers are shown.
-    var grid = document.getElementById("top-sellers-grid");
-    if (grid && typeof PRODUCTS !== "undefined" && typeof renderProductList === "function") {
-      var starRating = function (p) {
-        var m = /([0-9]+(?:\.[0-9]+)?)\s*-?\s*star/i.exec(p.description || "");
-        return m ? parseFloat(m[1], 10) : 0;
-      };
-      var top = PRODUCTS.filter(function (p) { return p.available !== false; })
-        .sort(function (a, b) { return starRating(b) - starRating(a); })
-        .slice(0, 6);
-      renderProductList("top-sellers-grid", top);
-    }
-  })();
 </script>
 </body>
 </html>
