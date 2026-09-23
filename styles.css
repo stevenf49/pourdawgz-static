@@ -91,7 +91,7 @@ nav.main-nav a {
   border-radius: 4px;
   white-space: nowrap;
 }
-nav.main-nav a:hover, nav.main-nav a.active {
+nav.main-nav a.nav-cta { background: var(--hi-vis); color: #14100a; font-weight: 700; } nav.main-nav a:hover, nav.main-nav a.active {
   background: var(--hi-vis);
   color: #14100a;
 }
