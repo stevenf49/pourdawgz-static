@@ -28,7 +28,7 @@
     } else if (p.orderLink) {
       btn = '<a class="buy-btn" href="' + escapeHtml(p.orderLink) + '">Message Us to Order</a>';
     } else {
-      btn = '<a class="buy-btn" href="#" title="Secure Square checkout link coming soon">Buy Now</a>';
+      btn = '<a class="buy-btn" href="contact.html">Message Us to Order</a>';
     }
     var opts = p.options ? '<div class="seller">' + escapeHtml(p.options) + "</div>" : "";
     return (
@@ -52,7 +52,7 @@
     if (!el || typeof PRODUCTS === "undefined") return;
     var list = ids
       ? PRODUCTS.filter(function (p) { return ids.indexOf(p.id) !== -1; })
-      : PRODUCTS.slice();
+      : PRODUCTS.slice(); var featuredOrder = ["mr-seal-waterproof-sealant", "solar-flood-light-2pack", "solar-power-bank-2pack", "solar-camping-string-lights"]; list.sort(function(a, b) { var ai = featuredOrder.indexOf(a.id); var bi = featuredOrder.indexOf(b.id); if (ai !== -1 && bi !== -1) return ai - bi; if (ai !== -1) return -1; if (bi !== -1) return 1; return 0; });
     el.innerHTML = list.map(card).join("");
   };
 
