@@ -9,6 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+.work-video { width: 100%; max-width: 480px; display: block; margin: 0 auto 28px; border-radius: 12px; background: #000; }
+.work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.work-grid figure { margin: 0; }
+.work-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; display: block; }
+.work-grid figcaption { font-size: 13px; color: var(--muted); padding: 6px 2px 0; }
+</style>
 </head>
 <body>
 
@@ -17,7 +24,7 @@
     <a class="brand" href="index.html"><img src="images/pourdawgz-logo.png" alt="Pourdawgz"></a>
     <nav class="main-nav">
       <a href="index.html">Home</a>
-      <a href="handyman.html" class="active nav-cta">Handyman</a>
+      <a href="handyman.html" class="active">Handyman</a>
       <a href="shop.html">Shop</a>
       <a href="sell.html">Sell Your Stuff</a>
       <a href="deals.html">Deals &amp; Picks</a>
@@ -83,6 +90,36 @@
     </div>
     <div class="btn-row" style="justify-content: flex-start; margin-top: 24px;">
       <a class="btn primary" href="contact.html">Start with a quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Recent work</h2>
+    <p class="lede">Real jobs, real results. Here's what the work looks like when it's done.</p>
+    <video class="work-video" controls playsinline preload="metadata" poster="images/work/promo-poster.jpg">
+      <source src="images/work/pourdawgz-promo.mp4" type="video/mp4">
+    </video>
+    <div class="work-grid">
+      <figure><img src="images/work/deck-before.jpg" alt="Weathered deck before rebuild" loading="lazy"><figcaption>Deck rebuild &mdash; before</figcaption></figure>
+      <figure><img src="images/work/deck-after.jpg" alt="New composite deck with black railings" loading="lazy"><figcaption>Deck rebuild &mdash; after</figcaption></figure>
+      <figure><img src="images/work/deck-railing.jpg" alt="Composite deck stairs and railings" loading="lazy"><figcaption>Composite deck &amp; railings</figcaption></figure>
+      <figure><img src="images/work/customer-deck.jpg" alt="Happy customer on her new deck" loading="lazy"><figcaption>Happy customer, new deck</figcaption></figure>
+      <figure><img src="images/work/flooring-after.jpg" alt="New vinyl plank flooring" loading="lazy"><figcaption>Vinyl plank flooring</figcaption></figure>
+      <figure><img src="images/work/customer-flooring.jpg" alt="Happy customer with new flooring" loading="lazy"><figcaption>Another happy customer</figcaption></figure>
+      <figure><img src="images/work/house-exterior.jpg" alt="House with new siding and windows" loading="lazy"><figcaption>New siding &amp; windows</figcaption></figure>
+      <figure><img src="images/work/door-interior.jpg" alt="New interior door with wood trim" loading="lazy"><figcaption>Interior door &amp; trim</figcaption></figure>
+      <figure><img src="images/work/door-exterior.jpg" alt="New exterior door installed" loading="lazy"><figcaption>Exterior door</figcaption></figure>
+      <figure><img src="images/work/window-interior.jpg" alt="New interior window with trim" loading="lazy"><figcaption>Window &amp; trim</figcaption></figure>
+      <figure><img src="images/work/window-exterior.jpg" alt="New exterior window" loading="lazy"><figcaption>Exterior window</figcaption></figure>
+      <figure><img src="images/work/bathroom-floor.jpg" alt="Bathroom with new flooring" loading="lazy"><figcaption>Bathroom floor refresh</figcaption></figure>
+      <figure><img src="images/work/bathroom-window.jpg" alt="Bathroom window with light fixture" loading="lazy"><figcaption>Bathroom window &amp; fixture</figcaption></figure>
+      <figure><img src="images/work/glassblock-window.jpg" alt="Glass block window with wood trim" loading="lazy"><figcaption>Glass block window</figcaption></figure>
+      <figure><img src="images/work/shower-surround.jpg" alt="Finished shower surround" loading="lazy"><figcaption>Shower surround</figcaption></figure>
+    </div>
+    <div class="btn-row" style="justify-content: flex-start; margin-top: 24px;">
+      <a class="btn primary" href="contact.html">Get your project quoted</a>
     </div>
   </div>
 </section>
