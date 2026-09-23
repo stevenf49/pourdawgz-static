@@ -445,4 +445,4 @@ const PRODUCTS = [
     type: "fixed",
     available: true
   }
-];
+  {     id: "solar-power-bank-2pack",     name: "Rugged Solar Power Bank 2-Pack",     price: 24.99,     description: "Two rugged solar power banks for camp, the truck, or the jobsite. Trickle-charge from the sun or top up from the wall. Dual USB ports, built-in LED flashlight, carabiner clip. Ships fast from a US warehouse.",     image: "images/solar-power-bank-2pack.jpg",     squareLink: "https://square.link/u/R4yFj7kG",     seller: "Pour Dawgz",     type: "fixed",     available: true   },   {     id: "solar-camping-string-lights",     name: "Solar Camping String Lights",     price: 24.99,     description: "Solar-powered LED string lights for camp, the yard, or the flea market booth. Stake the solar panel in the sun and they light up automatically at dusk. No outlet, no batteries to buy.",     image: "images/solar-camping-string-lights.jpg",     squareLink: "https://square.link/u/uVWpssDp",     seller: "Pour Dawgz",     type: "fixed",     available: true   }, ];
