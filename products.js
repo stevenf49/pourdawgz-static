@@ -445,4 +445,52 @@ const PRODUCTS = [
     type: "fixed",
     available: true
   }
-  ,{     id: "solar-power-bank-2pack",     name: "Rugged Solar Power Bank 2-Pack",     price: 24.99,     description: "Two rugged solar power banks for camp, the truck, or the jobsite. Trickle-charge from the sun or top up from the wall. Dual USB ports, built-in LED flashlight, carabiner clip. Ships fast from a US warehouse.",     image: "images/solar-power-bank-2pack.jpg",     squareLink: "https://square.link/u/R4yFj7kG",     seller: "Pour Dawgz",     type: "fixed",     available: true   },   {     id: "solar-camping-string-lights",     name: "Solar Camping String Lights",     price: 24.99,     description: "Solar-powered LED string lights for camp, the yard, or the flea market booth. Stake the solar panel in the sun and they light up automatically at dusk. No outlet, no batteries to buy.",     image: "images/solar-camping-string-lights.jpg",     squareLink: "https://square.link/u/uVWpssDp",     seller: "Pour Dawgz",     type: "fixed",     available: true   }, ];
+  ,{     id: "solar-power-bank-2pack",     name: "Rugged Solar Power Bank 2-Pack",     price: 24.99,     description: "Two rugged solar power banks for camp, the truck, or the jobsite. Trickle-charge from the sun or top up from the wall. Dual USB ports, built-in LED flashlight, carabiner clip. Ships fast from a US warehouse.",     image: "images/solar-power-bank-2pack.jpg",     squareLink: "https://square.link/u/R4yFj7kG",     seller: "Pour Dawgz",     type: "fixed",     available: true   },   {     id: "solar-camping-string-lights",     name: "Solar Camping String Lights",     price: 24.99,     description: "Solar-powered LED string lights for camp, the yard, or the flea market booth. Stake the solar panel in the sun and they light up automatically at dusk. No outlet, no batteries to buy.",     image: "images/solar-camping-string-lights.jpg",     squareLink: "https://square.link/u/uVWpssDp",     seller: "Pour Dawgz",     type: "fixed",     available: true   },   {
+    id: "stud-finder-5-in-1",
+    name: "5-in-1 Stud Finder Wall Scanner with Battery",
+    price: 16.00,
+    description: "5-in-1 stud detector with intelligent microprocessor chip finds studs, metal, and live AC wire. Battery included. 4.8-star rating, 37,000+ sold. Free shipping, delivery Sep 30 - Oct 14.",
+    image: "https://img.kwcdn.com/product/fancy/0dafc7f5-355c-4da6-9b29-2197ea082dfa.jpg?imageView2/2/w/800/q/70/format/avif",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "puncture-proof-safety-shoes",
+    name: "Puncture-Proof Steel Toe Safety Work Shoes",
+    price: 24.00,
+    description: "Steel toe puncture-proof safety work shoes, 60% off list. Ships from the United States with free shipping and 90-day free returns. Delivery Sep 26 - Oct 2.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S928522769b75415ab797cddda756bafds.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Workwear",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "safety-work-sneakers",
+    name: "Steel Toe Safety Work Sneakers",
+    price: 20.67,
+    description: "Lightweight steel toe work sneakers with anti-puncture protection, sneaker comfort for all-day wear. 4.5-star rating, 600+ sold. Free shipping, delivery Sep 30 - Oct 5.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sff2534454e564b8ca3775be2aafe4d5bQ.png",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Workwear",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "wen-20v-impact-driver",
+    name: "WEN 20V MAX Brushless Cordless Impact Driver (Tool Only)",
+    price: 49.99,
+    description: "WEN 20136BT 20V MAX lithium-ion 1/4-inch brushless cordless compact impact driver, bare tool. 5 inches long with up to 10% more torque than comparable models, LED light, 2-year warranty. Battery and charger sold separately. Free US shipping on orders over $25.",
+    image: "https://wenproducts.com/cdn/shop/files/20136BT.main_700x700.jpg?v=1748896627",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+];
