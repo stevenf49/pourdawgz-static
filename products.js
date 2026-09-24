@@ -493,4 +493,28 @@ const PRODUCTS = [
     type: "fixed",
     available: true
   },
+  {
+    id: "gel-knee-pads-heavy-duty",
+    name: "Heavy-Duty Gel Cushion Knee Pads",
+    price: 11.45,
+    description: "Professional heavy-duty knee pads with EVA foam padding, gel cushion, and adjustable straps. Anti-slip, built for concrete and rough ground. 4.8-star rating, 3,000+ sold. Free shipping, delivery Sep 29 - Oct 4.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S5cc25218cbb4473298754b68a203241aE.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Workwear",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "cut-resistant-gloves-6-pack",
+    name: "6-Pack Heavy-Duty Cut-Resistant Work Gloves",
+    price: 10.27,
+    description: "Six pairs of heavy-duty nitrile-coated work gloves — non-slip, breathable, CE EN388 certified cut protection. Works out to $1.71 a pair. 4.9-star rating. Free shipping, delivery Sep 29 - Oct 4.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/A30f83a8b86824c2b9f7930c5548aa3bfv.jpg",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Pour Dawgz Workwear",
+    type: "fixed",
+    available: true
+  },
 ];
