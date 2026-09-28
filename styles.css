@@ -64,18 +64,9 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
   padding: 2px 0;
 }
-.brand::before {
-  content: "";
-  flex: 0 0 auto;
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-  background: #000 url("images/browser-download-20260921T180306.622521264Z-0-unisex-staple-t-shirt-black-front-6ab1714e8d231.png") no-repeat 50% 41%;
-  background-size: 330%;
-}
 .brand span { color: var(--hi-vis); }
 .brand img {
-  height: 44px;
+  height: 64px;
   width: auto;
   display: block;
 }
@@ -372,7 +363,6 @@ footer a { color: var(--muted); }
     padding-bottom: 8px;
   }
   .brand { font-size: 1.35rem; }
-  .brand::before { width: 30px; height: 30px; }
   nav.main-nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
