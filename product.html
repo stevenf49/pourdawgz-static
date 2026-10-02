@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product | Pour Dawgz</title>
+<meta name="description" content="Product details from the Pour Dawgz shop. Secure checkout through Square.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pour Dawgz">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/pourdawgz-logo.png" alt="Pourdawgz"></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="handyman.html" class="nav-cta">Handyman Services</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="sell.html">Sell Your Stuff</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <div id="product-detail"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="hivis-products.js"></script>
+<script src="sellers.js"></script>
+<script src="site.js"></script>
+<script>
+  renderProductDetail("product-detail");
+</script>
+</body>
+</html>
