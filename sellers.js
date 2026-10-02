@@ -17,5 +17,15 @@ const SELLERS = [
     reviews: [
       // { name: "Buyer name", stars: 5, text: "Review text.", date: "2026-10-01" }
     ]
+  },
+  {
+    id: "heather-munoz-lujan",
+    name: "Heather Munoz - Lujan",
+    owner: "Heather Munoz - Lujan",
+    town: "",
+    since: "2026",
+    blurb: "Selling plants and more on the Pour Dawgz marketplace.",
+    reviews: [
+    ]
   }
 ];
