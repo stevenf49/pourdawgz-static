@@ -517,4 +517,15 @@ const PRODUCTS = [
     type: "fixed",
     available: true
   },
+  {
+    id: "heather-munoz-rubber-plant",
+    name: "Rubber Starter Plant",
+    price: 25,
+    description: "Rubber starter plant. Listed by Heather Munoz - Lujan — message us or email her at munozlujanmaria@gmail.com to arrange pickup or shipping.",
+    squareLink: "#",
+    orderLink: "contact.html",
+    seller: "Heather Munoz - Lujan",
+    type: "fixed",
+    available: true
+  },
   {     id: "centauri-carbon-2",     name: "Elegoo Centauri Carbon 2 3D Printer",     price: 389,     description: "Elegoo Centauri Carbon 2 enclosed CoreXY 3D printer — prints carbon-fiber-infused filament, PLA, PETG and more. Ships from Elegoo USA.",     image: "images/centauri-carbon-2.jpg",     squareLink: "https://square.link/u/oJYtAYPU",     seller: "Pour Dawgz",     type: "fixed",     available: true   } ];
