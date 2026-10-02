@@ -25,15 +25,13 @@
       btn = '<a class="buy-btn" href="contact.html">Bid / Ask About This</a>';
     } else if (p.squareLink && p.squareLink !== "#") {
       btn = '<a class="buy-btn" href="' + escapeHtml(p.squareLink) + '">Buy Now</a>';
-    } else if (p.orderLink) {
-      btn = '<a class="buy-btn" href="' + escapeHtml(p.orderLink) + '">Message Us to Order</a>';
     } else {
-      btn = '<a class="buy-btn" href="contact.html">Message Us to Order</a>';
+      btn = '<a class="buy-btn" href="#" title="Secure Square checkout link coming soon">Buy Now</a>';
     }
     var opts = p.options ? '<div class="seller">' + escapeHtml(p.options) + "</div>" : "";
     return (
       '<article class="card">' +
-        '<div class="img-wrap"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;no-img&quot;>Photo coming soon</div>\'">' + "</div>" +
+        '<div class="img-wrap"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;no-img&quot;>Photo coming soon</div>\'"></div>' +
         '<div class="body">' +
           "<h3>" + badge + escapeHtml(p.name) + "</h3>" +
           '<div class="seller">' + escapeHtml(p.seller || "") + "</div>" +
@@ -52,15 +50,83 @@
     if (!el || typeof PRODUCTS === "undefined") return;
     var list = ids
       ? PRODUCTS.filter(function (p) { return ids.indexOf(p.id) !== -1; })
-      : PRODUCTS.slice(); var featuredOrder = ["mr-seal-waterproof-sealant", "solar-flood-light-2pack", "solar-power-bank-2pack", "solar-camping-string-lights"]; list.sort(function(a, b) { var ai = featuredOrder.indexOf(a.id); var bi = featuredOrder.indexOf(b.id); if (ai !== -1 && bi !== -1) return ai - bi; if (ai !== -1) return -1; if (bi !== -1) return 1; return 0; });
+      : PRODUCTS.slice();
     el.innerHTML = list.map(card).join("");
   };
 
-  // Render an explicit, pre-ordered list of products (used for ranked grids
-  // such as Top Sellers), reusing the same card markup.
-  window.renderProductList = function (targetId, list) {
+  /* ---------- sellers ---------- */
+
+  function avgStars(seller) {
+    var r = seller.reviews || [];
+    if (!r.length) return 0;
+    var sum = r.reduce(function (a, x) { return a + (x.stars || 0); }, 0);
+    return sum / r.length;
+  }
+
+  window.sellerRating = function (seller) {
+    var r = seller.reviews || [];
+    return { avg: avgStars(seller), count: r.length };
+  };
+
+  // Read-only star display, rounded to nearest whole star.
+  window.starRow = function (rating, count) {
+    var full = Math.round(rating);
+    var html = "";
+    for (var i = 1; i <= 5; i++) {
+      html += '<span class="star' + (i <= full ? " on" : "") + '">\u2605</span>';
+    }
+    var label = rating > 0
+      ? rating.toFixed(1) + " (" + count + " review" + (count === 1 ? "" : "s") + ")"
+      : "No reviews yet";
+    return '<span class="stars" title="' + label + '">' + html + '</span> ' +
+      '<span class="rating-label">' + escapeHtml(label) + "</span>";
+  };
+
+  function reviewHtml(r) {
+    var who = escapeHtml(r.name || "Buyer");
+    var when = r.date ? ' <span class="review-date">' + escapeHtml(r.date) + "</span>" : "";
+    return (
+      '<div class="review">' +
+        '<div class="review-head">' + window.starRow(r.stars || 5, 0).replace(/ \(0 reviews?\)|No reviews yet/, "") + "<strong>" + who + "</strong>" + when + "</div>" +
+        '<p class="review-text">' + escapeHtml(r.text || "") + "</p>" +
+      "</div>"
+    );
+  }
+
+  function sellerCard(s) {
+    var rating = window.sellerRating(s);
+    var listings = (typeof PRODUCTS !== "undefined")
+      ? PRODUCTS.filter(function (p) {
+          return p.available !== false && (p.seller || "").toLowerCase().indexOf(s.name.toLowerCase()) !== -1;
+        })
+      : [];
+    var listingsHtml = listings.length
+      ? '<div class="seller-listings"><strong>' + listings.length + " listing" + (listings.length === 1 ? "" : "s") + ":</strong> " +
+        listings.map(function (p) { return escapeHtml(p.name); }).join(" &middot; ") + "</div>"
+      : "";
+    var reviews = s.reviews || [];
+    var reviewsHtml = reviews.length
+      ? reviews.map(reviewHtml).join("")
+      : '<p class="fineprint">No reviews yet — be the first to buy from this seller and leave one.</p>';
+    return (
+      '<article class="card seller-card" id="seller-' + escapeHtml(s.id) + '">' +
+        '<div class="body">' +
+          "<h3>" + escapeHtml(s.name) + "</h3>" +
+          '<div class="seller">' + escapeHtml(s.town || "") + (s.since ? " &middot; selling since " + escapeHtml(s.since) : "") + "</div>" +
+          '<div class="seller-rating">' + window.starRow(rating.avg, rating.count) + "</div>" +
+          '<p class="desc">' + escapeHtml(s.blurb || "") + "</p>" +
+          listingsHtml +
+          '<div class="reviews">' + reviewsHtml + "</div>" +
+          '<a class="buy-btn" href="sellers.html#review-' + escapeHtml(s.id) + '">Leave a review</a>' +
+        "</div>" +
+      "</article>"
+    );
+  }
+
+  // Render all sellers into #sellers-grid.
+  window.renderSellers = function (targetId) {
     var el = document.getElementById(targetId);
-    if (!el) return;
-    el.innerHTML = (list || []).map(card).join("");
+    if (!el || typeof SELLERS === "undefined") return;
+    el.innerHTML = SELLERS.map(sellerCard).join("");
   };
 })();

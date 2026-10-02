@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the Sellers | Pour Dawgz</title>
+<meta name="description" content="Every Pour Dawgz seller registers with real identity — real name, real contact, real town. Browse seller profiles, star ratings, and buyer reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pour Dawgz">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/pourdawgz-logo.png" alt="Pourdawgz"></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="handyman.html" class="nav-cta">Handyman Services</a>
+      <a href="shop.html">Shop</a>
+      <a href="sell.html">Sell Your Stuff</a>
+      <a href="sellers.html" class="active">Sellers</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Meet the sellers</h2>
+    <p class="lede">Everyone who sells here registers with a real name, real contact, and real town &mdash; no anonymous accounts. That&rsquo;s what keeps the scammers out. Buyers leave star ratings and reviews right on each seller&rsquo;s profile.</p>
+    <div class="product-grid" id="sellers-grid"></div>
+    <div style="text-align:center; margin-top:28px;">
+      <a class="btn primary" href="sell.html#register">Become a seller</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="leave-review" style="background: var(--bg2); border-top: 1px solid var(--line);">
+  <div class="wrap">
+    <h2>Leave a review</h2>
+    <p class="lede">Bought something from one of our sellers? Tell everyone how it went. Reviews go live after a quick check.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <form class="note-form" action="https://formsubmit.co/pourdawgz@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New seller review">
+          <input type="hidden" name="_template" value="table">
+
+          <label for="review-seller">Seller</label>
+          <select id="review-seller" name="seller" required></select>
+
+          <label for="review-name">Your name</label>
+          <input type="text" id="review-name" name="name" required autocomplete="name">
+
+          <label for="review-stars">Rating</label>
+          <select id="review-stars" name="stars" required>
+            <option value="5">5 stars — excellent</option>
+            <option value="4">4 stars — good</option>
+            <option value="3">3 stars — okay</option>
+            <option value="2">2 stars — poor</option>
+            <option value="1">1 star — avoid</option>
+          </select>
+
+          <label for="review-text">Your review</label>
+          <textarea id="review-text" name="review" placeholder="What did you buy? How was the deal?" required></textarea>
+
+          <button type="submit">Submit review</button>
+        </form>
+      </div>
+      <div class="contact-card">
+        <h3>How reviews work</h3>
+        <p style="color: var(--muted); margin-top: 10px;">Every review is tied to a registered seller &mdash; real people, real accountability. Sellers with bad ratings don&rsquo;t last here.</p>
+        <p style="color: var(--muted); margin-top: 10px;">Bought something that wasn&rsquo;t as described? Leave an honest review and <a href="contact.html">tell us directly</a> too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="sellers.js"></script>
+<script src="site.js"></script>
+<script>
+  renderSellers("sellers-grid");
+  // Populate the review form's seller dropdown, and preselect from #review-<id> anchors.
+  (function () {
+    var sel = document.getElementById("review-seller");
+    if (!sel || typeof SELLERS === "undefined") return;
+    sel.innerHTML = SELLERS.map(function (s) {
+      return '<option value="' + s.name.replace(/"/g, "&quot;") + '">' + s.name.replace(/</g, "&lt;") + " — " + s.town.replace(/</g, "&lt;") + "</option>";
+    }).join("");
+    function preselect() {
+      var m = /^#review-(.+)$/.exec(location.hash || "");
+      if (!m) return;
+      var s = SELLERS.filter(function (x) { return x.id === m[1]; })[0];
+      if (s) sel.value = s.name;
+      var form = document.getElementById("leave-review");
+      if (form) form.scrollIntoView();
+    }
+    window.addEventListener("hashchange", preselect);
+    preselect();
+  })();
+</script>
+</body>
+</html>

@@ -377,3 +377,18 @@ footer a { color: var(--muted); }
   nav.main-nav a[href="markets.html"] { order: -2; }
   nav.main-nav a[href="handyman.html"] { order: -1; }
 }
+
+/* ---------- sellers ---------- */
+.stars { white-space: nowrap; }
+.star { color: #5a5344; font-size: 1.15rem; letter-spacing: 2px; }
+.star.on { color: var(--hi-vis); text-shadow: 0 0 8px rgba(63, 214, 105, 0.45); }
+.rating-label { color: var(--muted); font-size: 0.85rem; margin-left: 6px; }
+.seller-rating { margin: 8px 0; }
+.seller-card .seller-listings { color: var(--muted); font-size: 0.9rem; margin: 10px 0; }
+.reviews { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+.review { margin-bottom: 12px; }
+.review-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.9rem; }
+.review-head .stars .star { font-size: 0.95rem; }
+.review-date { color: var(--muted); font-size: 0.8rem; }
+.review-text { color: var(--ink); margin-top: 4px; font-size: 0.95rem; }
+.seller-card .buy-btn { margin-top: 12px; }

@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pour Dawgz">
 </head>
 <body>
 
@@ -20,6 +28,7 @@
       <a href="handyman.html" class="nav-cta">Handyman Services</a>
       <a href="shop.html">Shop</a>
       <a href="sell.html" class="active">Sell Your Stuff</a>
+      <a href="sellers.html">Sellers</a>
       <a href="deals.html">Deals &amp; Picks</a>
       <a href="markets.html">Flea Markets</a>
       <a href="contact.html">Contact</a>
@@ -27,42 +36,87 @@
   </div>
 </header>
 
-<section class="block">
+<section class="block" id="register">
   <div class="wrap">
-    <h2>Sell your stuff</h2>
-    <p class="lede">Got something to sell? List it right here. No shop required, no auction required &mdash; just tell us what you've got, like Facebook Marketplace.</p>
+    <h2>Step 1 &mdash; Register as a seller</h2>
+    <p class="lede">One time, two minutes. Real name, real contact, real town &mdash; that&rsquo;s the price of admission, and it&rsquo;s what keeps the scammers out. If you won&rsquo;t say who you are, you can&rsquo;t sell here.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Why we do it this way</h3>
+        <p style="color: var(--muted); margin-top: 10px;">Facebook Marketplace makes you have an account &mdash; same idea. Every seller gets a public profile with star ratings and buyer reviews, so everyone knows who they&rsquo;re dealing with.</p>
+        <p style="color: var(--muted); margin-top: 10px;">Register once and you can list as much as you want. Your first listing can go in the form below right after.</p>
+      </div>
+      <div class="contact-card">
+        <form class="note-form" action="https://formsubmit.co/pourdawgz@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New seller registration">
+          <input type="hidden" name="_template" value="table">
+
+          <label for="reg-name">Full name</label>
+          <input type="text" id="reg-name" name="name" required autocomplete="name" placeholder="Real name — this shows on your seller profile">
+
+          <label for="reg-contact">Email or phone</label>
+          <input type="text" id="reg-contact" name="contact" required autocomplete="email" placeholder="How buyers reach you">
+
+          <label for="reg-town">Town</label>
+          <input type="text" id="reg-town" name="town" required autocomplete="address-level2" placeholder="e.g. Newell, SD">
+
+          <label for="reg-sells">What do you sell?</label>
+          <input type="text" id="reg-sells" name="what you sell" placeholder="e.g. Tools, handmade soaps, furniture">
+
+          <label style="font-weight: normal; font-size: 0.95rem;">
+            <input type="checkbox" name="agree to vendor terms" value="yes" required style="width:auto; margin-right:8px;">
+            I agree to the <a href="vendor-terms.html">vendor terms</a> — no scams, no stolen goods, real identity.
+          </label>
+
+          <button type="submit" style="width:100%;">Register me as a seller</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="background: var(--bg2); border-top: 1px solid var(--line);">
+  <div class="wrap">
+    <h2>Step 2 &mdash; List your item</h2>
+    <p class="lede">Registered? List your item in about a minute &mdash; like Facebook Marketplace, without the flakes.</p>
 
     <div class="contact-grid">
       <div class="contact-card">
         <h3>How it works</h3>
-        <p style="color: var(--muted); margin-top: 10px;">Fill out the form and hit submit. No approval queue &mdash; if it&rsquo;s legal, it goes up, usually in a day or two. Your info comes with every listing, and anyone who scams a buyer answers for it &mdash; see the <a href="vendor-terms.html">vendor terms</a>.</p>
-        <p style="color: var(--muted); margin-top: 10px;">You set the asking price. Pickup, shipping, or both &mdash; say so in the description and we'll work it out with you before it goes live.</p>
+        <p style="color: var(--muted); margin-top: 10px;"><strong style="color: var(--hi-vis);">1.</strong> Fill out the form below &mdash; photos attach right here, nothing to email separately.</p>
+        <p style="color: var(--muted); margin-top: 10px;"><strong style="color: var(--hi-vis);">2.</strong> Hit <strong>List my item</strong>. No approval queue &mdash; if it&rsquo;s legal, it goes up, usually in a day or two.</p>
+        <p style="color: var(--muted); margin-top: 10px;"><strong style="color: var(--hi-vis);">3.</strong> You set the asking price. Pickup, shipping, or both &mdash; say so in the description. Your info rides with every listing, and anyone who scams a buyer answers for it &mdash; see the <a href="vendor-terms.html">vendor terms</a>.</p>
       </div>
       <div class="contact-card">
-        <!-- FormSubmit activation: the FIRST submission sends an activation email to
-             pourdawgz@gmail.com. Click the link in that email or the form stays silent. -->
-        <form class="note-form" action="https://formsubmit.co/pourdawgz@gmail.com" method="POST">
+        <!-- FormSubmit: the FIRST submission sends an activation email to
+             pourdawgz@gmail.com. Click the link in that email or the form stays silent.
+             File attachments require enctype="multipart/form-data". -->
+        <form class="note-form" action="https://formsubmit.co/pourdawgz@gmail.com" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New marketplace listing submission">
           <input type="hidden" name="_template" value="table">
 
           <label for="sell-name">Your name</label>
-          <input type="text" id="sell-name" name="name" required>
+          <input type="text" id="sell-name" name="name" required autocomplete="name">
 
           <label for="sell-contact">Email or phone</label>
-          <input type="text" id="sell-contact" name="contact" required>
+          <input type="text" id="sell-contact" name="contact" required autocomplete="email">
 
           <label for="sell-title">Item title</label>
-          <input type="text" id="sell-title" name="item title" required>
+          <input type="text" id="sell-title" name="item title" required placeholder="e.g. Barely used chainsaw">
 
           <label for="sell-price">Asking price</label>
-          <input type="text" id="sell-price" name="asking price" placeholder="$" required>
+          <input type="text" id="sell-price" name="asking price" placeholder="$" required inputmode="decimal">
 
           <label for="sell-desc">Description</label>
           <textarea id="sell-desc" name="description" placeholder="Condition, size, pickup or shipping, anything a buyer should know." required></textarea>
 
-          <button type="submit">Submit my listing</button>
+          <label for="sell-photo">Photos of your item</label>
+          <input type="file" id="sell-photo" name="attachment" accept="image/*" multiple>
+          <p class="fineprint" style="margin-top:6px;">Snap a few pictures &mdash; they come straight to us with your listing. No separate email needed.</p>
+
+          <button type="submit" style="width:100%; font-size:1.15rem; padding:16px;">List my item</button>
         </form>
-        <p class="fineprint">Email photos to <a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> with your item title after submitting.</p>
       </div>
     </div>
   </div>
