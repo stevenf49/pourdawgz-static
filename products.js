@@ -101,24 +101,24 @@ const PRODUCTS = [
   {
     id: "crib",
     name: "Crib",
-    price: null,
+    price: 50,
     description: "Older crib for kid, no mattress, but it's cool. Listed by Riders. Pickup or shipping.",
     image: "images/crib.jpeg",
     squareLink: "#",
     seller: "Riders",
     type: "fixed",
-    available: false
+    available: true
   },
   {
     id: "trailer-plate",
     name: "vintage 1975 South Dakota trailer plate",
     price: 5,
-    priceLabel: "Starting bid: $5.00",
-    description: "Vintage 1975 South Dakota trailer plate. Auction — 0 bids, next bid $5, ends Sep 26, 2026, 6:02 PM. Listed by witchy witch drop in. Pickup or shipping.",
+    description: "Vintage 1975 South Dakota trailer plate. Listed by Theresa Hedeen (\"Wicked Witch\") — message us to arrange pickup or shipping.",
     image: "images/trailer-plate.jpg",
     squareLink: "#",
-    seller: "witchy witch drop in",
-    type: "auction",
+    orderLink: "contact.html",
+    seller: "Theresa Hedeen",
+    type: "fixed",
     available: true
   },
   {
