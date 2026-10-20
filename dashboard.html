@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pour Dawgz — Owner Dashboard</title>
+<style>
+  :root{--bg:#14100c;--panel:#1f1a14;--panel2:#292017;--line:#3a2f22;--ink:#f3ead9;--muted:#b8a888;--amber:#f59e0b;--amber2:#d97706;--red:#ef4444;--green:#22c55e}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+  button{font:inherit;cursor:pointer;border:none;border-radius:8px}
+  input,select,textarea{font:inherit;background:#100d09;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--amber);outline-offset:0;border-color:var(--amber)}
+  /* ---- code gate ---- */
+  #gate{position:fixed;inset:0;background:radial-gradient(900px 500px at 50% -10%,#3a2a12,var(--bg));display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+  .gate-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px 26px;max-width:360px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  .gate-card .logo{font-size:44px}
+  .gate-card h1{font-size:22px;letter-spacing:.4px;margin:8px 0 2px}
+  .gate-card p{color:var(--muted);font-size:14px;margin-bottom:18px}
+  .gate-card input{text-align:center;font-size:20px;letter-spacing:3px;margin-bottom:12px}
+  .btn{background:var(--amber);color:#1a1206;font-weight:700;padding:11px 18px}
+  .btn:hover{background:var(--amber2)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.small{padding:7px 11px;font-size:13px}
+  .btn.danger{background:#3a1712;color:#fca5a5;border:1px solid #5b231a}
+  .err{color:var(--red);font-size:13px;min-height:18px;margin-top:8px}
+  /* ---- app ---- */
+  #app{display:none}
+  header{position:sticky;top:0;background:rgba(20,16,12,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}
+  .bar{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .bar .brand{font-weight:800;font-size:18px;margin-right:auto}
+  .bar .brand span{color:var(--amber)}
+  main{max-width:1100px;margin:0 auto;padding:16px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .stat b{font-size:24px;display:block}
+  .stat small{color:var(--muted)}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .toolbar input[type=search]{flex:1;min-width:180px}
+  .toolbar select{width:auto}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.6px;background:var(--panel2)}
+  tr:last-child td{border-bottom:none}
+  .thumb{width:46px;height:46px;object-fit:cover;border-radius:8px;background:#0d0a07}
+  .pname{font-weight:600}
+  .pseller{color:var(--muted);font-size:12px}
+  .price{font-weight:700;color:var(--amber);white-space:nowrap}
+  .pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700}
+  .pill.on{background:#12351c;color:#86efac}
+  .pill.off{background:#3a1712;color:#fca5a5}
+  .rowbtns{display:flex;gap:6px}
+  /* ---- modal ---- */
+  #modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:flex-start;justify-content:center;padding:18px;z-index:40;overflow:auto}
+  .sheet{background:var(--panel);border:1px solid var(--line);border-radius:14px;max-width:560px;width:100%;padding:20px;margin:auto}
+  .sheet h2{margin-bottom:12px;font-size:19px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .grid .full{grid-column:1/-1}
+  label{font-size:12px;color:var(--muted);display:block;margin-bottom:4px}
+  .check{display:flex;align-items:center;gap:8px}
+  .check input{width:auto}
+  .sheet .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+  .note{background:#2a2113;border:1px solid #4a3a17;color:#fcd34d;border-radius:10px;padding:11px 13px;font-size:13px;margin-bottom:14px;line-height:1.45}
+  .exportbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px}
+  .exportbox h3{font-size:15px;margin-bottom:6px}
+  .exportbox p{color:var(--muted);font-size:13px;margin-bottom:10px;line-height:1.45}
+  @media(max-width:640px){.grid{grid-template-columns:1fr} th:nth-child(4),td:nth-child(4){display:none}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-card">
+    <div class="logo">🐾</div>
+    <h1>Pour Dawgz Dashboard</h1>
+    <p>Owners only. Enter your code.</p>
+    <input id="codeInput" type="password" inputmode="text" autocomplete="off" placeholder="CODE">
+    <button class="btn" id="unlockBtn" style="width:100%">Unlock</button>
+    <div class="err" id="gateErr"></div>
+  </div>
+</div>
+
+<div id="app">
+  <header><div class="bar">
+    <div class="brand">🐾 Pour Dawgz <span>Dashboard</span></div>
+    <button class="btn ghost small" id="changeCodeBtn">Change code</button>
+    <button class="btn ghost small" id="lockBtn">Lock</button>
+  </div></header>
+  <main>
+    <div class="note" id="dirtyNote" style="display:none">⚠️ You have unsaved changes. Hit <b>Download updated products.js</b> below and send the file to Maestro (or replace products.js in the site files) to make them live.</div>
+    <div class="stats">
+      <div class="stat"><b id="stTotal">0</b><small>Products</small></div>
+      <div class="stat"><b id="stLive">0</b><small>Live in store</small></div>
+      <div class="stat"><b id="stValue">$0</b><small>Catalog value</small></div>
+      <div class="stat"><b id="stSellers">0</b><small>Sellers</small></div>
+    </div>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search products…">
+      <select id="sellerFilter"><option value="">All sellers</option></select>
+      <button class="btn" id="addBtn">+ Add product</button>
+    </div>
+    <div class="card"><table>
+      <thead><tr><th></th><th>Product</th><th>Price</th><th>Seller</th><th>Status</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <div class="exportbox">
+      <h3>Publish changes</h3>
+      <p>The store reads one file: <b>products.js</b>. Make your edits here, download the updated file, and it replaces the old one in the site. Until it's replaced, the live store keeps showing the old list.</p>
+      <button class="btn" id="downloadBtn">⬇ Download updated products.js</button>
+      <button class="btn ghost" id="copyBtn">Copy file text</button>
+    </div>
+  </main>
+</div>
+
+<div id="modal"><div class="sheet">
+  <h2 id="modalTitle">Add product</h2>
+  <div class="grid">
+    <div class="full"><label>Product name</label><input id="f_name"></div>
+    <div><label>Price (USD)</label><input id="f_price" type="number" step="0.01" min="0" placeholder="24.99"></div>
+    <div><label>Type</label><select id="f_type"><option value="fixed">Buy now</option><option value="auction">Auction / bid</option></select></div>
+    <div class="full"><label>Description</label><textarea id="f_desc" rows="3"></textarea></div>
+    <div class="full"><label>Image (path or URL)</label><input id="f_image" placeholder="images/my-product.jpg"></div>
+    <div class="full"><label>Square payment link</label><input id="f_square" placeholder="https://square.link/u/…  (leave # if none)"></div>
+    <div><label>Seller</label><input id="f_seller" list="sellers" placeholder="Pour Dawgz"><datalist id="sellers"></datalist></div>
+    <div class="check"><input type="checkbox" id="f_avail" checked><label style="margin:0">Live in store</label></div>
+  </div>
+  <div class="actions">
+    <button class="btn ghost" id="cancelBtn">Cancel</button>
+    <button class="btn" id="saveBtn">Save product</button>
+  </div>
+</div></div>
+
+<script>
+var DEFAULT_CODE = "dawgz";
+var products = [{"id":"cuff-beanie","name":"Pour Dawgz Logo Cuff Beanie","price":49.95,"description":"Pour Dawgz logo cuff beanie. Extra photos: images/cuff-beanie-2.png, images/cuff-beanie-3.png.","image":"images/cuff-beanie-1.png","squareLink":"https://square.link/u/xw3Jnuke","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"pourdawgz-tee-logo-front","name":"Pour Dawgz Tee - Logo Front","price":34.99,"description":"Unisex Staple T-Shirt (Bella + Canvas 3001) in Black with large front logo print. Sizes XS-5XL.","image":"images/browser-download-20260921T180306.622521264Z-0-unisex-staple-t-shirt-black-front-6ab1714e8d231.png","squareLink":"https://square.link/u/xA8zv8pf","orderLink":"contact.html","seller":"Pour Dawgz Merch","type":"fixed","available":true},{"id":"pourdawgz-hoodie-back-logo","name":"Pour Dawgz Hoodie - Back Logo","price":59.99,"description":"Unisex Heavy Blend Hoodie (Gildan 18500) in Black. Big logo on the back, 'Works hard, plays even harder' on the front chest, 'FAFO' and 'GUILD' on the sleeves. Sizes S-5XL.","image":"images/unisex-heavy-blend-hoodie-black-front-6ab171fd1f236.png","squareLink":"https://square.link/u/ybuYTITq","orderLink":"contact.html","seller":"Pour Dawgz Merch","type":"fixed","available":true},{"id":"pourdawgz-bucket-caddy","name":"Pour Dawgz Bucket Tool Caddy (Custom Logo)","price":24.99,"description":"The official Pour Dawgz bucket caddy — your tools, your bucket, our name on it. Water-resistant fabric with custom Pour Dawgz branding. Fits standard 5-gallon buckets. Built for the job site. (First run — logo sample in production.)","image":"https://m.media-amazon.com/images/I/71oNW7H0hZL.jpg","squareLink":"#","orderLink":"contact.html","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"neon-tee","name":"Pour Dawgz Neon Workshop Tee","price":59.99,"description":"Pour Dawgz Neon Workshop Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).","image":"images/neon-tee.png","squareLink":"https://square.link/u/BEeoZ24c","seller":"Pour Dawgz","type":"fixed","available":true,"options":"Sizes S–3XL"},{"id":"skill-tee","name":"Pour Dawgz Skill & Tools Tee","price":62.99,"description":"Pour Dawgz Skill & Tools Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).","image":"images/skill-tee.png","squareLink":"https://square.link/u/5oGiUwuv","seller":"Pour Dawgz","type":"fixed","available":true,"options":"Sizes S–3XL"},{"id":"no-job-tee","name":"Pour Dawgz No Job Too Big Tee","price":61.99,"description":"Pour Dawgz No Job Too Big Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).","image":"images/no-job-tee.png","squareLink":"https://square.link/u/OLoIxkQN","seller":"Pour Dawgz","type":"fixed","available":true,"options":"Sizes S–3XL"},{"id":"pourdawgz-tee-handyman-slogan","name":"Pour Dawgz Tee - Handyman Slogan","price":34.99,"description":"Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street — gotta be handy with the tools.' Sizes XS-5XL.","image":"images/browser-download-20260921T180444.572019898Z-1-unisex-staple-t-shirt-black-front-6ab171b11c75a.png","squareLink":"https://square.link/u/FNHJexQJ","orderLink":"contact.html","seller":"Pour Dawgz Merch","type":"fixed","available":true},{"id":"duluth-pants","name":"Duluth Fire Hose Cargo Work Pants, Desert Khaki 32x32","price":119.99,"description":"Duluth Fire Hose cargo work pants in Desert Khaki, 32x32. Pour Dawgz Owner Picks.","image":"images/duluth-pants.jpg","squareLink":"https://square.link/u/7FQhMflQ","seller":"Pour Dawgz Owner Picks","type":"fixed","available":true},{"id":"powercap-beanie","name":"POWERCAP 2.5 Rechargeable LED Beanie, Black Knit","price":34.99,"description":"POWERCAP 2.5 rechargeable LED beanie in black knit. Pour Dawgz Owner Picks.","image":"images/powercap-beanie.jpg","squareLink":"https://square.link/u/GKHgm9js","seller":"Pour Dawgz Owner Picks","type":"fixed","available":true},{"id":"volt-gloves","name":"Volt Heated 7V Leather Work Gloves, Medium","price":229.99,"description":"Volt heated 7V leather work gloves, size Medium. Pour Dawgz Owner Picks.","image":"images/volt-gloves.png","squareLink":"https://square.link/u/wMnd18PR","seller":"Pour Dawgz Owner Picks","type":"fixed","available":true},{"id":"stan-ray-jacket","name":"Stan Ray Shop Jacket, Natural Drill (XL)","price":139.95,"description":"Stan Ray shop jacket in Natural Drill, size XL. Pour Dawgz Owner Picks.","image":"images/stan-ray-jacket.jpg","squareLink":"https://square.link/u/52E3U6Om","seller":"Pour Dawgz Owner Picks","type":"fixed","available":true},{"id":"crib","name":"Crib","price":50,"description":"Older crib for kid, no mattress, but it's cool. Listed by Riders. Pickup or shipping.","image":"images/crib.jpeg","squareLink":"https://square.link/u/g8yqxzzc","seller":"Riders","type":"fixed","available":true},{"id":"trailer-plate","name":"vintage 1975 South Dakota trailer plate","price":5,"description":"Vintage 1975 South Dakota trailer plate. Listed by Theresa Hedeen (\"Wicked Witch\") — message us to arrange pickup or shipping.","image":"images/trailer-plate.jpg","squareLink":"https://square.link/u/g8yqxzzc","orderLink":"contact.html","seller":"Theresa Hedeen","type":"fixed","available":true},{"id":"yofidra-angle-grinder","name":"YOFIDRA Brushless 125mm (5-inch) Cordless Angle Grinder","price":34.09,"description":"Brushless cordless angle grinder with 125mm (5-inch) disc, 20,000 RPM max speed, and 14mm disc bore. 4.9-star rating with 1,000+ sold. Tool only - battery NOT included. Free US shipping, delivery Sep 26 - Oct 1.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Se3f478c0ed214ac29c437470f2142ed1v.jpg","squareLink":"https://square.link/u/MMRZFC3R","externalLink":"https://www.aliexpress.us/item/3256810467309266.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"electric-goddess-recip-saw","name":"Electric Goddess Cordless Reciprocating Saw","price":38.09,"description":"Sawzall-style cordless reciprocating saw for cutting wood and metal. 4.9-star rating, 99 sold. Tool only - battery NOT included (fits DeWalt 20V batteries). Free US shipping, delivery Sep 26 - Oct 1.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sda0836da87b2475b9d78b067f6b87b5ap.png","squareLink":"https://square.link/u/ZViv2lX6","externalLink":"https://www.aliexpress.us/item/3256809419115120.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"yofidra-multi-tool","name":"YOFIDRA Oscillating Multi-Tool","price":57.13,"description":"600W oscillating multi-tool: up to 20,000 oscillations/min with a 4-degree oscillation angle for cutting, sanding, and scraping. 4.7-star rating, 700+ sold, 124 reviews. Tool only - battery NOT included (works with 21V/18V batteries). Free US shipping, delivery Sep 26 - Sep 30.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Se6e59eaca5b74767b1e4598db79719c0L.jpg","squareLink":"https://square.link/u/fipfjYE4","externalLink":"https://www.aliexpress.us/item/3256807462426939.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"tdfr-multi-pocket-overalls","name":"TDFR Multi-Pocket Denim Overalls - Men's Cargo Bib","price":36.71,"description":"Men's multi-pocket denim cargo bib overalls: durable midweight cotton-blend denim, loose roomy fit, functional tool pockets, zipper fly. 4.6-star rating from verified buyers, 36 sold. Sizes XS-XXL in Blue or Black. Free returns within 15 days; delivery Sep 27 - Oct 3.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sc9168362ea394f33abdf980e467fcd5b8.jpg","squareLink":"https://square.link/u/khAlR8Kn","externalLink":"https://www.aliexpress.us/item/3256802713548400.html","seller":"Pour Dawgz Workwear","type":"fixed","available":true},{"id":"mini-cob-work-flashlight","name":"Mini Magnetic COB Work Flashlight, 800 Lumens","price":4.99,"description":"Pocket-size magnetic COB work flashlight: 800 lumens, 7 light modes, USB rechargeable. 4.8-star rating, 50,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S3ee48a971784414e90dc3853d31a28ebP.jpg","squareLink":"https://square.link/u/jCqqy7Qt","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"magnetic-led-work-light-bar","name":"Magnetic LED Work Light Bar, 3 Modes + Power Bank","price":11.99,"description":"Magnetic LED work light bar: 3 light modes, IP66 waterproof, doubles as an emergency power bank. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sf5b06b7858fc470495f6a32ce9f64c47Q.png","squareLink":"https://square.link/u/tS8Cw8PZ","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"motion-sensor-headlamp","name":"Motion-Sensor LED Headlamp, 18650 Rechargeable","price":9.99,"description":"Motion-sensor LED headlamp with 18650 rechargeable battery and high-power COB lamp for hands-free work. 4.9-star rating, 10,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Se140a1ac82e14707bf881c274216fa13A.png","squareLink":"https://square.link/u/uMUTTQUq","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"magnetic-wrist-strap","name":"Magnetic Wrist Strap for Screws and Nails","price":2.99,"description":"Adjustable heavy-duty magnetic wrist strap holds screws, nails, and small metal tools while you work. 4.9-star rating, 50,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S132a315bc9cc4d94b510dc34471affdao.jpg","squareLink":"https://square.link/u/ZWes32tu","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"telescopic-magnetic-pickup-tool","name":"Telescopic Magnetic Pickup Tool with Pocket Clip","price":4.99,"description":"Flexible telescopic magnetic pickup tool with pocket clip for grabbing small parts, keys, and screws in tight spots. 4.8-star rating, 1,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S552c107bf74945ed9cbd4611cd3564f9K.jpg","squareLink":"https://square.link/u/yaGaaa7g","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"folding-multitool-pliers","name":"Stainless Steel Folding Multi-Tool Pliers","price":6.99,"description":"Stainless steel folding multi-tool pliers for camping, survival, and everyday jobs. 4.9-star rating, 10,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S226b0b421d2947a4b2e374be8093621fY.jpg","squareLink":"https://square.link/u/uVeJYhiN","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"glow-in-the-dark-tape","name":"Green Glow-in-the-Dark Tape, Self-Adhesive","price":3.99,"description":"Green glow-in-the-dark self-adhesive luminous tape for stairs, walls, and safety marking. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S33c4721651894f9abf396bcd322c9be6K.jpg","squareLink":"https://square.link/u/nLBG6eSW","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"heavy-duty-tool-backpack","name":"Heavy-Duty Tool Backpack with Removable Organizer","price":39.99,"description":"Heavy-duty tool backpack with padded shoulder straps and removable tool organizer; water-resistant, built for electricians and techs. 4.6-star rating, 1,000+ sold, top selling on AliExpress.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sdaa79aebbf2a4befb01e0ba3119535c7Z.jpg","squareLink":"https://square.link/u/Y6KvZYzD","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"rechargeable-tactical-flashlight","name":"Rechargeable Tactical Flashlight, Zoomable","price":8.99,"description":"Super-bright rechargeable tactical flashlight: zoomable beam, digital display, waterproof for camping and work. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sbb2ceee410544de8879b719c67ec0b87l.png","squareLink":"https://square.link/u/5Ml27tmO","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"keychain-multitool-6in1","name":"6-in-1 Keychain Multi-Tool","price":2.99,"description":"6-in-1 folding keychain multi-tool: opener, screwdriver, and pocket plier for everyday carry. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sd8e4c8311cd04ef3b727d824531e6cc0I.jpg","squareLink":"https://square.link/u/NcoDkD4b","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"cordless-2in1-nailer-stapler","name":"Cordless 2-in-1 18 Gauge Finish Nailer & Stapler","price":59.99,"description":"Cordless 2-in-1 electric nail gun: fires 18-gauge brad nails (F15-F32) and staples. Depth adjustment for flush finishes. 4.9-star rating, 563 sold. Tool only - battery NOT included (fits Makita 18V batteries). Free US shipping.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S171be7719b3e45089ab87e2b55dd8245S.jpg","squareLink":"https://square.link/u/HGNcHzk3","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"heated-motorcycle-winter-gloves","name":"Heated Motorcycle Winter Gloves","price":34.99,"description":"Heated winter motorcycle/tactical gloves: warm thermal lining, waterproof shell, cycling design. 4.9-star rating, 2,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S78da89d7f11c472b83f293191c66a563b.jpg","squareLink":"https://square.link/u/HXOqjpPv","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"electric-heated-winter-gloves","name":"Electric Heated Winter Gloves, Waterproof Rechargeable","price":29.99,"description":"Electric heated winter gloves with rechargeable heating: warm, waterproof, made for snowmobile and motorcycle riding. 4.9-star rating, 1,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sb411a6cc3b6342c588d267246aa92b23p.jpg","squareLink":"https://square.link/u/5VEmMS3C","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"5-point-safety-harness-ce","name":"5-Point Full-Body Safety Harness, CE Certified","price":49.99,"description":"5-point full-body safety harness for roofing, construction, and high-altitude work. CE certified with heavy-duty webbing and alloy steel D-rings/buckles. Early buyer review: well made, comfortable, sturdy. 5.0-star rating. Free US shipping.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S2ec4d4a8c145422c8373b3376b681782J.jpg","squareLink":"https://square.link/u/aPhhsKcg","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"ce-hard-hat-goggles-visor","name":"CE Construction Hard Hat with Goggles Visor, ABS","price":29.99,"description":"Modern construction hard hat with built-in goggles visor and tough ABS shell. CE certified, ANSI-rated. 4.9-star rating (67 reviews), 600+ sold. Free US shipping.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S7a78a0bb4cd5404b994f473cd5079972U.jpg","squareLink":"https://square.link/u/2kIthezH","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"ce-vented-hard-hat-adjustable","name":"CE Vented Construction Hard Hat, Adjustable","price":30.99,"description":"Vented ABS construction hard hat with adjustable ventilation system for all-day comfort on the job site. CE certified. 4.8-star rating (52 reviews). Free US shipping.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S2810a1525fdc4268be2b0fb43fc715f3G.jpg","squareLink":"https://square.link/u/0fNJ9TlW","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"safety-glasses-side-shields","name":"Anti-Fog Safety Glasses with Side Shields, Clear","price":4.99,"description":"Clear anti-fog safety glasses with side shields: anti-scratch, anti-blue-light lenses for shop and job-site work. 4.9-star rating (498 reviews).","image":"https://ae-pic-a1.aliexpress-media.com/kf/Se9d369a1c10140669c8caf9959e9139dg.jpg","squareLink":"https://square.link/u/CGBd4KXm","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"safety-glasses-2pack-ansi-z87","name":"2-Pack Clear Safety Glasses, ANSI Z87","price":8.99,"description":"2-pack of clear safety glasses, ANSI Z87 certified, with anti-fog wrap-around lenses. 5,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S8787d8b6701447d484bd4454458857dcS.jpg","squareLink":"https://square.link/u/wuA9SEJX","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"sport-safety-goggles-antifog","name":"Anti-Fog Sport Safety Goggles, Clear Wrap","price":1.99,"description":"Budget wrap-around anti-fog safety goggles: anti-splash, dust-proof, adjustable for a secure fit. 4.9-star rating (1,330 reviews), 10,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sbb4d3f79d188429f9672f245816b738eX.jpg","squareLink":"https://square.link/u/AHDcsMrP","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"lucky-ff1108-fish-finder","name":"LUCKY FF1108-1CW Portable Wireless Fish Finder","price":78.99,"description":"LUCKY FF1108-1CW portable wireless fish finder: 100m wireless range, 45m depth detection, 2.4-inch color LCD, 125kHz sonar with depth and water-temperature readouts. 4.7-star rating, 2,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S2b492a28c0d5436394b99bf01d94189bf.jpg","squareLink":"https://square.link/u/b2TTlIHK","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005012382048146.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Fishing"},{"id":"seaknight-w8-braided-line","name":"SeaKnight W8 II 500M 8-Strand Braided Fishing Line","price":15.99,"description":"SeaKnight W8 II 500M 8-strand braided fishing line: ultra-strong PE line for smooth casting and high sensitivity. 4.9-star rating, 1,673 reviews.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sb715d8687a514a41b4bf148116db33e8K.jpg","squareLink":"https://square.link/u/J99rWM6D","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/i/1005007097180199.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Fishing"},{"id":"tactical-fishing-backpack","name":"Tactical Fishing Backpack with Rod Holders, Army Green","price":24.99,"description":"Tactical fishing backpack with rod holders: durable polyester, multiple compartments for tackle boxes, lures, and gear. 4.7-star rating, 1,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sc10f457bce5f4c90a57efbdbc08585120.jpg","squareLink":"https://square.link/u/PZRkBSAA","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005010390573541.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Fishing"},{"id":"revasri-laser-rangefinder","name":"REVASRI 600M/1000M Laser Rangefinder for Hunting","price":74.99,"description":"REVASRI 600M/1000M laser rangefinder: slope compensation, flagpole lock, vibration alert, USB-C rechargeable. For hunting and golf. 4.7-star rating, 10,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sf73d4aa88863407db51b3883dea9dfbcD.jpg","squareLink":"https://square.link/u/tjfmOP8a","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005006833165214.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Hunting"},{"id":"nikula-10x42-binoculars","name":"10x42 HD Binoculars BAK4 for Hunting","price":69.99,"description":"10x42 HD binoculars with BAK4 prisms: FMC coating, 105m/1000m field of view, IPX4 waterproof, ideal for hunting and wildlife. 4.8-star rating, 2,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S4d0c67456a764b56854d9db2c18738a7b.jpg","squareLink":"https://square.link/u/lyhn4fAO","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005008324534091.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Hunting"},{"id":"brs-3000t-camping-stove","name":"BRS-3000T Ultralight Titanium Camping Stove","price":15.99,"description":"BRS-3000T ultralight titanium camping stove: just 25g, 2700W output, folds to pocket size. A thru-hiker legend. 4.8-star rating, 4,000+ sold.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sb97b2458d7b94d2784660c8e39ab65b9j.png","squareLink":"https://square.link/u/KAiYU38z","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005005277660590.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Camping"},{"id":"naturehike-cloud-up-2-tent","name":"Naturehike Cloud Up 2-Person Ultralight Tent","price":149.99,"description":"Naturehike Cloud Up 2-person ultralight trekking tent: 20D nylon, double-layer, packs small for backpacking. 4.8-star rating, 336 reviews.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S5642a5d054c44d6ea7988a2a0d8e82994.jpg","squareLink":"https://square.link/u/o1I0Gn9b","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005003089665524.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Camping"},{"id":"naturehike-snow-petrel-sleeping-bag","name":"Naturehike Snow Petrel Mummy Down Sleeping Bag","price":189.99,"description":"Naturehike Snow Petrel mummy down sleeping bag: duck down fill, rated -10C to -20C, 1.8kg, built for serious winter camping. 4.6-star rating.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sfc2af4b641244445909c48b6020143ceY.jpg","squareLink":"https://square.link/u/NXaqM0Sv","orderLink":"contact.html","externalLink":"https://www.aliexpress.com/item/1005011966963581.html","seller":"Pour Dawgz Tools","type":"fixed","available":true,"badge":"Camping"},{"id":"mr-seal-waterproof-sealant","name":"Mr Seal Transparent Waterproof Sealant, Crystal Clear (3000g + Brush)","price":39.99,"description":"Mr Seal Transparent Waterproof Sealant, crystal clear — 3000g bucket with brush. Does what Flex Seal claims to do, for less money. Roofs, walls, windows, gutters, pipes: brush it on and seal leaks fast.","image":"images/mr-seal-waterproof-sealant.jpg","squareLink":"https://square.link/u/GGdReWvM","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"solar-flood-light-2pack","name":"Engrepo Solar Motion Sensor Flood Light, 168 LEDs, 1000LM (2-Pack)","price":54.99,"description":"Engrepo solar motion sensor flood light, 2-pack. 168 LEDs and 1000 lumens per light — no wiring, motion sensor with dusk-to-dawn modes, IP65 waterproof. Built for barns, sheds, driveways, and yards.","image":"images/solar-flood-light-2pack.jpg","squareLink":"https://square.link/u/TGgkuNSh","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"solar-power-bank-2pack","name":"Rugged Solar Power Bank 2-Pack","price":24.99,"description":"Two rugged solar power banks for camp, the truck, or the jobsite. Trickle-charge from the sun or top up from the wall. Dual USB ports, built-in LED flashlight, carabiner clip. Ships fast from a US warehouse.","image":"images/solar-power-bank-2pack.jpg","squareLink":"https://square.link/u/R4yFj7kG","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"solar-camping-string-lights","name":"Solar Camping String Lights","price":24.99,"description":"Solar-powered LED string lights for camp, the yard, or the flea market booth. Stake the solar panel in the sun and they light up automatically at dusk. No outlet, no batteries to buy.","image":"images/solar-camping-string-lights.jpg","squareLink":"https://square.link/u/uVWpssDp","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"stud-finder-5-in-1","name":"5-in-1 Stud Finder Wall Scanner with Battery","price":16,"description":"5-in-1 stud detector with intelligent microprocessor chip finds studs, metal, and live AC wire. Battery included. 4.8-star rating, 37,000+ sold. Free shipping, delivery Sep 30 - Oct 14.","image":"https://img.kwcdn.com/product/fancy/0dafc7f5-355c-4da6-9b29-2197ea082dfa.jpg?imageView2/2/w/800/q/70/format/avif","squareLink":"https://square.link/u/zCWVSzG8","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"puncture-proof-safety-shoes","name":"Puncture-Proof Steel Toe Safety Work Shoes","price":24,"description":"Steel toe puncture-proof safety work shoes, 60% off list. Ships from the United States with free shipping and 90-day free returns. Delivery Sep 26 - Oct 2.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S928522769b75415ab797cddda756bafds.jpg","squareLink":"https://square.link/u/Mmk1mMk5","orderLink":"contact.html","seller":"Pour Dawgz Workwear","type":"fixed","available":true},{"id":"safety-work-sneakers","name":"Steel Toe Safety Work Sneakers","price":20.67,"description":"Lightweight steel toe work sneakers with anti-puncture protection, sneaker comfort for all-day wear. 4.5-star rating, 600+ sold. Free shipping, delivery Sep 30 - Oct 5.","image":"https://ae-pic-a1.aliexpress-media.com/kf/Sff2534454e564b8ca3775be2aafe4d5bQ.png","squareLink":"https://square.link/u/AiQlg4iJ","orderLink":"contact.html","seller":"Pour Dawgz Workwear","type":"fixed","available":true},{"id":"wen-20v-impact-driver","name":"WEN 20V MAX Brushless Cordless Impact Driver (Tool Only)","price":49.99,"description":"WEN 20136BT 20V MAX lithium-ion 1/4-inch brushless cordless compact impact driver, bare tool. 5 inches long with up to 10% more torque than comparable models, LED light, 2-year warranty. Battery and charger sold separately. Free US shipping on orders over $25.","image":"https://wenproducts.com/cdn/shop/files/20136BT.main_700x700.jpg?v=1748896627","squareLink":"https://square.link/u/iiLOfxZL","orderLink":"contact.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"gel-knee-pads-heavy-duty","name":"Heavy-Duty Gel Cushion Knee Pads","price":11.45,"description":"Professional heavy-duty knee pads with EVA foam padding, gel cushion, and adjustable straps. Anti-slip, built for concrete and rough ground. 4.8-star rating, 3,000+ sold. Free shipping, delivery Sep 29 - Oct 4.","image":"https://ae-pic-a1.aliexpress-media.com/kf/S5cc25218cbb4473298754b68a203241aE.jpg","squareLink":"https://square.link/u/yIP06pOX","orderLink":"contact.html","seller":"Pour Dawgz Workwear","type":"fixed","available":true},{"id":"cut-resistant-gloves-6-pack","name":"6-Pack Heavy-Duty Cut-Resistant Work Gloves","price":10.27,"description":"Six pairs of heavy-duty nitrile-coated work gloves — non-slip, breathable, CE EN388 certified cut protection. Works out to $1.71 a pair. 4.9-star rating. Free shipping, delivery Sep 29 - Oct 4.","image":"https://ae-pic-a1.aliexpress-media.com/kf/A30f83a8b86824c2b9f7930c5548aa3bfv.jpg","squareLink":"https://square.link/u/BwJNCUl1","orderLink":"contact.html","seller":"Pour Dawgz Workwear","type":"fixed","available":true},{"id":"heather-munoz-rubber-plant","name":"Rubber Starter Plant","price":25,"description":"Rubber starter plant. Listed by Heather Munoz - Lujan — message us or email her at munozlujanmaria@gmail.com to arrange pickup or shipping.","squareLink":"#","orderLink":"contact.html","seller":"Heather Munoz - Lujan","type":"fixed","available":true},{"id":"centauri-carbon-2","name":"Elegoo Centauri Carbon 2 3D Printer","price":389,"description":"Elegoo Centauri Carbon 2 enclosed CoreXY 3D printer — prints carbon-fiber-infused filament, PLA, PETG and more. Ships from Elegoo USA.","image":"images/centauri-carbon-2.jpg","squareLink":"https://square.link/u/oJYtAYPU","seller":"Pour Dawgz","type":"fixed","available":true},{"id":"firecore-frl300g-rotary-laser","name":"Firecore FRL300G Green Rotary Laser Level Kit — Horizontal + Vertical","price":365.99,"description":"Firecore FRL300G green-beam rotary laser kit: 360° self-leveling with BOTH horizontal and vertical planes plus up/down plumb spot. 1,969 ft (600m) diameter range with the included FGD100 receiver, ±1/8 in accuracy at 100 ft, dual-slope mode for grading and drainage, 20-hour rechargeable battery, IP55 dust/waterproof, remote control and hard case included. For foundations, decks, grading, and building upward.","image":"images/firecore-frl300g.jpg","squareLink":"https://square.link/u/FJOMdQk6","orderLink":"contact.html","externalLink":"https://www.aliexpress.us/item/1005012841967575.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"sndway-sw32a-transit-level-kit","name":"SNDWAY SW-32A 32X Optical Transit Level Kit with Tripod + Staff","price":161.99,"description":"SNDWAY SW-32A 32X automatic optical transit level kit: 32X magnification telescope with magnetic-dampened auto compensator, complete with 1.65m aluminum tripod and staff (grade) rod. Carry case, manual, and hex wrench included. For foundations, grading, decks, and layout work where a laser will not cut it.","image":"images/transit-level.jpg","squareLink":"https://square.link/u/3pAdKGwI","orderLink":"contact.html","externalLink":"https://www.aliexpress.us/item/1005012063115139.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"power-station-600w-577wh","name":"600W / 577Wh LiFePO4 Portable Power Station — Solar Generator","price":199.99,"description":"577Wh LiFePO4 portable power station: 600W continuous / 1,200W peak pure sine wave AC, 2x 110V outlets, USB QC3.0 + 60W Type-C PD, DC/car port, MPPT solar input, LCD display and LED light. LiFePO4 cells rated ~3,500 cycles. Runs laptops, phones, lights and small tools — jobsite and camp power with no gas, no noise.","image":"images/power-station-600w.jpg","squareLink":"https://square.link/u/TWCCM1NJ","orderLink":"contact.html","externalLink":"https://www.alibaba.com/showroom/500w-power-station.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"power-station-500w-512wh","name":"500W / 512Wh LiFePO4 Portable Power Station — Solar Generator","price":189.99,"description":"512Wh LiFePO4 portable power station: 500W continuous / 1,000W peak pure sine wave AC, AC + USB + Type-C + DC outputs, MPPT solar input. Compact and light at 6-7 kg — backup power for phones, laptops, lights and small electronics on the job or off the grid.","image":"images/power-station-500w.jpg","squareLink":"https://square.link/u/djxTQWDo","orderLink":"contact.html","externalLink":"https://www.alibaba.com/showroom/500w-power-station.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"power-station-1000w-1008wh","name":"1000W / 1008Wh LiFePO4 Portable Power Station — Solar Generator","price":299.99,"description":"1008Wh LiFePO4 portable power station: 1,000W continuous / 2,000W peak pure sine wave AC, 4x AC outlets, 100W USB-C PD, MPPT solar input. The big one — briefly runs real power tools and handles jobsite or home-backup loads. LiFePO4 cells rated ~3,500 cycles.","image":"images/power-station-1000w.jpg","squareLink":"https://square.link/u/7HbZI4kC","orderLink":"contact.html","externalLink":"https://www.alibaba.com/showroom/1000w-dc-power-station-manufacturer.html","seller":"Pour Dawgz Tools","type":"fixed","available":true},{"id":"black-diamond-bucket-caddy","name":"Black Diamond 12\" 30-Pocket Bucket Tool Organizer","price":27.99,"description":"Turn any 5-gallon bucket into a rolling tool chest. 30 pockets hold wrenches, screwdrivers, pliers, tape measures and more — everything right where you can grab it. Fits standard 5-gallon buckets. A work-truck essential.","image":"https://cdn11.bigcommerce.com/s-8brse8hrm/products/75520/images/184717/3171930-1__30066.1753813648.386.513.jpg?c=1","squareLink":"#","orderLink":"contact.html","seller":"Pour Dawgz","type":"fixed","available":true}];
+var editingId = null;
+var dirty = false;
+
+function code(){ return localStorage.getItem('pd_code') || DEFAULT_CODE; }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function money(n){ return n==null ? '—' : '$' + Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function slugify(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60) || ('item-' + Date.now()); }
+
+/* gate */
+function tryUnlock(){
+  var v = document.getElementById('codeInput').value.trim();
+  if(v === code()){ sessionStorage.setItem('pd_unlocked','1'); showApp(); }
+  else { document.getElementById('gateErr').textContent = 'Wrong code. Try again.'; }
+}
+function showApp(){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+  render();
+}
+document.getElementById('unlockBtn').addEventListener('click', tryUnlock);
+document.getElementById('codeInput').addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
+document.getElementById('lockBtn').addEventListener('click', function(){ sessionStorage.removeItem('pd_unlocked'); location.reload(); });
+document.getElementById('changeCodeBtn').addEventListener('click', function(){
+  var cur = prompt('Current code:');
+  if(cur !== code()){ alert('That is not the current code.'); return; }
+  var nxt = prompt('New code (write it down — it is stored only in this browser):');
+  if(nxt && nxt.trim()){ localStorage.setItem('pd_code', nxt.trim()); alert('Code changed on this device.'); }
+});
+if(sessionStorage.getItem('pd_unlocked')==='1'){ showApp(); }
+
+/* render */
+function sellers(){ var s=[]; products.forEach(function(p){ if(p.seller && s.indexOf(p.seller)<0) s.push(p.seller); }); return s.sort(); }
+function render(){
+  var q = (document.getElementById('q').value||'').toLowerCase();
+  var sf = document.getElementById('sellerFilter').value;
+  var sel = document.getElementById('sellerFilter');
+  var cur = sel.value;
+  sel.innerHTML = '<option value="">All sellers</option>' + sellers().map(function(s){ return '<option '+(s===cur?'selected':'')+'>'+esc(s)+'</option>'; }).join('');
+  document.getElementById('sellers').innerHTML = sellers().map(function(s){ return '<option value="'+esc(s)+'">'; }).join('');
+  var list = products.filter(function(p){
+    return (!q || (p.name+' '+p.description+' '+p.seller).toLowerCase().indexOf(q)>=0) && (!sf || p.seller===sf);
+  });
+  document.getElementById('rows').innerHTML = list.map(function(p){
+    return '<tr>' +
+      '<td><img class="thumb" src="'+esc(p.image||'')+'" onerror="this.style.visibility=\'hidden\'"></td>' +
+      '<td><div class="pname">'+esc(p.name)+'</div><div class="pseller">'+esc(p.id)+'</div></td>' +
+      '<td class="price">'+money(p.price)+'</td>' +
+      '<td>'+esc(p.seller||'')+'</td>' +
+      '<td><span class="pill '+(p.available?'on':'off')+'">'+(p.available?'Live':'Off')+'</span></td>' +
+      '<td><div class="rowbtns"><button class="btn ghost small" data-up="'+esc(p.id)+'" title="Move up">↑</button><button class="btn ghost small" data-down="'+esc(p.id)+'" title="Move down">↓</button><button class="btn ghost small" data-edit="'+esc(p.id)+'">Edit</button><button class="btn danger small" data-del="'+esc(p.id)+'">Delete</button></div></td>' +
+    '</tr>';
+  }).join('') || '<tr><td colspan="6" style="color:var(--muted)">No products match.</td></tr>';
+  document.querySelectorAll('[data-up]').forEach(function(b){ b.addEventListener('click', function(){ move(b.getAttribute('data-up'), -1); }); });
+  document.querySelectorAll('[data-down]').forEach(function(b){ b.addEventListener('click', function(){ move(b.getAttribute('data-down'), 1); }); });
+  document.querySelectorAll('[data-edit]').forEach(function(b){ b.addEventListener('click', function(){ openEditor(b.getAttribute('data-edit')); }); });
+  document.querySelectorAll('[data-del]').forEach(function(b){ b.addEventListener('click', function(){ del(b.getAttribute('data-del')); }); });
+  document.getElementById('stTotal').textContent = products.length;
+  document.getElementById('stLive').textContent = products.filter(function(p){return p.available;}).length;
+  document.getElementById('stValue').textContent = money(products.reduce(function(a,p){ return a + (Number(p.price)||0); },0));
+  document.getElementById('stSellers').textContent = sellers().length;
+  document.getElementById('dirtyNote').style.display = dirty ? 'block' : 'none';
+}
+document.getElementById('q').addEventListener('input', render);
+document.getElementById('sellerFilter').addEventListener('change', render);
+
+/* editor */
+function openEditor(id){
+  editingId = id || null;
+  var p = id ? products.find(function(x){return x.id===id;}) : {name:'',price:'',description:'',image:'',squareLink:'#',seller:'Pour Dawgz',type:'fixed',available:true};
+  document.getElementById('modalTitle').textContent = id ? 'Edit product' : 'Add product';
+  document.getElementById('f_name').value = p.name||'';
+  document.getElementById('f_price').value = p.price==null?'':p.price;
+  document.getElementById('f_type').value = p.type||'fixed';
+  document.getElementById('f_desc').value = p.description||'';
+  document.getElementById('f_image').value = p.image||'';
+  document.getElementById('f_square').value = p.squareLink||'#';
+  document.getElementById('f_seller').value = p.seller||'Pour Dawgz';
+  document.getElementById('f_avail').checked = p.available!==false;
+  document.getElementById('modal').style.display='flex';
+}
+function closeEditor(){ document.getElementById('modal').style.display='none'; }
+document.getElementById('addBtn').addEventListener('click', function(){ openEditor(null); });
+document.getElementById('cancelBtn').addEventListener('click', closeEditor);
+document.getElementById('saveBtn').addEventListener('click', function(){
+  var name = document.getElementById('f_name').value.trim();
+  if(!name){ alert('Give the product a name.'); return; }
+  var priceRaw = document.getElementById('f_price').value;
+  var data = {
+    name: name,
+    price: priceRaw==='' ? null : Number(priceRaw),
+    description: document.getElementById('f_desc').value.trim(),
+    image: document.getElementById('f_image').value.trim(),
+    squareLink: document.getElementById('f_square').value.trim() || '#',
+    seller: document.getElementById('f_seller').value.trim() || 'Pour Dawgz',
+    type: document.getElementById('f_type').value,
+    available: document.getElementById('f_avail').checked
+  };
+  if(editingId){
+    var p = products.find(function(x){return x.id===editingId;});
+    Object.keys(data).forEach(function(k){ p[k]=data[k]; });
+  } else {
+    var id = slugify(name), base = id, n = 2;
+    while(products.some(function(x){return x.id===id;})){ id = base + '-' + (n++); }
+    products.unshift(Object.assign({id:id}, data));
+  }
+  dirty = true; closeEditor(); render();
+});
+function move(id, dir){
+  var i = products.findIndex(function(x){return x.id===id;});
+  var j = i + dir;
+  if(i<0 || j<0 || j>=products.length) return;
+  var t = products[i]; products[i] = products[j]; products[j] = t;
+  dirty = true; render();
+}
+function del(id){
+  var p = products.find(function(x){return x.id===id;});
+  if(!confirm('Delete "' + (p?p.name:id) + '" from the store list?')) return;
+  products = products.filter(function(x){return x.id!==id;});
+  dirty = true; render();
+}
+
+/* export */
+function fileText(){
+  var header = '/* Pour Dawgz product catalog.\n   Single source of truth for the store. Edit this file to add/remove products.\n   - price: number in USD, or null if not yet carried over from the old site.\n   - image: local file under images/ (downloaded from the old site).\n   - squareLink: Square payment link for this product. "#" = not yet connected.\n   - orderLink: link for the "Message Us to Order" button (used while Square checkout is not connected).\n   - type: "fixed" (buy now) or "auction" (bid / ask).\n   - available: false disables the buy button (e.g. crib listing). */\n';
+  var body = products.map(function(p){
+    return '  {\n' +
+      '    id: ' + JSON.stringify(p.id) + ',\n' +
+      '    name: ' + JSON.stringify(p.name) + ',\n' +
+      '    price: ' + (p.price==null?'null':p.price) + ',\n' +
+      '    description: ' + JSON.stringify(p.description||'') + ',\n' +
+      '    image: ' + JSON.stringify(p.image||'') + ',\n' +
+      '    squareLink: ' + JSON.stringify(p.squareLink||'#') + ',\n' +
+      '    seller: ' + JSON.stringify(p.seller||'') + ',\n' +
+      '    type: ' + JSON.stringify(p.type||'fixed') + ',\n' +
+      '    available: ' + (p.available!==false) + '\n  }';
+  }).join(',\n');
+  return header + 'const PRODUCTS = [\n' + body + '\n];\n';
+}
+document.getElementById('downloadBtn').addEventListener('click', function(){
+  var blob = new Blob([fileText()], {type:'text/javascript'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'products.js'; a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.getElementById('copyBtn').addEventListener('click', function(){
+  navigator.clipboard.writeText(fileText()).then(function(){ alert('Copied. Paste it anywhere you need it.'); });
+});
+</script>
+</body>
+</html>

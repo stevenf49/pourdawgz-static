@@ -8,6 +8,94 @@
    - available: false disables the buy button (e.g. crib listing). */
 const PRODUCTS = [
   {
+    id: "cuff-beanie",
+    name: "Pour Dawgz Logo Cuff Beanie",
+    price: 49.95,
+    description: "Pour Dawgz logo cuff beanie. Extra photos: images/cuff-beanie-2.png, images/cuff-beanie-3.png.",
+    image: "images/cuff-beanie-1.png",
+    squareLink: "https://square.link/u/xw3Jnuke",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pourdawgz-tee-logo-front",
+    name: "Pour Dawgz Tee - Logo Front",
+    price: 34.99,
+    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black with large front logo print. Sizes XS-5XL.",
+    image: "images/browser-download-20260921T180306.622521264Z-0-unisex-staple-t-shirt-black-front-6ab1714e8d231.png",
+    squareLink: "https://square.link/u/xA8zv8pf",
+    seller: "Pour Dawgz Merch",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pourdawgz-hoodie-back-logo",
+    name: "Pour Dawgz Hoodie - Back Logo",
+    price: 59.99,
+    description: "Unisex Heavy Blend Hoodie (Gildan 18500) in Black. Big logo on the back, 'Works hard, plays even harder' on the front chest, 'FAFO' and 'GUILD' on the sleeves. Sizes S-5XL.",
+    image: "images/unisex-heavy-blend-hoodie-black-front-6ab171fd1f236.png",
+    squareLink: "https://square.link/u/ybuYTITq",
+    seller: "Pour Dawgz Merch",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pourdawgz-bucket-caddy",
+    name: "Pour Dawgz Bucket Tool Caddy (Custom Logo)",
+    price: 24.99,
+    description: "The official Pour Dawgz bucket caddy — your tools, your bucket, our name on it. Water-resistant fabric with custom Pour Dawgz branding. Fits standard 5-gallon buckets. Built for the job site. (First run — logo sample in production.)",
+    image: "https://m.media-amazon.com/images/I/71oNW7H0hZL.jpg",
+    squareLink: "#",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "neon-tee",
+    name: "Pour Dawgz Neon Workshop Tee",
+    price: 59.99,
+    description: "Pour Dawgz Neon Workshop Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).",
+    image: "images/neon-tee.png",
+    squareLink: "https://square.link/u/BEeoZ24c",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "skill-tee",
+    name: "Pour Dawgz Skill & Tools Tee",
+    price: 62.99,
+    description: "Pour Dawgz Skill & Tools Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).",
+    image: "images/skill-tee.png",
+    squareLink: "https://square.link/u/5oGiUwuv",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "no-job-tee",
+    name: "Pour Dawgz No Job Too Big Tee",
+    price: 61.99,
+    description: "Pour Dawgz No Job Too Big Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).",
+    image: "images/no-job-tee.png",
+    squareLink: "https://square.link/u/OLoIxkQN",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pourdawgz-tee-handyman-slogan",
+    name: "Pour Dawgz Tee - Handyman Slogan",
+    price: 34.99,
+    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street — gotta be handy with the tools.' Sizes XS-5XL.",
+    image: "images/browser-download-20260921T180444.572019898Z-1-unisex-staple-t-shirt-black-front-6ab171b11c75a.png",
+    squareLink: "https://square.link/u/FNHJexQJ",
+    seller: "Pour Dawgz Merch",
+    type: "fixed",
+    available: true
+  },
+  {
     id: "duluth-pants",
     name: "Duluth Fire Hose Cargo Work Pants, Desert Khaki 32x32",
     price: 119.99,
@@ -52,53 +140,6 @@ const PRODUCTS = [
     available: true
   },
   {
-    id: "neon-tee",
-    name: "Pour Dawgz Neon Workshop Tee",
-    price: 59.99,
-    description: "Pour Dawgz Neon Workshop Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).",
-    image: "images/neon-tee.png",
-    squareLink: "https://square.link/u/BEeoZ24c",
-    seller: "Pour Dawgz",
-    type: "fixed",
-    available: true,
-    options: "Sizes S–3XL"
-  },
-  {
-    id: "skill-tee",
-    name: "Pour Dawgz Skill & Tools Tee",
-    price: 62.99,
-    description: "Pour Dawgz Skill & Tools Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).",
-    image: "images/skill-tee.png",
-    squareLink: "https://square.link/u/5oGiUwuv",
-    seller: "Pour Dawgz",
-    type: "fixed",
-    available: true,
-    options: "Sizes S–3XL"
-  },
-  {
-    id: "cuff-beanie",
-    name: "Pour Dawgz Logo Cuff Beanie",
-    price: 49.95,
-    description: "Pour Dawgz logo cuff beanie. Extra photos: images/cuff-beanie-2.png, images/cuff-beanie-3.png.",
-    image: "images/cuff-beanie-1.png",
-    squareLink: "https://square.link/u/xw3Jnuke",
-    seller: "Pour Dawgz",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "no-job-tee",
-    name: "Pour Dawgz No Job Too Big Tee",
-    price: 61.99,
-    description: "Pour Dawgz No Job Too Big Tee. Choose color and size (S, M, L, XL, 2XL, 3XL).",
-    image: "images/no-job-tee.png",
-    squareLink: "https://square.link/u/OLoIxkQN",
-    seller: "Pour Dawgz",
-    type: "fixed",
-    available: true,
-    options: "Sizes S–3XL"
-  },
-  {
     id: "crib",
     name: "Crib",
     price: 50,
@@ -116,7 +157,6 @@ const PRODUCTS = [
     description: "Vintage 1975 South Dakota trailer plate. Listed by Theresa Hedeen (\"Wicked Witch\") — message us to arrange pickup or shipping.",
     image: "images/trailer-plate.jpg",
     squareLink: "https://square.link/u/g8yqxzzc",
-    orderLink: "contact.html",
     seller: "Theresa Hedeen",
     type: "fixed",
     available: true
@@ -128,7 +168,6 @@ const PRODUCTS = [
     description: "Brushless cordless angle grinder with 125mm (5-inch) disc, 20,000 RPM max speed, and 14mm disc bore. 4.9-star rating with 1,000+ sold. Tool only - battery NOT included. Free US shipping, delivery Sep 26 - Oct 1.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Se3f478c0ed214ac29c437470f2142ed1v.jpg",
     squareLink: "https://square.link/u/MMRZFC3R",
-    externalLink: "https://www.aliexpress.us/item/3256810467309266.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -140,7 +179,6 @@ const PRODUCTS = [
     description: "Sawzall-style cordless reciprocating saw for cutting wood and metal. 4.9-star rating, 99 sold. Tool only - battery NOT included (fits DeWalt 20V batteries). Free US shipping, delivery Sep 26 - Oct 1.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sda0836da87b2475b9d78b067f6b87b5ap.png",
     squareLink: "https://square.link/u/ZViv2lX6",
-    externalLink: "https://www.aliexpress.us/item/3256809419115120.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -152,7 +190,6 @@ const PRODUCTS = [
     description: "600W oscillating multi-tool: up to 20,000 oscillations/min with a 4-degree oscillation angle for cutting, sanding, and scraping. 4.7-star rating, 700+ sold, 124 reviews. Tool only - battery NOT included (works with 21V/18V batteries). Free US shipping, delivery Sep 26 - Sep 30.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Se6e59eaca5b74767b1e4598db79719c0L.jpg",
     squareLink: "https://square.link/u/fipfjYE4",
-    externalLink: "https://www.aliexpress.us/item/3256807462426939.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -164,44 +201,7 @@ const PRODUCTS = [
     description: "Men's multi-pocket denim cargo bib overalls: durable midweight cotton-blend denim, loose roomy fit, functional tool pockets, zipper fly. 4.6-star rating from verified buyers, 36 sold. Sizes XS-XXL in Blue or Black. Free returns within 15 days; delivery Sep 27 - Oct 3.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sc9168362ea394f33abdf980e467fcd5b8.jpg",
     squareLink: "https://square.link/u/khAlR8Kn",
-    externalLink: "https://www.aliexpress.us/item/3256802713548400.html",
     seller: "Pour Dawgz Workwear",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "pourdawgz-tee-logo-front",
-    name: "Pour Dawgz Tee - Logo Front",
-    price: 34.99,
-    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black with large front logo print. Sizes XS-5XL.",
-    image: "images/browser-download-20260921T180306.622521264Z-0-unisex-staple-t-shirt-black-front-6ab1714e8d231.png",
-    squareLink: "https://square.link/u/xA8zv8pf",
-    orderLink: "contact.html",
-    seller: "Pour Dawgz Merch",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "pourdawgz-tee-handyman-slogan",
-    name: "Pour Dawgz Tee - Handyman Slogan",
-    price: 34.99,
-    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street — gotta be handy with the tools.' Sizes XS-5XL.",
-    image: "images/browser-download-20260921T180444.572019898Z-1-unisex-staple-t-shirt-black-front-6ab171b11c75a.png",
-    squareLink: "https://square.link/u/FNHJexQJ",
-    orderLink: "contact.html",
-    seller: "Pour Dawgz Merch",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "pourdawgz-hoodie-back-logo",
-    name: "Pour Dawgz Hoodie - Back Logo",
-    price: 59.99,
-    description: "Unisex Heavy Blend Hoodie (Gildan 18500) in Black. Big logo on the back, 'Works hard, plays even harder' on the front chest, 'FAFO' and 'GUILD' on the sleeves. Sizes S-5XL.",
-    image: "images/unisex-heavy-blend-hoodie-black-front-6ab171fd1f236.png",
-    squareLink: "https://square.link/u/ybuYTITq",
-    orderLink: "contact.html",
-    seller: "Pour Dawgz Merch",
     type: "fixed",
     available: true
   },
@@ -212,7 +212,6 @@ const PRODUCTS = [
     description: "Pocket-size magnetic COB work flashlight: 800 lumens, 7 light modes, USB rechargeable. 4.8-star rating, 50,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S3ee48a971784414e90dc3853d31a28ebP.jpg",
     squareLink: "https://square.link/u/jCqqy7Qt",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -224,7 +223,6 @@ const PRODUCTS = [
     description: "Magnetic LED work light bar: 3 light modes, IP66 waterproof, doubles as an emergency power bank. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sf5b06b7858fc470495f6a32ce9f64c47Q.png",
     squareLink: "https://square.link/u/tS8Cw8PZ",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -236,7 +234,6 @@ const PRODUCTS = [
     description: "Motion-sensor LED headlamp with 18650 rechargeable battery and high-power COB lamp for hands-free work. 4.9-star rating, 10,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Se140a1ac82e14707bf881c274216fa13A.png",
     squareLink: "https://square.link/u/uMUTTQUq",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -248,7 +245,6 @@ const PRODUCTS = [
     description: "Adjustable heavy-duty magnetic wrist strap holds screws, nails, and small metal tools while you work. 4.9-star rating, 50,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S132a315bc9cc4d94b510dc34471affdao.jpg",
     squareLink: "https://square.link/u/ZWes32tu",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -260,7 +256,6 @@ const PRODUCTS = [
     description: "Flexible telescopic magnetic pickup tool with pocket clip for grabbing small parts, keys, and screws in tight spots. 4.8-star rating, 1,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S552c107bf74945ed9cbd4611cd3564f9K.jpg",
     squareLink: "https://square.link/u/yaGaaa7g",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -272,7 +267,6 @@ const PRODUCTS = [
     description: "Stainless steel folding multi-tool pliers for camping, survival, and everyday jobs. 4.9-star rating, 10,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S226b0b421d2947a4b2e374be8093621fY.jpg",
     squareLink: "https://square.link/u/uVeJYhiN",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -284,7 +278,6 @@ const PRODUCTS = [
     description: "Green glow-in-the-dark self-adhesive luminous tape for stairs, walls, and safety marking. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S33c4721651894f9abf396bcd322c9be6K.jpg",
     squareLink: "https://square.link/u/nLBG6eSW",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -296,7 +289,6 @@ const PRODUCTS = [
     description: "Heavy-duty tool backpack with padded shoulder straps and removable tool organizer; water-resistant, built for electricians and techs. 4.6-star rating, 1,000+ sold, top selling on AliExpress.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sdaa79aebbf2a4befb01e0ba3119535c7Z.jpg",
     squareLink: "https://square.link/u/Y6KvZYzD",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -308,7 +300,6 @@ const PRODUCTS = [
     description: "Super-bright rechargeable tactical flashlight: zoomable beam, digital display, waterproof for camping and work. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sbb2ceee410544de8879b719c67ec0b87l.png",
     squareLink: "https://square.link/u/5Ml27tmO",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -320,7 +311,6 @@ const PRODUCTS = [
     description: "6-in-1 folding keychain multi-tool: opener, screwdriver, and pocket plier for everyday carry. 4.9-star rating, 5,000+ sold. Delivery Sep 27 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sd8e4c8311cd04ef3b727d824531e6cc0I.jpg",
     squareLink: "https://square.link/u/NcoDkD4b",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -332,7 +322,6 @@ const PRODUCTS = [
     description: "Cordless 2-in-1 electric nail gun: fires 18-gauge brad nails (F15-F32) and staples. Depth adjustment for flush finishes. 4.9-star rating, 563 sold. Tool only - battery NOT included (fits Makita 18V batteries). Free US shipping.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S171be7719b3e45089ab87e2b55dd8245S.jpg",
     squareLink: "https://square.link/u/HGNcHzk3",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -344,7 +333,6 @@ const PRODUCTS = [
     description: "Heated winter motorcycle/tactical gloves: warm thermal lining, waterproof shell, cycling design. 4.9-star rating, 2,000+ sold.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S78da89d7f11c472b83f293191c66a563b.jpg",
     squareLink: "https://square.link/u/HXOqjpPv",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -356,7 +344,6 @@ const PRODUCTS = [
     description: "Electric heated winter gloves with rechargeable heating: warm, waterproof, made for snowmobile and motorcycle riding. 4.9-star rating, 1,000+ sold.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sb411a6cc3b6342c588d267246aa92b23p.jpg",
     squareLink: "https://square.link/u/5VEmMS3C",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -368,7 +355,6 @@ const PRODUCTS = [
     description: "5-point full-body safety harness for roofing, construction, and high-altitude work. CE certified with heavy-duty webbing and alloy steel D-rings/buckles. Early buyer review: well made, comfortable, sturdy. 5.0-star rating. Free US shipping.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S2ec4d4a8c145422c8373b3376b681782J.jpg",
     squareLink: "https://square.link/u/aPhhsKcg",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -380,7 +366,6 @@ const PRODUCTS = [
     description: "Modern construction hard hat with built-in goggles visor and tough ABS shell. CE certified, ANSI-rated. 4.9-star rating (67 reviews), 600+ sold. Free US shipping.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S7a78a0bb4cd5404b994f473cd5079972U.jpg",
     squareLink: "https://square.link/u/2kIthezH",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -392,7 +377,6 @@ const PRODUCTS = [
     description: "Vented ABS construction hard hat with adjustable ventilation system for all-day comfort on the job site. CE certified. 4.8-star rating (52 reviews). Free US shipping.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S2810a1525fdc4268be2b0fb43fc715f3G.jpg",
     squareLink: "https://square.link/u/0fNJ9TlW",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -404,7 +388,6 @@ const PRODUCTS = [
     description: "Clear anti-fog safety glasses with side shields: anti-scratch, anti-blue-light lenses for shop and job-site work. 4.9-star rating (498 reviews).",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Se9d369a1c10140669c8caf9959e9139dg.jpg",
     squareLink: "https://square.link/u/CGBd4KXm",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -416,7 +399,6 @@ const PRODUCTS = [
     description: "2-pack of clear safety glasses, ANSI Z87 certified, with anti-fog wrap-around lenses. 5,000+ sold.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S8787d8b6701447d484bd4454458857dcS.jpg",
     squareLink: "https://square.link/u/wuA9SEJX",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -428,12 +410,109 @@ const PRODUCTS = [
     description: "Budget wrap-around anti-fog safety goggles: anti-splash, dust-proof, adjustable for a secure fit. 4.9-star rating (1,330 reviews), 10,000+ sold.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sbb4d3f79d188429f9672f245816b738eX.jpg",
     squareLink: "https://square.link/u/AHDcsMrP",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
-  }
-,   {     id: "lucky-ff1108-fish-finder",     name: "LUCKY FF1108-1CW Portable Wireless Fish Finder",     price: 78.99,     description: "LUCKY FF1108-1CW portable wireless fish finder: 100m wireless range, 45m depth detection, 2.4-inch color LCD, 125kHz sonar with depth and water-temperature readouts. 4.7-star rating, 2,000+ sold.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/S2b492a28c0d5436394b99bf01d94189bf.jpg",     squareLink: "https://square.link/u/b2TTlIHK",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005012382048146.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Fishing"   },   {     id: "seaknight-w8-braided-line",     name: "SeaKnight W8 II 500M 8-Strand Braided Fishing Line",     price: 15.99,     description: "SeaKnight W8 II 500M 8-strand braided fishing line: ultra-strong PE line for smooth casting and high sensitivity. 4.9-star rating, 1,673 reviews.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sb715d8687a514a41b4bf148116db33e8K.jpg",     squareLink: "https://square.link/u/J99rWM6D",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/i/1005007097180199.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Fishing"   },   {     id: "tactical-fishing-backpack",     name: "Tactical Fishing Backpack with Rod Holders, Army Green",     price: 24.99,     description: "Tactical fishing backpack with rod holders: durable polyester, multiple compartments for tackle boxes, lures, and gear. 4.7-star rating, 1,000+ sold.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sc10f457bce5f4c90a57efbdbc08585120.jpg",     squareLink: "https://square.link/u/PZRkBSAA",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005010390573541.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Fishing"   },   {     id: "revasri-laser-rangefinder",     name: "REVASRI 600M/1000M Laser Rangefinder for Hunting",     price: 74.99,     description: "REVASRI 600M/1000M laser rangefinder: slope compensation, flagpole lock, vibration alert, USB-C rechargeable. For hunting and golf. 4.7-star rating, 10,000+ sold.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sf73d4aa88863407db51b3883dea9dfbcD.jpg",     squareLink: "https://square.link/u/tjfmOP8a",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005006833165214.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Hunting"   },   {     id: "nikula-10x42-binoculars",     name: "10x42 HD Binoculars BAK4 for Hunting",     price: 69.99,     description: "10x42 HD binoculars with BAK4 prisms: FMC coating, 105m/1000m field of view, IPX4 waterproof, ideal for hunting and wildlife. 4.8-star rating, 2,000+ sold.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/S4d0c67456a764b56854d9db2c18738a7b.jpg",     squareLink: "https://square.link/u/lyhn4fAO",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005008324534091.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Hunting"   },   {     id: "brs-3000t-camping-stove",     name: "BRS-3000T Ultralight Titanium Camping Stove",     price: 15.99,     description: "BRS-3000T ultralight titanium camping stove: just 25g, 2700W output, folds to pocket size. A thru-hiker legend. 4.8-star rating, 4,000+ sold.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sb97b2458d7b94d2784660c8e39ab65b9j.png",     squareLink: "https://square.link/u/KAiYU38z",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005005277660590.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Camping"   },   {     id: "naturehike-cloud-up-2-tent",     name: "Naturehike Cloud Up 2-Person Ultralight Tent",     price: 149.99,     description: "Naturehike Cloud Up 2-person ultralight trekking tent: 20D nylon, double-layer, packs small for backpacking. 4.8-star rating, 336 reviews.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/S5642a5d054c44d6ea7988a2a0d8e82994.jpg",     squareLink: "https://square.link/u/o1I0Gn9b",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005003089665524.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Camping"   },   {     id: "naturehike-snow-petrel-sleeping-bag",     name: "Naturehike Snow Petrel Mummy Down Sleeping Bag",     price: 189.99,     description: "Naturehike Snow Petrel mummy down sleeping bag: duck down fill, rated -10C to -20C, 1.8kg, built for serious winter camping. 4.6-star rating.",     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sfc2af4b641244445909c48b6020143ceY.jpg",     squareLink: "https://square.link/u/NXaqM0Sv",     orderLink: "contact.html",     externalLink: "https://www.aliexpress.com/item/1005011966963581.html",     seller: "Pour Dawgz Tools",     type: "fixed",     available: true,     badge: "Camping"   } ,   {     id: "mr-seal-waterproof-sealant",     name: "Mr Seal Transparent Waterproof Sealant, Crystal Clear (3000g + Brush)",     price: 39.99,     description: "Mr Seal Transparent Waterproof Sealant, crystal clear — 3000g bucket with brush. Does what Flex Seal claims to do, for less money. Roofs, walls, windows, gutters, pipes: brush it on and seal leaks fast.",     image: "images/mr-seal-waterproof-sealant.jpg",     squareLink: "https://square.link/u/GGdReWvM",     seller: "Pour Dawgz",     type: "fixed",     available: true   } ,
+  },
+  {
+    id: "lucky-ff1108-fish-finder",
+    name: "LUCKY FF1108-1CW Portable Wireless Fish Finder",
+    price: 78.99,
+    description: "LUCKY FF1108-1CW portable wireless fish finder: 100m wireless range, 45m depth detection, 2.4-inch color LCD, 125kHz sonar with depth and water-temperature readouts. 4.7-star rating, 2,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S2b492a28c0d5436394b99bf01d94189bf.jpg",
+    squareLink: "https://square.link/u/b2TTlIHK",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "seaknight-w8-braided-line",
+    name: "SeaKnight W8 II 500M 8-Strand Braided Fishing Line",
+    price: 15.99,
+    description: "SeaKnight W8 II 500M 8-strand braided fishing line: ultra-strong PE line for smooth casting and high sensitivity. 4.9-star rating, 1,673 reviews.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sb715d8687a514a41b4bf148116db33e8K.jpg",
+    squareLink: "https://square.link/u/J99rWM6D",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "tactical-fishing-backpack",
+    name: "Tactical Fishing Backpack with Rod Holders, Army Green",
+    price: 24.99,
+    description: "Tactical fishing backpack with rod holders: durable polyester, multiple compartments for tackle boxes, lures, and gear. 4.7-star rating, 1,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sc10f457bce5f4c90a57efbdbc08585120.jpg",
+    squareLink: "https://square.link/u/PZRkBSAA",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "revasri-laser-rangefinder",
+    name: "REVASRI 600M/1000M Laser Rangefinder for Hunting",
+    price: 74.99,
+    description: "REVASRI 600M/1000M laser rangefinder: slope compensation, flagpole lock, vibration alert, USB-C rechargeable. For hunting and golf. 4.7-star rating, 10,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sf73d4aa88863407db51b3883dea9dfbcD.jpg",
+    squareLink: "https://square.link/u/tjfmOP8a",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "nikula-10x42-binoculars",
+    name: "10x42 HD Binoculars BAK4 for Hunting",
+    price: 69.99,
+    description: "10x42 HD binoculars with BAK4 prisms: FMC coating, 105m/1000m field of view, IPX4 waterproof, ideal for hunting and wildlife. 4.8-star rating, 2,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S4d0c67456a764b56854d9db2c18738a7b.jpg",
+    squareLink: "https://square.link/u/lyhn4fAO",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "brs-3000t-camping-stove",
+    name: "BRS-3000T Ultralight Titanium Camping Stove",
+    price: 15.99,
+    description: "BRS-3000T ultralight titanium camping stove: just 25g, 2700W output, folds to pocket size. A thru-hiker legend. 4.8-star rating, 4,000+ sold.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sb97b2458d7b94d2784660c8e39ab65b9j.png",
+    squareLink: "https://square.link/u/KAiYU38z",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "naturehike-cloud-up-2-tent",
+    name: "Naturehike Cloud Up 2-Person Ultralight Tent",
+    price: 149.99,
+    description: "Naturehike Cloud Up 2-person ultralight trekking tent: 20D nylon, double-layer, packs small for backpacking. 4.8-star rating, 336 reviews.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/S5642a5d054c44d6ea7988a2a0d8e82994.jpg",
+    squareLink: "https://square.link/u/o1I0Gn9b",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "naturehike-snow-petrel-sleeping-bag",
+    name: "Naturehike Snow Petrel Mummy Down Sleeping Bag",
+    price: 189.99,
+    description: "Naturehike Snow Petrel mummy down sleeping bag: duck down fill, rated -10C to -20C, 1.8kg, built for serious winter camping. 4.6-star rating.",
+    image: "https://ae-pic-a1.aliexpress-media.com/kf/Sfc2af4b641244445909c48b6020143ceY.jpg",
+    squareLink: "https://square.link/u/NXaqM0Sv",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "mr-seal-waterproof-sealant",
+    name: "Mr Seal Transparent Waterproof Sealant, Crystal Clear (3000g + Brush)",
+    price: 39.99,
+    description: "Mr Seal Transparent Waterproof Sealant, crystal clear — 3000g bucket with brush. Does what Flex Seal claims to do, for less money. Roofs, walls, windows, gutters, pipes: brush it on and seal leaks fast.",
+    image: "images/mr-seal-waterproof-sealant.jpg",
+    squareLink: "https://square.link/u/GGdReWvM",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
   {
     id: "solar-flood-light-2pack",
     name: "Engrepo Solar Motion Sensor Flood Light, 168 LEDs, 1000LM (2-Pack)",
@@ -444,15 +523,36 @@ const PRODUCTS = [
     seller: "Pour Dawgz",
     type: "fixed",
     available: true
-  }
-  ,{     id: "solar-power-bank-2pack",     name: "Rugged Solar Power Bank 2-Pack",     price: 24.99,     description: "Two rugged solar power banks for camp, the truck, or the jobsite. Trickle-charge from the sun or top up from the wall. Dual USB ports, built-in LED flashlight, carabiner clip. Ships fast from a US warehouse.",     image: "images/solar-power-bank-2pack.jpg",     squareLink: "https://square.link/u/R4yFj7kG",     seller: "Pour Dawgz",     type: "fixed",     available: true   },   {     id: "solar-camping-string-lights",     name: "Solar Camping String Lights",     price: 24.99,     description: "Solar-powered LED string lights for camp, the yard, or the flea market booth. Stake the solar panel in the sun and they light up automatically at dusk. No outlet, no batteries to buy.",     image: "images/solar-camping-string-lights.jpg",     squareLink: "https://square.link/u/uVWpssDp",     seller: "Pour Dawgz",     type: "fixed",     available: true   },   {
+  },
+  {
+    id: "solar-power-bank-2pack",
+    name: "Rugged Solar Power Bank 2-Pack",
+    price: 24.99,
+    description: "Two rugged solar power banks for camp, the truck, or the jobsite. Trickle-charge from the sun or top up from the wall. Dual USB ports, built-in LED flashlight, carabiner clip. Ships fast from a US warehouse.",
+    image: "images/solar-power-bank-2pack.jpg",
+    squareLink: "https://square.link/u/R4yFj7kG",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "solar-camping-string-lights",
+    name: "Solar Camping String Lights",
+    price: 24.99,
+    description: "Solar-powered LED string lights for camp, the yard, or the flea market booth. Stake the solar panel in the sun and they light up automatically at dusk. No outlet, no batteries to buy.",
+    image: "images/solar-camping-string-lights.jpg",
+    squareLink: "https://square.link/u/uVWpssDp",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
     id: "stud-finder-5-in-1",
     name: "5-in-1 Stud Finder Wall Scanner with Battery",
-    price: 16.00,
+    price: 16,
     description: "5-in-1 stud detector with intelligent microprocessor chip finds studs, metal, and live AC wire. Battery included. 4.8-star rating, 37,000+ sold. Free shipping, delivery Sep 30 - Oct 14.",
     image: "https://img.kwcdn.com/product/fancy/0dafc7f5-355c-4da6-9b29-2197ea082dfa.jpg?imageView2/2/w/800/q/70/format/avif",
     squareLink: "https://square.link/u/zCWVSzG8",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -460,11 +560,10 @@ const PRODUCTS = [
   {
     id: "puncture-proof-safety-shoes",
     name: "Puncture-Proof Steel Toe Safety Work Shoes",
-    price: 24.00,
+    price: 24,
     description: "Steel toe puncture-proof safety work shoes, 60% off list. Ships from the United States with free shipping and 90-day free returns. Delivery Sep 26 - Oct 2.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S928522769b75415ab797cddda756bafds.jpg",
     squareLink: "https://square.link/u/Mmk1mMk5",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Workwear",
     type: "fixed",
     available: true
@@ -476,7 +575,6 @@ const PRODUCTS = [
     description: "Lightweight steel toe work sneakers with anti-puncture protection, sneaker comfort for all-day wear. 4.5-star rating, 600+ sold. Free shipping, delivery Sep 30 - Oct 5.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/Sff2534454e564b8ca3775be2aafe4d5bQ.png",
     squareLink: "https://square.link/u/AiQlg4iJ",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Workwear",
     type: "fixed",
     available: true
@@ -488,7 +586,6 @@ const PRODUCTS = [
     description: "WEN 20136BT 20V MAX lithium-ion 1/4-inch brushless cordless compact impact driver, bare tool. 5 inches long with up to 10% more torque than comparable models, LED light, 2-year warranty. Battery and charger sold separately. Free US shipping on orders over $25.",
     image: "https://wenproducts.com/cdn/shop/files/20136BT.main_700x700.jpg?v=1748896627",
     squareLink: "https://square.link/u/iiLOfxZL",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -500,7 +597,6 @@ const PRODUCTS = [
     description: "Professional heavy-duty knee pads with EVA foam padding, gel cushion, and adjustable straps. Anti-slip, built for concrete and rough ground. 4.8-star rating, 3,000+ sold. Free shipping, delivery Sep 29 - Oct 4.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/S5cc25218cbb4473298754b68a203241aE.jpg",
     squareLink: "https://square.link/u/yIP06pOX",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Workwear",
     type: "fixed",
     available: true
@@ -512,7 +608,6 @@ const PRODUCTS = [
     description: "Six pairs of heavy-duty nitrile-coated work gloves — non-slip, breathable, CE EN388 certified cut protection. Works out to $1.71 a pair. 4.9-star rating. Free shipping, delivery Sep 29 - Oct 4.",
     image: "https://ae-pic-a1.aliexpress-media.com/kf/A30f83a8b86824c2b9f7930c5548aa3bfv.jpg",
     squareLink: "https://square.link/u/BwJNCUl1",
-    orderLink: "contact.html",
     seller: "Pour Dawgz Workwear",
     type: "fixed",
     available: true
@@ -522,16 +617,87 @@ const PRODUCTS = [
     name: "Rubber Starter Plant",
     price: 25,
     description: "Rubber starter plant. Listed by Heather Munoz - Lujan — message us or email her at munozlujanmaria@gmail.com to arrange pickup or shipping.",
+    image: "",
     squareLink: "#",
-    orderLink: "contact.html",
     seller: "Heather Munoz - Lujan",
     type: "fixed",
     available: true
   },
-  {     id: "centauri-carbon-2",     name: "Elegoo Centauri Carbon 2 3D Printer",     price: 389,     description: "Elegoo Centauri Carbon 2 enclosed CoreXY 3D printer — prints carbon-fiber-infused filament, PLA, PETG and more. Ships from Elegoo USA.",     image: "images/centauri-carbon-2.jpg",     squareLink: "https://square.link/u/oJYtAYPU",     seller: "Pour Dawgz",     type: "fixed",     available: true   } 
-, { id: "firecore-frl300g-rotary-laser", name: "Firecore FRL300G Green Rotary Laser Level Kit \u2014 Horizontal + Vertical", price: 365.99, description: "Firecore FRL300G green-beam rotary laser kit: 360\u00b0 self-leveling with BOTH horizontal and vertical planes plus up/down plumb spot. 1,969 ft (600m) diameter range with the included FGD100 receiver, \u00b11/8 in accuracy at 100 ft, dual-slope mode for grading and drainage, 20-hour rechargeable battery, IP55 dust/waterproof, remote control and hard case included. For foundations, decks, grading, and building upward.", image: "images/firecore-frl300g.jpg", squareLink: "https://square.link/u/FJOMdQk6", orderLink: "contact.html", externalLink: "https://www.aliexpress.us/item/1005012841967575.html", seller: "Pour Dawgz Tools", type: "fixed", available: true }
-, { id: "sndway-sw32a-transit-level-kit", name: "SNDWAY SW-32A 32X Optical Transit Level Kit with Tripod + Staff", price: 161.99, description: "SNDWAY SW-32A 32X automatic optical transit level kit: 32X magnification telescope with magnetic-dampened auto compensator, complete with 1.65m aluminum tripod and staff (grade) rod. Carry case, manual, and hex wrench included. For foundations, grading, decks, and layout work where a laser will not cut it.", image: "images/transit-level.jpg", squareLink: "https://square.link/u/3pAdKGwI", orderLink: "contact.html", externalLink: "https://www.aliexpress.us/item/1005012063115139.html", seller: "Pour Dawgz Tools", type: "fixed", available: true }
-, { id: "power-station-600w-577wh", name: "600W / 577Wh LiFePO4 Portable Power Station — Solar Generator", price: 199.99, description: "577Wh LiFePO4 portable power station: 600W continuous / 1,200W peak pure sine wave AC, 2x 110V outlets, USB QC3.0 + 60W Type-C PD, DC/car port, MPPT solar input, LCD display and LED light. LiFePO4 cells rated ~3,500 cycles. Runs laptops, phones, lights and small tools — jobsite and camp power with no gas, no noise.", image: "images/power-station-600w.jpg", squareLink: "https://square.link/u/TWCCM1NJ", orderLink: "contact.html", externalLink: "https://www.alibaba.com/showroom/500w-power-station.html", seller: "Pour Dawgz Tools", type: "fixed", available: true }
-, { id: "power-station-500w-512wh", name: "500W / 512Wh LiFePO4 Portable Power Station — Solar Generator", price: 189.99, description: "512Wh LiFePO4 portable power station: 500W continuous / 1,000W peak pure sine wave AC, AC + USB + Type-C + DC outputs, MPPT solar input. Compact and light at 6-7 kg — backup power for phones, laptops, lights and small electronics on the job or off the grid.", image: "images/power-station-500w.jpg", squareLink: "https://square.link/u/djxTQWDo", orderLink: "contact.html", externalLink: "https://www.alibaba.com/showroom/500w-power-station.html", seller: "Pour Dawgz Tools", type: "fixed", available: true }
-, { id: "power-station-1000w-1008wh", name: "1000W / 1008Wh LiFePO4 Portable Power Station — Solar Generator", price: 299.99, description: "1008Wh LiFePO4 portable power station: 1,000W continuous / 2,000W peak pure sine wave AC, 4x AC outlets, 100W USB-C PD, MPPT solar input. The big one — briefly runs real power tools and handles jobsite or home-backup loads. LiFePO4 cells rated ~3,500 cycles.", image: "images/power-station-1000w.jpg", squareLink: "https://square.link/u/7HbZI4kC", orderLink: "contact.html", externalLink: "https://www.alibaba.com/showroom/1000w-dc-power-station-manufacturer.html", seller: "Pour Dawgz Tools", type: "fixed", available: true }
+  {
+    id: "centauri-carbon-2",
+    name: "Elegoo Centauri Carbon 2 3D Printer",
+    price: 389,
+    description: "Elegoo Centauri Carbon 2 enclosed CoreXY 3D printer — prints carbon-fiber-infused filament, PLA, PETG and more. Ships from Elegoo USA.",
+    image: "images/centauri-carbon-2.jpg",
+    squareLink: "https://square.link/u/oJYtAYPU",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "firecore-frl300g-rotary-laser",
+    name: "Firecore FRL300G Green Rotary Laser Level Kit — Horizontal + Vertical",
+    price: 365.99,
+    description: "Firecore FRL300G green-beam rotary laser kit: 360° self-leveling with BOTH horizontal and vertical planes plus up/down plumb spot. 1,969 ft (600m) diameter range with the included FGD100 receiver, ±1/8 in accuracy at 100 ft, dual-slope mode for grading and drainage, 20-hour rechargeable battery, IP55 dust/waterproof, remote control and hard case included. For foundations, decks, grading, and building upward.",
+    image: "images/firecore-frl300g.jpg",
+    squareLink: "https://square.link/u/FJOMdQk6",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "sndway-sw32a-transit-level-kit",
+    name: "SNDWAY SW-32A 32X Optical Transit Level Kit with Tripod + Staff",
+    price: 161.99,
+    description: "SNDWAY SW-32A 32X automatic optical transit level kit: 32X magnification telescope with magnetic-dampened auto compensator, complete with 1.65m aluminum tripod and staff (grade) rod. Carry case, manual, and hex wrench included. For foundations, grading, decks, and layout work where a laser will not cut it.",
+    image: "images/transit-level.jpg",
+    squareLink: "https://square.link/u/3pAdKGwI",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "power-station-600w-577wh",
+    name: "600W / 577Wh LiFePO4 Portable Power Station — Solar Generator",
+    price: 199.99,
+    description: "577Wh LiFePO4 portable power station: 600W continuous / 1,200W peak pure sine wave AC, 2x 110V outlets, USB QC3.0 + 60W Type-C PD, DC/car port, MPPT solar input, LCD display and LED light. LiFePO4 cells rated ~3,500 cycles. Runs laptops, phones, lights and small tools — jobsite and camp power with no gas, no noise.",
+    image: "images/power-station-600w.jpg",
+    squareLink: "https://square.link/u/TWCCM1NJ",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "power-station-500w-512wh",
+    name: "500W / 512Wh LiFePO4 Portable Power Station — Solar Generator",
+    price: 189.99,
+    description: "512Wh LiFePO4 portable power station: 500W continuous / 1,000W peak pure sine wave AC, AC + USB + Type-C + DC outputs, MPPT solar input. Compact and light at 6-7 kg — backup power for phones, laptops, lights and small electronics on the job or off the grid.",
+    image: "images/power-station-500w.jpg",
+    squareLink: "https://square.link/u/djxTQWDo",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "power-station-1000w-1008wh",
+    name: "1000W / 1008Wh LiFePO4 Portable Power Station — Solar Generator",
+    price: 299.99,
+    description: "1008Wh LiFePO4 portable power station: 1,000W continuous / 2,000W peak pure sine wave AC, 4x AC outlets, 100W USB-C PD, MPPT solar input. The big one — briefly runs real power tools and handles jobsite or home-backup loads. LiFePO4 cells rated ~3,500 cycles.",
+    image: "images/power-station-1000w.jpg",
+    squareLink: "https://square.link/u/7HbZI4kC",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "black-diamond-bucket-caddy",
+    name: "Black Diamond 12\" 30-Pocket Bucket Tool Organizer",
+    price: 27.99,
+    description: "Turn any 5-gallon bucket into a rolling tool chest. 30 pockets hold wrenches, screwdrivers, pliers, tape measures and more — everything right where you can grab it. Fits standard 5-gallon buckets. A work-truck essential.",
+    image: "https://cdn11.bigcommerce.com/s-8brse8hrm/products/75520/images/184717/3171930-1__30066.1753813648.386.513.jpg?c=1",
+    squareLink: "#",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
 ];
