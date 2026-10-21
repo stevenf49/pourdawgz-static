@@ -699,5 +699,16 @@ const PRODUCTS = [
     seller: "Pour Dawgz",
     type: "fixed",
     available: true
+  },
+  {
+    id: "brad-nailer-m18",
+    name: "2-in-1 Cordless Brad Nailer & Stapler - Fits Milwaukee 18V (Tool Only)",
+    price: 89.99,
+    description: "One tool, two jobs. Drives 18GA brad nails (5/8 to 1-1/4 in.) and 1/4 in. narrow crown staples (5/8 to 1 in.) - no compressor, no hose. Runs on Milwaukee 18V M18 batteries you already own (fits 48-11-1820, -1840, -1850, -1860 and more). Only 2.9 lbs, built-in LED work light, dual-trigger safety, dry-fire lockout. Comes with 1,600 nails and staples in the box. Built for trim, furniture assembly, upholstery, carpet edging, insulation and home renovation. Battery and charger NOT included. Compatible-with tool - not made by Milwaukee Tool.",
+    image: "images/brad-nailer.jpg",
+    squareLink: "#",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
   }
 ];
