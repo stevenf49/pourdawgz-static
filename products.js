@@ -813,5 +813,49 @@ const PRODUCTS = [
           seller: "Pour Dawgz Tools",
           type: "fixed",
           available: true
+   },
+   {
+      id: "plaid-hoodie-green",
+      name: "Buffalo Plaid Pullover Hoodie — Green/Black",
+      price: 64.99,
+      description: "The flannel-look pullover: big green and black buffalo checks, black drawstrings, soft fleece feel without the flannel-shirt stiffness. Steven's own everyday style — if you see him in it, say hi. Sizes S to 4XL — tell us your size when you order.",
+      image: "images/plaid-hoodie.jpg",
+      squareLink: "#",
+      seller: "Pour Dawgz Tools",
+      type: "fixed",
+      available: true
+   },
+   {
+      id: "long-johns-set",
+      name: "Fleece-Lined Thermal Underwear Set — Top & Bottom",
+      price: 34.99,
+      description: "The Under Armour feel without the Under Armour price: smooth stretch synthetic with a fleece lining, top and bottom both included. Pulls sweat off you instead of holding it. Built for South Dakota winter workdays. Sizes M to 3XL — tell us your size when you order.",
+      image: "images/long-johns-set.jpg",
+      squareLink: "#",
+      seller: "Pour Dawgz Tools",
+      type: "fixed",
+      available: true
+   },
+   {
+      id: "base-layer-shirts-3pk",
+      name: "Thermal Base Layer Shirts — 3-Pack",
+      price: 39.99,
+      description: "Three long-sleeve base layer shirts with the fleece-lined inside — the cold-weather athletic material the big brands charge fifty bucks a shirt for. Four-way stretch, wicks sweat, made to work under a hoodie all winter. Sizes S to 2XL — tell us your size when you order.",
+      image: "images/base-layer-shirts.jpg",
+      squareLink: "#",
+      seller: "Pour Dawgz Tools",
+      type: "fixed",
+      available: true
+   },
+   {
+      id: "waffle-thermal-bottoms",
+      name: "Waffle-Knit Thermal Bottoms — Long Johns",
+      price: 16.99,
+      description: "Old-school waffle-knit long johns, the black waffle weave that traps the heat. Moisture-wicking poly-cotton, sizes all the way to 5XL. The classic layer under work pants when the wind won't quit. Sizes S to 5XL — tell us your size when you order.",
+      image: "images/waffle-thermal.jpg",
+      squareLink: "#",
+      seller: "Pour Dawgz Tools",
+      type: "fixed",
+      available: true
    }
 ];
