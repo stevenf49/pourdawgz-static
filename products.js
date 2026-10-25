@@ -769,4 +769,49 @@ const PRODUCTS = [
 
 
 
+,
+   {
+          id: "muck-boots-summer",
+          name: "Muck Boot Chore Cool Tall — Summer Muck Boots",
+          price: 259.99,
+          description: "The summer chore boot. Muck's Chore Cool has a cooling liner that actually breathes in the heat — comfort rated 40 to 95 degrees — with 4mm neoprene, a steel shank, and a reinforced toe for barnyard, garden, and mud-season work. Tall, fully waterproof. Men's sizes — tell us your size when you order.",
+          image: "images/muck-summer.jpg",
+          squareLink: "#",
+          seller: "Pour Dawgz Tools",
+          type: "fixed",
+          available: true
+   },
+   {
+          id: "muck-boots-winter",
+          name: "VEVOR Insulated Rubber Boots — Winter Muck Boots",
+          price: 79.99,
+          description: "Winter muck boots that don't cost a fortune. Waterproof neoprene and rubber with insulated lining for cold-weather chores, anti-slip tread, and light on your feet for all-day wear. Mud, slush, snow — hose them off and go again. Men's sizes — tell us your size when you order.",
+          image: "images/muck-winter.jpg",
+          squareLink: "#",
+          seller: "Pour Dawgz Tools",
+          type: "fixed",
+          available: true
+   },
+   {
+          id: "work-boots-summer",
+          name: "Ariat Treadfast 6\" Steel Toe — Summer Work Boots",
+          price: 199.99,
+          description: "Summer work boot: Ariat Treadfast 6-inch with a steel toe (ASTM rated, EH protection), waterproof full-grain leather, and a breathable mesh lining — no insulation cooking your feet in July. Built for concrete, ladders, and long days. Men's sizes — tell us your size when you order.",
+          image: "images/work-summer.jpg",
+          squareLink: "#",
+          seller: "Pour Dawgz Tools",
+          type: "fixed",
+          available: true
+   },
+   {
+          id: "work-boots-winter",
+          name: "Carhartt Ironwood Insulated Wellington — Winter Work Boots",
+          price: 229.99,
+          description: "Winter work boot: Carhartt Ironwood 11-inch Wellington with an alloy safety toe, Storm Defender waterproofing, and 400 grams of LiteFire insulation for South Dakota cold. Pull-on, no laces to freeze. Men's sizes — tell us your size when you order.",
+          image: "images/work-winter.jpg",
+          squareLink: "#",
+          seller: "Pour Dawgz Tools",
+          type: "fixed",
+          available: true
+   }
 ];
