@@ -857,5 +857,16 @@ const PRODUCTS = [
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
+   },
+   {
+      id: "custom-beanie-braid",
+      name: "Custom-Made Beanie — Braided Band",
+      price: 39.99,
+      description: "One-of-a-kind, made by Steven's own hands: black knit beanie with a hand-braided cord band and copper wire detail up top. No two will ever be exactly alike — when this one's gone, it's gone. Message to order.",
+      image: "images/custom-beanie.jpg",
+      squareLink: "#",
+      seller: "Pour Dawgz Tools",
+      type: "fixed",
+      available: true
    }
 ];
