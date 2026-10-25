@@ -733,5 +733,16 @@ const PRODUCTS = [
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
-  }
+  },
+   {
+      id: "dual-stove-fan-10",
+      name: "Dual-Motor Heat-Powered Stove Fan — 10 Blade",
+      price: 109.99,
+      description: "Two motors, ten blades, zero electricity. This fan sits on your wood stove and runs off the heat alone — the hotter the stove, the harder it blows (up to 230 CFM). Pushes warm air through the whole room instead of letting it pool at the ceiling. Stove thermometer included so you can keep her in the sweet spot. 9.45 in. wide.",
+      image: "images/dual-stove-fan.jpg",
+      squareLink: "#",
+      seller: "Pour Dawgz Tools",
+      type: "fixed",
+      available: true
+   }
 ];
