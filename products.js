@@ -745,4 +745,28 @@ const PRODUCTS = [
       type: "fixed",
       available: true
    }
+,
+   {
+    id: "teg-stove-power-kit",
+    name: "DIY Stove Power Kit — Make Electricity From Your Wood Stove",
+    price: 299.99,
+    description: "Everything in one box — no running store to store. Ten thermoelectric generator modules, five finned heatsinks, a 12V charge controller, a 12V battery, thermal paste, an aluminum stove-top plate, a 16-foot LED light strip, a dual USB charging socket, plus wire, fuse and hardware — with plain-English instructions. Bolt it together on top of your wood stove and bank power in the battery while you burn. After dark: LED lights on and phones charging, straight off stove heat. Honest numbers: expect roughly 15–25 watts while the stove is hot — lights-and-phones power, not appliance power. Some assembly required; if you can run a screwdriver and strip a wire, you can build this.",
+    image: "images/teg-kit.jpg",
+    squareLink: "#",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+   }
+
+
+
+
+
+
+
+
+
+
+
+
 ];
