@@ -711,4 +711,27 @@ const PRODUCTS = [
     type: "fixed",
     available: true
   }
+,
+  {
+    id: "bug-a-salt-30",
+    name: "Bug-A-Salt 3.0 — Classic Yellow",
+    price: 79.99,
+    description: "The original salt gun for flies — the same one Steven runs. Pump-action, shoots a spray of plain table salt. No batteries, no poison spray, nothing dead but the fly. Accurate to about 3 feet. Load it, pump it, and clear the shop, the porch, or the cookout.",
+    image: "images/bug-a-salt-30.jpg",
+    squareLink: "#",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "bug-beam-laser",
+    name: "Bug-A-Salt Bug-Beam Laser Sight Kit",
+    price: 34.99,
+    description: "Laser sight that clips right onto your Bug-A-Salt — fits the 3.0, 2.5, 2.0 and Shred-Er models. Batteries and Allen wrench included so you can zero it in. Put the dot on the fly and pull — no more misses.",
+    image: "images/bug-beam.jpg",
+    squareLink: "#",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  }
 ];
