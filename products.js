@@ -46,7 +46,7 @@ const PRODUCTS = [
     price: 24.99,
     description: "The official Pour Dawgz bucket caddy — your tools, your bucket, our name on it. Water-resistant fabric with custom Pour Dawgz branding. Fits standard 5-gallon buckets. Built for the job site.",
     image: "https://m.media-amazon.com/images/I/71oNW7H0hZL.jpg",
-    squareLink: "#",
+    squareLink: "https://square.link/u/WMt6vEz1",
     seller: "Pour Dawgz",
     type: "fixed",
     available: true
@@ -136,17 +136,6 @@ const PRODUCTS = [
     image: "images/stan-ray-jacket.jpg",
     squareLink: "https://square.link/u/52E3U6Om",
     seller: "Pour Dawgz Owner Picks",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "crib",
-    name: "Crib",
-    price: 50,
-    description: "Older crib for kid, no mattress, but it's cool. Listed by Riders. Pickup or shipping.",
-    image: "images/crib.jpeg",
-    squareLink: "https://square.link/u/g8yqxzzc",
-    seller: "Riders",
     type: "fixed",
     available: true
   },
@@ -618,7 +607,7 @@ const PRODUCTS = [
     price: 25,
     description: "Rubber starter plant. Listed by Heather Munoz - Lujan — Message us to order to arrange pickup or shipping.",
     image: "",
-    squareLink: "#",
+    squareLink: "https://square.link/u/xThWFNZH",
     seller: "Heather Munoz - Lujan",
     type: "fixed",
     available: true
@@ -695,7 +684,7 @@ const PRODUCTS = [
     price: 27.99,
     description: "Turn any 5-gallon bucket into a rolling tool chest. 30 pockets hold wrenches, screwdrivers, pliers, tape measures and more — everything right where you can grab it. Fits standard 5-gallon buckets. A work-truck essential.",
     image: "https://cdn11.bigcommerce.com/s-8brse8hrm/products/75520/images/184717/3171930-1__30066.1753813648.386.513.jpg?c=1",
-    squareLink: "#",
+    squareLink: "https://square.link/u/bjx3vwHi",
     seller: "Pour Dawgz",
     type: "fixed",
     available: true
@@ -706,7 +695,7 @@ const PRODUCTS = [
     price: 89.99,
     description: "One tool, two jobs. Drives 18GA brad nails (5/8 to 1-1/4 in.) and 1/4 in. narrow crown staples (5/8 to 1 in.) - no compressor, no hose. Runs on Milwaukee 18V M18 batteries you already own (fits 48-11-1820, -1840, -1850, -1860 and more). Only 2.9 lbs, built-in LED work light, dual-trigger safety, dry-fire lockout. Comes with 1,600 nails and staples in the box. Built for trim, furniture assembly, upholstery, carpet edging, insulation and home renovation. Battery and charger NOT included. Compatible-with tool - not made by Milwaukee Tool.",
     image: "images/brad-nailer.jpg",
-    squareLink: "#",
+    squareLink: "https://square.link/u/lYWKNjDk",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -718,7 +707,7 @@ const PRODUCTS = [
     price: 79.99,
     description: "The original salt gun for flies — the same one Steven runs. Pump-action, shoots a spray of plain table salt. No batteries, no poison spray, nothing dead but the fly. Accurate to about 3 feet. Load it, pump it, and clear the shop, the porch, or the cookout.",
     image: "images/bug-a-salt-30.jpg",
-    squareLink: "#",
+    squareLink: "https://square.link/u/AZBNE4RS",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -729,7 +718,7 @@ const PRODUCTS = [
     price: 34.99,
     description: "Laser sight that clips right onto your Bug-A-Salt — fits the 3.0, 2.5, 2.0 and Shred-Er models. Batteries and Allen wrench included so you can zero it in. Put the dot on the fly and pull — no more misses.",
     image: "images/bug-beam.jpg",
-    squareLink: "#",
+    squareLink: "https://square.link/u/VtDcczWF",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -740,7 +729,7 @@ const PRODUCTS = [
       price: 109.99,
       description: "Two motors, ten blades, zero electricity. This fan sits on your wood stove and runs off the heat alone — the hotter the stove, the harder it blows (up to 230 CFM). Pushes warm air through the whole room instead of letting it pool at the ceiling. Stove thermometer included so you can keep her in the sweet spot. 9.45 in. wide.",
       image: "images/dual-stove-fan.jpg",
-      squareLink: "#",
+      squareLink: "https://square.link/u/UYJOrt02",
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
@@ -752,7 +741,7 @@ const PRODUCTS = [
     price: 299.99,
     description: "Everything in one box — no running store to store. Ten thermoelectric generator modules, five finned heatsinks, a 12V charge controller, a 12V battery, thermal paste, an aluminum stove-top plate, a 16-foot LED light strip, a dual USB charging socket, plus wire, fuse and hardware — with plain-English instructions. Bolt it together on top of your wood stove and bank power in the battery while you burn. After dark: LED lights on and phones charging, straight off stove heat. Honest numbers: expect roughly 15–25 watts while the stove is hot — lights-and-phones power, not appliance power. Some assembly required; if you can run a screwdriver and strip a wire, you can build this.",
     image: "images/teg-kit.jpg",
-    squareLink: "#",
+    squareLink: "https://square.link/u/ivqeMYbY",
     seller: "Pour Dawgz Tools",
     type: "fixed",
     available: true
@@ -776,7 +765,7 @@ const PRODUCTS = [
           price: 259.99,
           description: "The summer chore boot. Muck's Chore Cool has a cooling liner that actually breathes in the heat — comfort rated 40 to 95 degrees — with 4mm neoprene, a steel shank, and a reinforced toe for barnyard, garden, and mud-season work. Tall, fully waterproof. Men's sizes — tell us your size when you order.",
           image: "images/muck-summer.jpg",
-          squareLink: "#",
+          squareLink: "https://square.link/u/EdExcdJv",
           seller: "Pour Dawgz Tools",
           type: "fixed",
           available: true
@@ -787,7 +776,7 @@ const PRODUCTS = [
           price: 79.99,
           description: "Winter muck boots that don't cost a fortune. Waterproof neoprene and rubber with insulated lining for cold-weather chores, anti-slip tread, and light on your feet for all-day wear. Mud, slush, snow — hose them off and go again. Men's sizes — tell us your size when you order.",
           image: "images/muck-winter.jpg",
-          squareLink: "#",
+          squareLink: "https://square.link/u/0JpPEcAm",
           seller: "Pour Dawgz Tools",
           type: "fixed",
           available: true
@@ -798,7 +787,7 @@ const PRODUCTS = [
           price: 199.99,
           description: "Summer work boot: Ariat Treadfast 6-inch with a steel toe (ASTM rated, EH protection), waterproof full-grain leather, and a breathable mesh lining — no insulation cooking your feet in July. Built for concrete, ladders, and long days. Men's sizes — tell us your size when you order.",
           image: "images/work-summer.jpg",
-          squareLink: "#",
+          squareLink: "https://square.link/u/Ak1uqENJ",
           seller: "Pour Dawgz Tools",
           type: "fixed",
           available: true
@@ -809,7 +798,7 @@ const PRODUCTS = [
           price: 229.99,
           description: "Winter work boot: Carhartt Ironwood 11-inch Wellington with an alloy safety toe, Storm Defender waterproofing, and 400 grams of LiteFire insulation for South Dakota cold. Pull-on, no laces to freeze. Men's sizes — tell us your size when you order.",
           image: "images/work-winter.jpg",
-          squareLink: "#",
+          squareLink: "https://square.link/u/e35Bk1d4",
           seller: "Pour Dawgz Tools",
           type: "fixed",
           available: true
@@ -820,7 +809,7 @@ const PRODUCTS = [
       price: 64.99,
       description: "The flannel-look pullover: big green and black buffalo checks, black drawstrings, soft fleece feel without the flannel-shirt stiffness. Steven's own everyday style — if you see him in it, say hi. Sizes S to 4XL — tell us your size when you order.",
       image: "images/plaid-hoodie.jpg",
-      squareLink: "#",
+      squareLink: "https://square.link/u/3s9CoZmC",
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
@@ -831,7 +820,7 @@ const PRODUCTS = [
       price: 34.99,
       description: "The Under Armour feel without the Under Armour price: smooth stretch synthetic with a fleece lining, top and bottom both included. Pulls sweat off you instead of holding it. Built for South Dakota winter workdays. Sizes M to 3XL — tell us your size when you order.",
       image: "images/long-johns-set.jpg",
-      squareLink: "#",
+      squareLink: "https://square.link/u/YAT3Yfxg",
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
@@ -842,7 +831,7 @@ const PRODUCTS = [
       price: 39.99,
       description: "Three long-sleeve base layer shirts with the fleece-lined inside — the cold-weather athletic material the big brands charge fifty bucks a shirt for. Four-way stretch, wicks sweat, made to work under a hoodie all winter. Sizes S to 2XL — tell us your size when you order.",
       image: "images/base-layer-shirts.jpg",
-      squareLink: "#",
+      squareLink: "https://square.link/u/mSNzHqDD",
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
@@ -853,7 +842,7 @@ const PRODUCTS = [
       price: 16.99,
       description: "Old-school waffle-knit long johns, the black waffle weave that traps the heat. Moisture-wicking poly-cotton, sizes all the way to 5XL. The classic layer under work pants when the wind won't quit. Sizes S to 5XL — tell us your size when you order.",
       image: "images/waffle-thermal.jpg",
-      squareLink: "#",
+      squareLink: "https://square.link/u/KmIgO0D2",
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
@@ -864,7 +853,7 @@ const PRODUCTS = [
       price: 39.99,
       description: "One-of-a-kind, made by Steven's own hands: black knit beanie with a hand-braided cord band and copper wire detail up top. No two will ever be exactly alike — when this one's gone, it's gone. Message to order.",
       image: "images/custom-beanie.jpg",
-      squareLink: "#",
+      squareLink: "https://square.link/u/VyjFbLVG",
       seller: "Pour Dawgz Tools",
       type: "fixed",
       available: true
