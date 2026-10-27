@@ -17,12 +17,38 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Pour Dawgz">
+<style>
+.pd-banner-side { text-decoration: none; color: inherit; display: block; }
+.pd-banner-side strong { display: block; font-family: Oswald, Arial, sans-serif; font-size: 20px; letter-spacing: .04em; line-height: 1.2; }
+.pd-banner-side span { display: block; font-size: 14px; line-height: 1.4; color: var(--muted); }
+.pd-banner-tagline { font-family: Oswald, Arial, sans-serif; font-size: 24px; letter-spacing: .08em; text-transform: uppercase; margin: 6px 0 0; text-align: center; }
+.pd-tile { position: relative; display: block; overflow: hidden; border-radius: 12px; border: 1px solid var(--line); text-decoration: none; color: #ffffff; }
+.pd-tile img { width: 100%; height: 340px; object-fit: cover; display: block; }
+.pd-tile-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,.88)); }
+.pd-tile-caption strong { display: block; font-family: Oswald, Arial, sans-serif; font-size: 30px; letter-spacing: .04em; line-height: 1.1; }
+.pd-tile-caption span { display: block; font-size: 16px; margin-top: 4px; }
+@media (max-width: 700px) { .pd-banner-grid { grid-template-columns: 1fr !important; text-align: center !important; } .pd-banner-side { text-align: center !important; } .pd-tiles { grid-template-columns: 1fr !important; } }
+</style>
 </head>
 <body>
 
 <header class="site-header">
+  <div class="wrap pd-banner-grid" style="display:grid;grid-template-columns:1fr minmax(0,2.2fr) 1fr;align-items:center;gap:20px;padding-top:10px;padding-bottom:10px;">
+    <a class="pd-banner-side" href="sell.html" style="text-align:left;">
+      <strong>FLEA MARKET MARKETPLACE</strong>
+      <span>Start your own online booth</span>
+      <span>Post items for sale</span>
+    </a>
+    <div style="text-align:center;">
+      <a href="index.html"><img src="images/icon-512.png" alt="Pour Dawgz" style="width:100%;max-width:300px;height:auto;display:block;margin:0 auto;"></a>
+      <p class="pd-banner-tagline">Work Hard, Play Harder</p>
+    </div>
+    <a class="pd-banner-side" href="handyman.html" style="text-align:right;">
+      <strong>HANDYMAN SERVICES</strong>
+      <span>All your needs taken care of</span>
+    </a>
+  </div>
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="images/icon-512.png" alt="Pourdawgz"></a>
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="handyman.html" class="nav-cta">Handyman Services</a>
@@ -36,18 +62,26 @@
   </div>
 </header>
 
-<div class="hero">
+<section class="block" style="padding-top:24px;padding-bottom:8px;">
   <div class="wrap">
-    <span class="kicker">Newell, South Dakota</span>
-    <h1>Work gear for <span>working men.</span></h1>
-    <p class="tagline">Pour Dawgz is a handyman outfit first — repair, remodel, install, build — plus tough work gear you can order from home and a weekend flea market. No big-box polish, just real work.</p>
-    <div class="btn-row">
-      <a class="btn primary" href="handyman.html">Need a handyman?</a>
-      <a class="btn ghost" href="shop.html">Shop the store</a>
-      <a class="btn ghost" href="sell.html">Open a free shop</a>
+    <div class="pd-tiles" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <a class="pd-tile" href="shop.html">
+        <img src="images/cuff-beanie-1.png" alt="Pour Dawgz cuff beanie">
+        <span class="pd-tile-caption"><strong>FLEA MARKET &amp; STORE</strong><span>Shop the booths — shop the Pour Dawgz store</span></span>
+      </a>
+      <div>
+        <a class="pd-tile" href="handyman.html">
+          <img src="images/powercap-beanie.jpg" alt="POWERCAP work beanie">
+          <span class="pd-tile-caption"><strong>HANDYMAN SERVICES</strong><span>Repair, remodel, install, build</span></span>
+        </a>
+        <p style="text-align:right;margin:10px 0 0;"><a href="shop.html">Shop the Store</a></p>
+      </div>
+    </div>
+    <div style="text-align:center;margin:24px 0 4px;">
+      <a class="btn primary" href="#community">COMMUNITY HAPPENINGS</a>
     </div>
   </div>
-</div>
+</section>
 <div class="stripe"></div>
 
 <section class="block" id="top-sellers">
@@ -91,9 +125,9 @@
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="community">
   <div class="wrap">
-    <h2>Real markets, real weekends</h2>
+    <h2>Community Happenings — Black Hills auctions, markets &amp; events</h2>
     <p class="lede">We keep a running schedule of flea markets around the region &mdash; plus our own booths right here.</p>
     <div class="btn-row" style="justify-content: flex-start;">
       <a class="btn primary" href="markets.html">See the market schedule</a>
@@ -126,9 +160,6 @@
   renderProducts("featured-grid", ["volt-gloves", "powercap-beanie", "duluth-pants"]);
 </script>
 <script>
-  // Top Sellers: the 6 highest-rated products. The store has no sales history
-  // yet, so the star rating stated in each product's description stands in
-  // for the ranking. No sales numbers are shown.
   (function () {
     var grid = document.getElementById("top-sellers-grid");
     if (grid && typeof PRODUCTS !== "undefined" && typeof renderProductList === "function") {
@@ -144,7 +175,6 @@
   })();
 </script>
 <script>
-  // Add-to-home-screen: Android/Chrome uses the install prompt, iPhone uses Share > Add to Home Screen.
   (function () {
     var btn = document.getElementById("install-btn");
     var help = document.getElementById("install-help");
@@ -152,17 +182,14 @@
     var deferredPrompt = null;
     var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
     var isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-
     if (isStandalone) {
       btn.style.display = "none";
       if (help) help.textContent = "You're all set — Pour Dawgz is on your home screen.";
       return;
     }
-
     if (isIOS) {
       if (help) help.innerHTML = "On iPhone: tap <strong>Share</strong> in Safari, then <strong>Add to Home Screen</strong>.";
     } else {
-      // Android/desktop: only show the button once the browser says install is available.
       btn.style.display = "none";
       window.addEventListener("beforeinstallprompt", function (e) {
         e.preventDefault();
@@ -170,7 +197,6 @@
         btn.style.display = "";
         if (help) help.textContent = "Tap the button to install — our logo goes right on your home screen.";
       });
-      // Fallback: if the event never fires, still offer manual instructions on tap.
       setTimeout(function () {
         if (!deferredPrompt && help && !isIOS) {
           btn.style.display = "";
@@ -178,7 +204,6 @@
         }
       }, 4000);
     }
-
     btn.addEventListener("click", function () {
       if (deferredPrompt) {
         deferredPrompt.prompt();
