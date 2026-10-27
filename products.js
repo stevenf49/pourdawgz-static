@@ -86,9 +86,9 @@ const PRODUCTS = [
   },
   {
     id: "pourdawgz-tee-handyman-slogan",
-    name: "Pour Dawgz Tee - Handyman Slogan",
+    name: "Pour Dawgz HANDYMAN Tee",
     price: 34.99,
-    description: "Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Front print: 'HANDYMAN' with the slogan 'Can't be no geek off the street — gotta be handy with the tools.' Sizes XS-5XL.",
+    description: "Front print says it plain: HANDYMAN — Can't be no geek off the street, gotta be handy with the tools. Unisex Staple T-Shirt (Bella + Canvas 3001) in Black. Sizes XS-5XL.",
     image: "images/browser-download-20260921T180444.572019898Z-1-unisex-staple-t-shirt-black-front-6ab171b11c75a.png",
     squareLink: "https://square.link/u/FNHJexQJ",
     seller: "Pour Dawgz Merch",
