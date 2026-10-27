@@ -28,7 +28,7 @@
     if (p.orderLink && p.orderLink !== "#") {
       return '<a class="buy-btn" href="' + escapeHtml(p.orderLink) + '">Message Us to Order</a>';
     }
-    return '<a class="buy-btn" href="#" title="Secure Square checkout link coming soon">Buy Now</a>';
+    return '<a class="buy-btn" href="contact.html">Message Us to Order</a>';
   }
 
   function card(p) {
@@ -256,7 +256,7 @@
           optsHtml +
           '<p class="desc">' + escapeHtml(p.description || "") + "</p>" +
           '<div class="detail-buy">' + buyBtn(p) + "</div>" +
-          '<p class="fineprint">Secure checkout through Square &mdash; no account needed. Questions about this item? <a href="contact.html">Ask us here</a>.</p>' +
+          ((p.squareLink && p.squareLink !== "#") ? '<p class="fineprint">Secure checkout through Square &mdash; no account needed. Questions about this item? <a href="contact.html">Ask us here</a>.</p>' : '<p class="fineprint">Message us to order. Questions about this item? <a href="contact.html">Ask us here</a>.</p>') +
         "</div>" +
       "</div>" +
       relatedHtml;
