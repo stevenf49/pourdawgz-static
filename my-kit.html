@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Kit | Pour Dawgz</title>
+<meta name="description" content="My Kit — the gear and supplies Steven actually uses on the job. Order through Pour Dawgz and we ship it to you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pour Dawgz">
+<style>
+  .my-kit .col-card { display: flex; flex-direction: column; gap: 10px; }
+  .my-kit .kit-price { font-family: "Oswald", sans-serif; font-size: 1.15rem; color: var(--hi-vis); }
+  .my-kit .outbound { margin-top: auto; }
+  .my-kit .outbound .btn { display: block; text-align: center; }
+  .my-kit .kit-warning { border-left: 3px solid #e8a33d; background: rgba(232, 163, 61, 0.08); padding: 8px 10px; font-size: 0.85rem; line-height: 1.45; color: #f2c069; border-radius: 0 4px 4px 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/icon-512.png" alt="Pourdawgz"></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="handyman.html" class="nav-cta">Handyman Services</a>
+      <a href="shop.html">Shop</a>
+      <a href="my-kit.html" class="active">My Kit</a>
+      <a href="sell.html">Sell Your Stuff</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="deals.html">Deals &amp; Picks</a>
+      <a href="markets.html">Flea Markets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>My Kit</h2>
+    <p class="lede">My Kit — the gear and supplies I actually use on the job. Order through Pour Dawgz and we ship it to you.</p>
+    <div id="my-kit-grid"></div>
+    <p class="fineprint">Every purchase above checks out securely through Square &mdash; no account needed. Questions about a listing before you buy? <a href="contact.html">Ask us here</a> &mdash; include the product name. Payment information is never needed in a message.</p>
+  </div>
+</section>
+
+<section class="block my-kit">
+  <div class="wrap">
+    <h2>Also in My Kit</h2>
+    <p class="lede">Two more of my own picks, kept here as links — these are not Square items.</p>
+    <div class="cols">
+      <div class="col-card">
+        <span class="badge">My affiliate supplement</span>
+        <h3>Nitric Boost</h3>
+        <p>My own affiliate supplement for blood flow and stamina &mdash; part of my daily routine for keeping the motor running.</p>
+        <p class="kit-price">From $69</p>
+        <p class="outbound"><a class="btn ghost" href="https://getnitricboost.com/?affiliate=pourdawgzg&tid=pourdawgz-deals" target="_blank" rel="noopener">Learn More</a></p>
+      </div>
+      <div class="col-card">
+        <span class="badge">My personal pick &mdash; single capsule</span>
+        <h3>Rhino 17 5000 Plus</h3>
+        <p>Single-capsule male enhancement supplement &mdash; I buy it at a local store, use it myself, and personally stand behind it.</p>
+        <p class="kit-warning"><strong>Heads up:</strong> the FDA has flagged Rhino-branded enhancement products for containing hidden drug ingredients (undeclared sildenafil/tadalafil &mdash; the active drugs in Viagra and Cialis). Know what you're taking.</p>
+        <p class="kit-price">Check current price</p>
+        <p class="outbound"><a class="btn ghost" href="https://www.headshop.com/collections/male-enhancement-pills-gummies/products/rhino-17-5000-plus-1ct-open-stock" target="_blank" rel="noopener">Buy at Headshop</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
+    <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="hivis-products.js"></script>
+<script src="site.js"></script>
+<script>
+  renderProducts("my-kit-grid", ["diclofenac-gel", "biofreeze-gel", "slime-2-in-1-sealant", "plasti-dip-spray", "hh66-vinyl-cement", "black-poly-sheeting", "landscape-staples-50pk", "pvc-powder"]);
+</script>
+<!-- Floating Nitric Boost affiliate button --><a href="https://getnitricboost.com/?affiliate=pourdawgzg&tid=pourdawgz-deals" target="_blank" rel="noopener sponsored" aria-label="Nitric Boost — Steven's pick, see today's deal" style="position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;align-items:center;gap:10px;max-width:280px;padding:10px 12px;background:#221d14;border:2px solid #3fd669;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.45);color:#f2ede1;text-decoration:none;"><img src="images/nitric-boost.webp" alt="Nitric Boost bottle" style="height:56px;width:auto;flex:0 0 auto;border-radius:8px;"><span style="display:block;line-height:1.25;"><strong style="display:block;font-family:Oswald,Arial,sans-serif;font-size:17px;letter-spacing:.04em;color:#ffffff;">NITRIC BOOST</strong><span style="display:block;font-size:12px;color:#d8d2c4;">Steven's pick — blood flow &amp; stamina. See today's deal →</span></span></a></body>
+</html>
