@@ -523,3 +523,37 @@ footer a { color: var(--muted); }
   margin: 34px 0 4px;
 }
 .related-grid { margin-top: 10px; }
+
+/* ---------- Mobile fix (max-width: 768px only; desktop unchanged) ---------- */
+@media (max-width: 768px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .wrap { padding-left: 14px; padding-right: 14px; }
+  /* 1. Header must scroll away instead of staying pinned on every page. */
+  .site-header { position: static !important; top: auto; }
+  .site-header .wrap { flex-direction: column; align-items: stretch; gap: 6px; padding-top: 8px; padding-bottom: 8px; }
+  .brand img { height: 48px; }
+  /* 2. Homepage banner: stack vertically, logo first, side blocks full-width. */
+  .pd-banner-grid { grid-template-columns: 1fr !important; gap: 12px !important; text-align: center !important; }
+  .pd-banner-grid > div { order: -1; }
+  .pd-banner-side { width: 100%; text-align: center !important; }
+  .pd-banner-grid img { max-width: 260px !important; margin-left: auto; margin-right: auto; }
+  .pd-banner-tagline { font-size: 20px; }
+  /* 3. Nav: smaller, tighter, centered, wrapping neatly; never overflow. */
+  nav.main-nav { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 6px; width: 100%; }
+  nav.main-nav a { font-size: 0.82rem; padding: 6px 10px; text-align: center; white-space: normal; }
+  /* 4. Grids: homepage hero tiles and Top Sellers to 1 column; shop to 2. */
+  .pd-tiles { grid-template-columns: 1fr !important; }
+  .pd-tile img { height: auto; }
+  #top-sellers-grid, #featured-grid { grid-template-columns: 1fr !important; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .pic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px; }
+  .cols, .my-kit .cols { grid-template-columns: 1fr; }
+  .spotlight-row { grid-template-columns: 1fr; }
+  section.block { padding-top: 28px; padding-bottom: 28px; }
+  /* 5. Hide the fixed Nitric Boost promo card (inline-styled link, no class). */
+  a[aria-label*="Nitric Boost"] { display: none !important; }
+  /* 6. My Kit: cap image height and contain, so a card fits one phone screen. */
+  #my-kit-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  #my-kit-grid .card .img-wrap { aspect-ratio: auto; max-height: 260px; }
+  #my-kit-grid .card .img-wrap img { height: 260px; max-height: 260px; object-fit: contain !important; width: 100%; }
+}
