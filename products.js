@@ -961,3 +961,17 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Verified product images: manufacturer/retailer hotlinks for the Stanley J509 and My Kit items.
+const PRODUCT_IMAGE_FIXES = {
+  "stanley-j509-jump-pack": "https://static.wixstatic.com/media/217982_e9d1e28135eb41a98240adce6fc73bbc~mv2.jpg/v1/fill/w_806,h_806,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/J509_1%20copy.jpg",
+  "diclofenac-gel": "https://curistrelief.com/cdn/shop/products/DiclofenacGelPackageImage-compressed_400x400.png?v=1679345787",
+  "biofreeze-gel": "https://biofreeze.com/static/a06132b8965c43644a3e10fc5aae7a80/7b187/en-US-bf_retailgeltubegreen.png",
+  "slime-2-in-1-sealant": "https://slime.com/cdn/shop/products/10193_001_16oz_2in1sealant_IP_front-3000x3000-11978c27-f7e4-4194-98db-9b7b2d5a5f07_300x.jpg?v=1681840021",
+  "plasti-dip-spray": "https://shop.plastidip.com/cdn/shop/files/plastidip-shopify_Black_Plasti_Dip_spray.jpg?v=1722957028&width=1946",
+  "hh66-vinyl-cement": "https://directus.sailrite.com/assets/c4e3cff2-e73a-4475-a20b-74e3dfdb7944.webp?width=800&format=webp",
+  "black-poly-sheeting": "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1903629?wid=554&hei=554&qlt=90&fmt=jpeg&resMode=sharp2&op_usm=0.9,1.0,8,0",
+  "landscape-staples-50pk": "https://images.thdstatic.com/productImages/eb596acef1264e2da629313bdb2b1ae4/svn/unbranded-garden-stakes-b9rv4ztn-64_600.jpg",
+  "pvc-powder": "https://www.pyrochemsource.com/assets/images/PVC%20Powder.jpg"
+};
+PRODUCTS.forEach((p) => { if (PRODUCT_IMAGE_FIXES[p.id]) p.image = PRODUCT_IMAGE_FIXES[p.id]; });
