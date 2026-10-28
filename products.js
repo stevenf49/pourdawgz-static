@@ -859,3 +859,105 @@ const PRODUCTS = [
       available: true
    }
 ];
+/* My Kit + Stanley J509 additions — Square checkout through Pour Dawgz. */
+PRODUCTS.push(
+  {
+    id: "stanley-j509-jump-pack",
+    name: "Stanley J509 Jump Starter / Power Pack",
+    price: 99.99,
+    description: "The jump starter / portable power pack I use myself — jump-dead vehicles and run small gear on site. Keep it in the truck and you are never stuck.",
+    image: "https://www.stanleytools.com/sites/default/files/2023-01/J509.png",
+    squareLink: "https://square.link/u/SJ1ErPYO",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "diclofenac-gel",
+    name: "Diclofenac Sodium Gel 1% — 5.29 oz Tube",
+    price: 19.99,
+    description: "Rub it straight into sore knuckles, wrists and elbows after a long day swinging hammers and hauling concrete. Stuff I actually use.",
+    image: "https://www.perrigo.com/sites/default/files/diclofenac-gel.jpg",
+    squareLink: "https://square.link/u/YUrWuFgO",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "biofreeze-gel",
+    name: "Biofreeze Pain Relief Gel — 3 oz",
+    price: 17.99,
+    description: "Cooling menthol gel I reach for on stiff, overworked hands and sore muscles — fast relief after a hard day. Stuff I actually use.",
+    image: "https://www.biofreeze.com/cdn/shop/files/biofreeze-gel-3oz.jpg",
+    squareLink: "https://square.link/u/kOvPsysg",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "slime-2-in-1-sealant",
+    name: "Slime 2-in-1 Tire & Tube Sealant — 16 oz",
+    price: 14.99,
+    description: "Seals punctures in tires and tubes as they happen — keeps the slide's tubes inflated without a patch kit. Stuff I actually use.",
+    image: "https://www.slime.com/wp-content/uploads/slime-2-in-1-sealant-16oz.jpg",
+    squareLink: "https://square.link/u/XL2zuRv7",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "plasti-dip-spray",
+    name: "Plasti Dip Rubber Coating Spray — 11 oz",
+    price: 12.99,
+    description: "Sprays on a tough, flexible rubber skin over inner tubes and worn spots. Stuff I actually use on the job.",
+    image: "https://plastidip.com/wp-content/uploads/plasti-dip-spray-11oz.jpg",
+    squareLink: "https://square.link/u/G6l5UiLk",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "hh66-vinyl-cement",
+    name: "HH-66 Vinyl Cement — 4 oz",
+    price: 18.99,
+    description: "Made in USA. The raft-grade vinyl cement I use to bond and patch PVC and vinyl — the pro fix for torn sections. Stuff I actually use.",
+    image: "https://www.rhadhesives.com/wp-content/uploads/hh-66-vinyl-cement-4oz.jpg",
+    squareLink: "https://square.link/u/b8cwHdRi",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "black-poly-sheeting",
+    name: "Black Poly Sheeting — 10 ft x 25 ft, 6 mil",
+    price: 36.99,
+    description: "Heavy-duty 6 mil black poly — a much thicker replacement slide surface that will not shred like thin painter's plastic. Stuff I actually use.",
+    image: "https://www.farmplasticsupply.com/images/black-poly-sheeting-10x25-6mil.jpg",
+    squareLink: "https://square.link/u/BwyFbuN0",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "landscape-staples-50pk",
+    name: "Landscape Staples — 50 Pack, 6-inch Galvanized",
+    price: 15.99,
+    description: "Galvanized 6-inch staples to pin sheeting edges down every 12-18 inches so the wind cannot get under it. Stuff I actually use.",
+    image: "https://www.gardenmark.com/images/landscape-staples-50pk.jpg",
+    squareLink: "https://square.link/u/zLv6vvAb",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "pvc-powder",
+    name: "PVC Powder — 1 lb",
+    price: 12.99,
+    description: "PVC resin powder for plastisol projects — soft-plastic fishing lures, dip-coated tool handles and other DIY builds. Stuff I actually use.",
+    image: "https://www.pyrochemsource.com/images/pvc-powder-1lb.jpg",
+    squareLink: "https://square.link/u/UXcf9ahQ",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  }
+);
