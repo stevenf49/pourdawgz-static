@@ -602,17 +602,6 @@ const PRODUCTS = [
     available: true
   },
   {
-    id: "heather-munoz-rubber-plant",
-    name: "Rubber Starter Plant",
-    price: 25,
-    description: "Rubber starter plant. Listed by Heather Munoz - Lujan — Message us to order to arrange pickup or shipping.",
-    image: "",
-    squareLink: "https://square.link/u/xThWFNZH",
-    seller: "Heather Munoz - Lujan",
-    type: "fixed",
-    available: true
-  },
-  {
     id: "centauri-carbon-2",
     name: "Elegoo Centauri Carbon 2 3D Printer",
     price: 389,
