@@ -27,17 +27,16 @@
 .pd-tile-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,.88)); }
 .pd-tile-caption strong { display: block; font-family: Oswald, Arial, sans-serif; font-size: 30px; letter-spacing: .04em; line-height: 1.1; }
 .pd-tile-caption span { display: block; font-size: 16px; margin-top: 4px; }
-@media (max-width: 700px) { .pd-banner-grid { grid-template-columns: 1fr !important; text-align: center !important; } .pd-banner-side { text-align: center !important; } .pd-tiles { grid-template-columns: 1fr !important; } }
+@media (max-width: 700px) { .pd-banner-grid { grid-template-columns: 1fr 1fr !important; text-align: center !important; gap: 12px !important; } .pd-banner-grid > div { grid-column: 1 / -1; grid-row: 1; } .pd-banner-grid > a:nth-of-type(1) { grid-column: 1; grid-row: 2; } .pd-banner-grid > a:nth-of-type(2) { grid-column: 2; grid-row: 2; } .pd-banner-side { text-align: center !important; } .pd-tiles { grid-template-columns: 1fr !important; } }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="wrap pd-banner-grid" style="display:grid;grid-template-columns:1fr minmax(0,2.2fr) 1fr;align-items:center;gap:20px;padding-top:10px;padding-bottom:10px;">
+  <div class="wrap pd-banner-grid" style="display:grid;grid-template-columns:1fr minmax(0,2.2fr) 1fr;align-items:center;gap:12px;padding-top:6px;padding-bottom:6px;">
     <a class="pd-banner-side" href="sell.html" style="text-align:left;">
       <strong>FLEA MARKET MARKETPLACE</strong>
-      <span>Start your own online booth</span>
-      <span>Post items for sale</span>
+      <span>Sell your stuff — open your own booth</span>
     </a>
     <div style="text-align:center;">
       <a href="index.html"><img src="images/icon-512.png" alt="Pour Dawgz" style="width:100%;max-width:300px;height:auto;display:block;margin:0 auto;"></a>
@@ -45,20 +44,8 @@
     </div>
     <a class="pd-banner-side" href="handyman.html" style="text-align:right;">
       <strong>HANDYMAN SERVICES</strong>
-      <span>All your needs taken care of</span>
+      <span>All your home needs, handled</span>
     </a>
-  </div>
-  <div class="wrap">
-    <nav class="main-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="handyman.html" class="nav-cta">Handyman Services</a>
-      <a href="shop.html">Shop</a>
-      <a href="sell.html">Sell Your Stuff</a>
-      <a href="sellers.html">Sellers</a>
-      <a href="deals.html">Deals &amp; Picks</a>
-      <a href="markets.html">Flea Markets</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </div>
 </header>
 
@@ -76,9 +63,6 @@
         </a>
         <p style="text-align:right;margin:10px 0 0;"><a href="shop.html">Shop the Store</a></p>
       </div>
-    </div>
-    <div style="text-align:center;margin:24px 0 4px;">
-      <a class="btn primary" href="#community">COMMUNITY HAPPENINGS</a>
     </div>
   </div>
 </section>
