@@ -7,7 +7,29 @@
    - type: "fixed" (buy now) or "auction" (bid / ask).
    - available: false disables the buy button (e.g. crib listing). */
 const PRODUCTS = [
-  {
+   {
+      id: "one-of-a-kind-splatter-beanie",
+      name: "One-of-a-Kind Splatter Beanie — Handmade by Pour Dawgz",
+      price: 44.99,
+      description: "One of a kind — handmade by Pour Dawgz. Dark gray knit beanie with neon splatter paint, a hand-braided painted cord band, and painted spike strands. Exactly one was made, and when it is gone there will never be another like it. Ships to your address. Extra photo: images/steven-wearing-splatter-beanie-and-neon-skull-mask.jpg",
+      image: "images/one-of-a-kind-splatter-beanie.jpg",
+      squareLink: "https://square.link/u/L9lXm0UR",
+      seller: "Pour Dawgz",
+      type: "fixed",
+      available: true
+   },
+   {
+      id: "one-of-a-kind-neon-skull-mask",
+      name: "One-of-a-Kind Neon Skull Mask — Handmade by Pour Dawgz",
+      price: 64.99,
+      description: "One of a kind — handmade by Pour Dawgz. Melted-look neon skull mask in green, pink, orange and yellow. Exactly one was made. Costume / art piece. Ships to your address. Extra photo: images/steven-wearing-splatter-beanie-and-neon-skull-mask.jpg",
+      image: "images/one-of-a-kind-neon-skull-mask.jpg",
+      squareLink: "https://square.link/u/dmGMFZ50",
+      seller: "Pour Dawgz",
+      type: "fixed",
+      available: true
+   },
+   {
     id: "cuff-beanie",
     name: "Pour Dawgz Logo Cuff Beanie",
     price: 49.95,
