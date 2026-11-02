@@ -8,6 +8,17 @@
    - available: false disables the buy button (e.g. crib listing). */
 const PRODUCTS = [
    {
+          id: "pourdawgz-glow-logo-transfer",
+          name: "Pour Dawgz Glow Logo Transfer — 4\" Iron-On",
+          price: 14.99,
+          description: "Glow-in-the-dark iron-on logo transfer, 4 inches. The Pour Dawgz logo — the white parts glow green in the dark. Press it on a shirt, hoodie, or a hat with a heat press or a hot iron. One transfer. Ships to your address.",
+          image: "images/pourdawgz-glow-logo-transfer.png",
+          squareLink: "https://square.link/u/6voXtm0s",
+          seller: "Pour Dawgz",
+          type: "fixed",
+          available: true
+   },
+   {
       id: "one-of-a-kind-splatter-beanie",
       name: "One-of-a-Kind Splatter Beanie — Handmade by Pour Dawgz",
       price: 44.99,
