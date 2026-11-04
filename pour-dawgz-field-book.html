@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#211a13">
+<title>Pour Dawgz — Field Book</title>
+<meta name="apple-mobile-web-app-title" content="Field Book">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="https://www.pourdawgz.biz/images/field-book-icon.png">
+<link rel="icon" type="image/png" href="https://www.pourdawgz.biz/images/field-book-icon.png">
+<style>
+  :root{
+    --dark:#211a13; --dark2:#2e251b; --paper:#f7f3ec; --card:#ffffff;
+    --ink:#221c14; --muted:#6f6355; --accent:#d97c1e; --accent-d:#b8640f;
+    --line:#ddd2c2; --good:#2e7d32; --bad:#b3261e; --radius:12px;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper); color:var(--ink); font-size:16px; line-height:1.4;}
+  header{background:var(--dark); color:#f5ead9; padding:14px 16px 10px; position:sticky; top:0; z-index:30;
+    box-shadow:0 2px 8px rgba(0,0,0,.35);}
+  header .brand{font-size:22px; font-weight:800; letter-spacing:.3px;}
+  header .brand span{color:var(--accent);}
+  header .sub{font-size:12.5px; color:#cdbfa9; margin-top:2px;}
+  header .bizline{font-size:12.5px; color:#e9dcc4; margin-top:4px;}
+  nav.tabs{display:flex; gap:6px; overflow-x:auto; background:var(--dark2); padding:8px 8px;
+    position:sticky; top:0; z-index:29; scrollbar-width:none;}
+  nav.tabs::-webkit-scrollbar{display:none;}
+  nav.tabs button{flex:1 0 auto; min-height:48px; padding:10px 12px; border:1px solid #4a3d2c; border-radius:10px;
+    background:#3a3023; color:#e9dcc4; font-size:15px; font-weight:700; cursor:pointer;}
+  nav.tabs button.active{background:var(--accent); border-color:var(--accent); color:#fff;}
+  main{padding:12px 12px 90px; max-width:820px; margin:0 auto;}
+  section.tab{display:none;}
+  section.tab.active{display:block;}
+  h2.sec{font-size:19px; margin:6px 2px 10px;}
+  .row{display:flex; gap:8px; align-items:center;}
+  .row.wrap{flex-wrap:wrap;}
+  .grow{flex:1;}
+  input[type=text],input[type=tel],input[type=email],input[type=number],input[type=date],input[type=time],
+  select,textarea{width:100%; font-size:16px; padding:12px; border:1.5px solid var(--line);
+    border-radius:10px; background:#fff; color:var(--ink); min-height:48px;}
+  textarea{min-height:76px; resize:vertical;}
+  label.f{display:block; font-size:13px; font-weight:700; color:var(--muted); margin:12px 2px 4px;
+    text-transform:uppercase; letter-spacing:.4px;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:50px;
+    padding:12px 16px; border-radius:10px; border:1.5px solid var(--line); background:#fff; color:var(--ink);
+    font-size:16px; font-weight:700; cursor:pointer; text-decoration:none;}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn.primary:active{background:var(--accent-d);}
+  .btn.dark{background:var(--dark); border-color:var(--dark); color:#f5ead9;}
+  .btn.danger{color:var(--bad); border-color:#e5b6b2;}
+  .btn.small{min-height:42px; padding:8px 12px; font-size:14px;}
+  .btn.block{width:100%;}
+  .btn:disabled{opacity:.45; cursor:default;}
+  .card{background:var(--card); border:1.5px solid var(--line); border-radius:var(--radius);
+    padding:12px 14px; margin:0 0 10px;}
+  .card .t{font-size:17px; font-weight:800;}
+  .card .s{font-size:14px; color:var(--muted); margin-top:2px; word-break:break-word;}
+  .card .amt{font-size:17px; font-weight:800; color:var(--dark);}
+  .badge{display:inline-block; font-size:12px; font-weight:800; padding:3px 9px; border-radius:999px;
+    background:#efe6d6; color:var(--dark); border:1px solid var(--line); vertical-align:middle;}
+  .badge.est{background:#e3ecff; border-color:#b9cdf5;}
+  .badge.inv{background:#ffe9d2; border-color:#f2c894;}
+  .badge.paid{background:#dff2df; border-color:#a9d3a9;}
+  .iconrow{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
+  .iconbtn{flex:1; min-height:46px; display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    border:1.5px solid var(--line); border-radius:10px; background:#fbf8f2; color:var(--ink);
+    font-size:15px; font-weight:700; text-decoration:none; cursor:pointer;}
+  .hint{font-size:13px; color:var(--muted); margin:8px 2px;}
+  .warn{background:#fdf3e3; border:1.5px solid #ecc27c; border-radius:10px; padding:10px 12px;
+    font-size:14px; margin:10px 0;}
+  .panel{background:var(--card); border:1.5px solid var(--line); border-radius:var(--radius); padding:14px; margin-bottom:12px;}
+  .itemrow{border:1.5px solid var(--line); border-radius:10px; padding:10px; margin-bottom:8px; background:#fff;}
+  .itemrow .grid{display:grid; grid-template-columns:1fr 64px 96px; gap:8px;}
+  .itemrow .grid2{display:grid; grid-template-columns:1fr auto auto; gap:8px; align-items:center; margin-top:8px;}
+  .itemrow .amtline{font-weight:800; text-align:right; min-width:86px;}
+  .totals{background:#fbf8f2; border:1.5px solid var(--line); border-radius:10px; padding:10px 12px; margin-top:10px;}
+  .totals .tr{display:flex; justify-content:space-between; padding:3px 0; font-size:15px;}
+  .totals .tr.grand{font-size:18px; font-weight:800; border-top:1.5px solid var(--line); margin-top:6px; padding-top:8px;}
+  .photos{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;}
+  .ph{position:relative; width:88px; height:88px; border-radius:10px; overflow:hidden; border:1.5px solid var(--line);}
+  .ph img{width:100%; height:100%; object-fit:cover; display:block;}
+  .ph button{position:absolute; top:2px; right:2px; width:28px; height:28px; border-radius:50%; border:none;
+    background:rgba(0,0,0,.65); color:#fff; font-size:15px; line-height:1; cursor:pointer;}
+  .switch{display:flex; align-items:center; gap:10px; margin:14px 0 4px;}
+  .switch input{width:26px; height:26px; accent-color:var(--accent);}
+  .switch .lab{font-size:15px; font-weight:700;}
+  .empty{color:var(--muted); text-align:center; padding:26px 10px; font-size:15px;}
+  #toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(20px); background:var(--dark);
+    color:#f5ead9; padding:12px 18px; border-radius:999px; font-size:15px; font-weight:700; opacity:0;
+    pointer-events:none; transition:all .25s; z-index:99; max-width:92vw; text-align:center;}
+  #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+  .sigpad{width:100%; height:190px; border:1.5px solid var(--line); border-radius:10px; background:#fff; touch-action:none; display:block;}
+  .sigimg{max-width:230px; max-height:90px; border:1px solid var(--line); border-radius:6px; background:#fff; margin-top:6px;}
+  .badge.done{background:#e7f0e4; border-color:#b9d3b2;}
+  .badge.cancelled{background:#eee; border-color:#ccc; color:var(--muted);}
+  .verfoot{text-align:center; color:var(--muted); font-size:12.5px; padding:2px 0 30px;}
+  /* ---- customer paper ---- */
+  .paper{background:#fff; color:#111; border:1.5px solid var(--line); border-radius:8px; padding:22px 18px;}
+  .paper .p-head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; border-bottom:3px solid #211a13; padding-bottom:10px;}
+  .paper .p-biz{font-size:24px; font-weight:900;}
+  .paper .p-meta{font-size:13px; color:#444; text-align:right;}
+  .paper .p-title{font-size:19px; font-weight:800; margin:14px 0 2px;}
+  .paper table{width:100%; border-collapse:collapse; margin-top:10px;}
+  .paper th,.paper td{text-align:left; padding:7px 6px; border-bottom:1px solid #e4ddd0; font-size:14.5px; vertical-align:top;}
+  .paper th{font-size:12px; text-transform:uppercase; letter-spacing:.5px; color:#666;}
+  .paper td.num,.paper th.num{text-align:right; white-space:nowrap;}
+  .paper .p-tot{margin-left:auto; width:min(300px,100%); margin-top:10px;}
+  .paper .p-tot .tr{display:flex; justify-content:space-between; padding:3px 0; font-size:14.5px;}
+  .paper .p-tot .grand{font-size:17px; font-weight:900; border-top:2px solid #211a13; padding-top:6px; margin-top:4px;}
+  .paper .p-photos{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+  .paper .p-photos img{width:150px; height:150px; object-fit:cover; border:1px solid #ddd; border-radius:6px;}
+  .paper .paybtn{display:inline-block; margin-top:12px; background:#d97c1e; color:#fff; font-weight:800;
+    padding:13px 22px; border-radius:10px; text-decoration:none; font-size:16px;}
+  .paper .p-notes{white-space:pre-wrap; font-size:14px; margin-top:12px; background:#faf7f1; border:1px solid #e4ddd0; border-radius:8px; padding:10px;}
+  #printSheet{display:none;}
+  @media print{
+    body{background:#fff;}
+    #appRoot{display:none !important;}
+    #printSheet{display:block !important;}
+    #printSheet .paper{border:none; border-radius:0; padding:0;}
+    #printSheet .paybtn{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div id="appRoot">
+  <header>
+    <div class="brand">Pour Dawgz <span>— Field Book</span></div>
+    <div class="sub">Estimates · Invoices · Jobs · Schedule · Contacts — Newell, SD</div>
+    <div class="bizline">Call Steven directly at 605-515-8327 or WhatsApp 605-639-0960</div>
+  </header>
+  <nav class="tabs" id="tabBar">
+    <button data-tab="contacts" class="active">Contacts</button>
+    <button data-tab="jobs">Jobs</button>
+    <button data-tab="schedule">Schedule</button>
+    <button data-tab="docs">Estimates &amp; Invoices</button>
+    <button data-tab="price">Price Book</button>
+    <button data-tab="backup">Backup</button>
+  </nav>
+  <main>
+    <div class="warn" id="backupNag" style="display:none; margin-bottom:10px;"></div>
+    <!-- ============ CONTACTS ============ -->
+    <section class="tab active" id="tab-contacts">
+      <div class="row" style="margin-bottom:10px;">
+        <input type="text" id="contactSearch" class="grow" placeholder="Search contacts…">
+        <button class="btn primary" id="contactAddBtn">+ Add</button>
+        <button class="btn" id="contactImportBtn">Import card</button>
+        <input type="file" id="contactCardFile" accept=".vcf,text/vcard,text/x-vcard" style="display:none;">
+      </div>
+      <div id="contactList"></div>
+      <div class="panel" id="contactForm" style="display:none;">
+        <h2 class="sec" id="contactFormTitle">Add contact</h2>
+        <label class="f">Name</label><input type="text" id="cf-name" autocomplete="name">
+        <label class="f">Company</label><input type="text" id="cf-company" autocomplete="organization">
+        <label class="f">Phone</label><input type="tel" id="cf-phone" autocomplete="tel">
+        <label class="f">Email</label><input type="email" id="cf-email" autocomplete="email">
+        <label class="f">Address</label><input type="text" id="cf-address" autocomplete="street-address">
+        <label class="f">Notes</label><textarea id="cf-notes"></textarea>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn primary grow" id="contactSaveBtn">Save contact</button>
+          <button class="btn grow" id="contactCancelBtn">Cancel</button>
+        </div>
+        <button class="btn danger block" id="contactDeleteBtn" style="margin-top:8px; display:none;">Delete contact</button>
+      </div>
+    </section>
+
+    <!-- ============ JOBS ============ -->
+    <section class="tab" id="tab-jobs">
+      <div class="row" style="margin-bottom:10px;">
+        <input type="text" id="jobSearch" class="grow" placeholder="Search jobs…">
+        <button class="btn primary" id="jobAddBtn">+ Add</button>
+      </div>
+      <div id="jobList"></div>
+      <div class="panel" id="jobForm" style="display:none;">
+        <h2 class="sec" id="jobFormTitle">Add job</h2>
+        <label class="f">Job title</label><input type="text" id="jf-title">
+        <label class="f">Customer</label><select id="jf-contact"></select>
+        <button type="button" class="btn small" id="jf-newCustBtn" style="margin-top:6px;">+ New customer</button>
+        <div id="jf-quickAdd" style="display:none; margin-top:8px;">
+          <label class="f">New customer name</label><input type="text" id="jf-qc-name">
+          <label class="f">Phone (optional)</label><input type="tel" id="jf-qc-phone">
+          <div class="row" style="margin-top:8px;">
+            <button type="button" class="btn primary grow" id="jf-qc-add">Add customer</button>
+            <button type="button" class="btn grow" id="jf-qc-cancel">Cancel</button>
+          </div>
+        </div>
+        <label class="f">Job address</label><input type="text" id="jf-address">
+        <label class="f">Status</label>
+        <select id="jf-status">
+          <option>New</option><option>In progress</option><option>Done</option><option>Paid</option>
+        </select>
+        <label class="f">Description</label><textarea id="jf-desc"></textarea>
+        <label class="f">Notes</label><textarea id="jf-notes"></textarea>
+        <label class="f">Photos</label>
+        <div class="hint">Crew shoots photos on the job — attach them here from the camera or photo library, then pull them onto the invoice.</div>
+        <label class="btn block" for="jf-photo-input">📷 Add photos</label>
+        <input type="file" id="jf-photo-input" accept="image/*" multiple style="display:none;">
+        <div class="photos" id="jf-photos"></div>
+        <label class="f">Time clock — your records only, never on customer copies</label>
+        <div class="row">
+          <select id="jf-clockWho" class="grow"></select>
+          <button type="button" class="btn primary" id="jf-clockStart">▶ Start</button>
+          <button type="button" class="btn danger" id="jf-clockStop">■ Stop</button>
+        </div>
+        <div id="jf-clockStatus" style="margin-top:6px; font-size:14px; color:var(--muted);"></div>
+        <div id="jf-timelog"></div>
+        <div id="jf-clockTotal" style="font-weight:800; margin-top:4px;"></div>
+        <label class="f">Customer sign-off</label>
+        <div id="jf-signView"></div>
+        <label class="f">Signer name</label><input type="text" id="jf-signName" placeholder="Customer's name">
+        <div class="hint">Have the customer sign in the box with a finger, then tap Save sign-off.</div>
+        <canvas id="jf-signPad" class="sigpad" width="640" height="200"></canvas>
+        <div class="row" style="margin-top:8px;">
+          <button type="button" class="btn primary grow" id="jf-signSave">Save sign-off</button>
+          <button type="button" class="btn grow" id="jf-signClear">Clear signature</button>
+        </div>
+        <div id="jf-docs-wrap" style="display:none;">
+          <label class="f">Estimates &amp; invoices for this job</label>
+          <div id="jf-docs"></div>
+        </div>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn primary grow" id="jobSaveBtn">Save job</button>
+          <button class="btn grow" id="jobCancelBtn">Cancel</button>
+        </div>
+        <button class="btn danger block" id="jobDeleteBtn" style="margin-top:8px; display:none;">Delete job</button>
+        <button class="btn block" id="jobPackBtn" style="margin-top:8px; display:none;">📤 Send this job to crew</button>
+        <div class="hint" id="jobPackHint" style="display:none;">Makes one small file with just this job, its customer, and its schedule. Text the file to your crew member — on their phone they open the Field Book, go to Backup, tap Import, and pick the file. The job lands in their book. Nothing else in their book changes.</div>
+      </div>
+    </section>
+
+    <!-- ============ SCHEDULE ============ -->
+    <section class="tab" id="tab-schedule">
+      <h2 class="sec">Crew</h2>
+      <div id="crewList"></div>
+      <div class="row" style="margin-bottom:12px;">
+        <button class="btn" id="crewAddBtn">+ Add crew member</button>
+      </div>
+      <div class="panel" id="crewForm" style="display:none;">
+        <h2 class="sec" id="crewFormTitle">Add crew member</h2>
+        <label class="f">Name</label><input type="text" id="crf-name">
+        <label class="f">Phone</label><input type="tel" id="crf-phone" autocomplete="tel">
+        <label class="f">Role</label><input type="text" id="crf-role" placeholder="e.g. Tech, Helper">
+        <div class="row" style="margin-top:14px;">
+          <button class="btn primary grow" id="crewSaveBtn">Save crew member</button>
+          <button class="btn grow" id="crewCancelBtn">Cancel</button>
+        </div>
+        <button class="btn danger block" id="crewDeleteBtn" style="margin-top:8px; display:none;">Delete crew member</button>
+      </div>
+
+      <div class="row" style="margin:14px 0 4px;">
+        <h2 class="sec grow" style="margin:0;">Schedule</h2>
+        <button class="btn primary" id="schedAddBtn">+ Add</button>
+      </div>
+      <label class="f">Today</label>
+      <div id="schedToday"></div>
+      <label class="f">Upcoming</label>
+      <div id="schedUpcoming"></div>
+      <div class="hint">Scheduling a crew member here doesn't message them by itself — use Text crew, it opens your texts ready to send.</div>
+      <div class="panel" id="schedForm" style="display:none;">
+        <h2 class="sec" id="schedFormTitle">Add to schedule</h2>
+        <label class="f">Date</label><input type="date" id="sf-date">
+        <div class="row">
+          <div class="grow"><label class="f" style="margin-top:0;">Start time</label><input type="time" id="sf-start"></div>
+          <div class="grow"><label class="f" style="margin-top:0;">End time (optional)</label><input type="time" id="sf-end"></div>
+        </div>
+        <div class="warn" id="sf-warn" style="display:none;"></div>
+        <label class="f">Job</label><select id="sf-job"></select>
+        <label class="f">Title</label><input type="text" id="sf-title" placeholder="Defaults to the job title">
+        <label class="f">Customer</label><select id="sf-contact"></select>
+        <button type="button" class="btn small" id="sf-newCustBtn" style="margin-top:6px;">+ New customer</button>
+        <div id="sf-quickAdd" style="display:none; margin-top:8px;">
+          <label class="f">New customer name</label><input type="text" id="sf-qc-name">
+          <label class="f">Phone (optional)</label><input type="tel" id="sf-qc-phone">
+          <div class="row" style="margin-top:8px;">
+            <button type="button" class="btn primary grow" id="sf-qc-add">Add customer</button>
+            <button type="button" class="btn grow" id="sf-qc-cancel">Cancel</button>
+          </div>
+        </div>
+        <label class="f">Assigned to</label><input type="text" id="sf-assigned" list="crewNames" placeholder="Pick or type a name">
+        <datalist id="crewNames"></datalist>
+        <label class="f">Address</label><input type="text" id="sf-address">
+        <label class="f">Status</label>
+        <select id="sf-status">
+          <option>Scheduled</option><option>Done</option><option>Cancelled</option>
+        </select>
+        <label class="f">Notes</label><textarea id="sf-notes"></textarea>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn primary grow" id="schedSaveBtn">Save</button>
+          <button class="btn grow" id="schedCancelBtn">Cancel</button>
+        </div>
+        <button class="btn danger block" id="schedDeleteBtn" style="margin-top:8px; display:none;">Delete entry</button>
+      </div>
+    </section>
+
+    <!-- ============ DOCS ============ -->
+    <section class="tab" id="tab-docs">
+      <div id="docHome">
+        <div class="row" style="margin-bottom:8px;">
+          <button class="btn primary grow" id="newEstBtn">+ New Estimate</button>
+          <button class="btn dark grow" id="newInvBtn">+ New Invoice</button>
+        </div>
+        <div class="row" style="margin-bottom:10px;">
+          <select id="docFilter" class="grow">
+            <option value="all">All documents</option>
+            <option value="estimate">Estimates only</option>
+            <option value="invoice">Invoices only</option>
+          </select>
+          <input type="text" id="docSearch" class="grow" placeholder="Search # / name…">
+        </div>
+        <div id="docList"></div>
+      </div>
+
+      <div class="panel" id="docForm" style="display:none;">
+        <h2 class="sec" id="docFormTitle">New document</h2>
+        <div class="row"><span class="badge" id="df-number">New — number assigned when saved</span></div>
+        <label class="f">Customer</label><select id="df-contact"></select>
+        <button type="button" class="btn small" id="df-newCustBtn" style="margin-top:6px;">+ New customer</button>
+        <div id="df-quickAdd" style="display:none; margin-top:8px;">
+          <label class="f">New customer name</label><input type="text" id="df-qc-name">
+          <label class="f">Phone (optional)</label><input type="tel" id="df-qc-phone">
+          <div class="row" style="margin-top:8px;">
+            <button type="button" class="btn primary grow" id="df-qc-add">Add customer</button>
+            <button type="button" class="btn grow" id="df-qc-cancel">Cancel</button>
+          </div>
+        </div>
+        <label class="f">Job</label><select id="df-job"></select>
+        <label class="f">Date</label><input type="date" id="df-date">
+        <label class="f">Line items</label>
+        <div id="df-items"></div>
+        <div class="row wrap">
+          <button class="btn small grow" id="df-addItem">+ Add line</button>
+          <select id="df-pbSelect" class="grow"></select>
+          <button class="btn small grow" id="df-addFromPb">Add from Price Book</button>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="grow"><label class="f" style="margin-top:0;">Discount ($)</label><input type="number" id="df-discount" inputmode="decimal" min="0" step="0.01" value="0"></div>
+          <div class="grow"><label class="f" style="margin-top:0;">Tax %</label><input type="number" id="df-tax" inputmode="decimal" min="0" step="0.01" value="0"></div>
+          <div class="grow"><label class="f" style="margin-top:0;">Deposit paid ($)</label><input type="number" id="df-deposit" inputmode="decimal" min="0" step="0.01" value="0"></div>
+        </div>
+        <div class="switch">
+          <input type="checkbox" id="df-showPrices" checked>
+          <span class="lab">Show item prices to customer</span>
+        </div>
+        <div class="hint">OFF = the customer copy shows line descriptions and the total only — flat pricing, no item prices.</div>
+        <label class="f">Square pay link (optional)</label>
+        <input type="text" id="df-paylink" inputmode="url" placeholder="Paste a Square payment link — shows as a “Pay here” button">
+        <label class="f">Notes / payment instructions</label>
+        <textarea id="df-notes" placeholder="e.g. Thanks for your business! Checks to Pour Dawgz, or use the Pay here link."></textarea>
+        <label class="f">Photos</label>
+        <div class="row wrap">
+          <label class="btn small grow" for="df-photo-input">📷 Add photos</label>
+          <input type="file" id="df-photo-input" accept="image/*" multiple style="display:none;">
+          <button class="btn small grow" id="df-pullPhotos" type="button">Pull photos from linked job</button>
+        </div>
+        <div class="photos" id="df-photos"></div>
+        <div class="totals" id="df-totals"></div>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn primary grow" id="docSaveBtn">Save</button>
+          <button class="btn grow" id="docCancelBtn">Cancel</button>
+        </div>
+        <button class="btn danger block" id="docDeleteBtn" style="margin-top:8px; display:none;">Delete document</button>
+      </div>
+
+      <div id="docView" style="display:none;">
+        <div class="row wrap" style="margin-bottom:10px;">
+          <button class="btn small" id="dv-back">← All docs</button>
+          <button class="btn small" id="dv-edit">Edit</button>
+          <button class="btn small" id="dv-print">🖨 Print / PDF</button>
+          <button class="btn small" id="dv-convert" style="display:none;">Make Invoice from this Estimate</button>
+        </div>
+        <div class="row wrap" style="margin-bottom:6px;">
+          <a class="btn primary grow" id="dv-text" href="#">💬 Text it</a>
+          <a class="btn primary grow" id="dv-email" href="#">✉️ Email it</a>
+          <button class="btn grow" id="dv-copy">📋 Copy text</button>
+        </div>
+        <div class="hint">Sending opens your own text or email app with everything filled in — you just tap send.</div>
+        <div id="docPaperWrap"></div>
+      </div>
+    </section>
+
+    <!-- ============ PRICE BOOK ============ -->
+    <section class="tab" id="tab-price">
+      <div class="row" style="margin-bottom:10px;">
+        <input type="text" id="pbSearch" class="grow" placeholder="Search price book…">
+        <button class="btn primary" id="pbAddBtn">+ Add</button>
+      </div>
+      <div class="hint">Your saved items. Tap one while building an estimate or invoice to drop it in as a line.</div>
+      <div id="pbList"></div>
+      <div class="panel" id="pbForm" style="display:none;">
+        <h2 class="sec" id="pbFormTitle">Add item</h2>
+        <label class="f">Item name</label><input type="text" id="pf-name" placeholder="e.g. Labor — job (flat)">
+        <label class="f">Default price ($)</label><input type="number" id="pf-price" inputmode="decimal" min="0" step="0.01">
+        <div class="switch"><input type="checkbox" id="pf-taxable"><span class="lab">Taxable</span></div>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn primary grow" id="pbSaveBtn">Save item</button>
+          <button class="btn grow" id="pbCancelBtn">Cancel</button>
+        </div>
+        <button class="btn danger block" id="pbDeleteBtn" style="margin-top:8px; display:none;">Delete item</button>
+      </div>
+    </section>
+
+    <!-- ============ BACKUP ============ -->
+    <section class="tab" id="tab-backup">
+      <h2 class="sec">Backup</h2>
+      <div class="warn">⚠️ <b>Your data lives on this phone, in this browser, only.</b> Export a backup to Google Drive regularly. If the phone dies without a backup, the data dies with it.</div>
+      <div class="card">
+        <div class="t">Steven's starter book</div>
+        <div class="s">One tap: wipes this copy clean and loads just your clients, the deck job, and its estimate. This is the undo for a bad import.</div>
+        <div class="iconrow"><button class="btn primary grow" id="starterBookBtn">⭐ Load my starter book</button></div>
+      </div>
+      <div class="card">
+        <div class="t">Business settings</div>
+        <div class="s">These ride along in every backup and crew pack.</div>
+        <label class="f">This book belongs to — your name</label>
+        <input type="text" id="set-ownerName" placeholder="e.g. Terry, Johnny, Carrie…" autocomplete="name">
+        <div class="s">Put YOUR name on this copy of the book. It labels the book and stamps every backup file you export, so everybody's book stays tell-apart-able.</div>
+        <label class="f">Your phone number</label>
+        <input type="tel" id="set-ownerPhone" autocomplete="tel">
+        <label class="f">Booking link</label>
+        <input type="text" id="set-bookingLink" inputmode="url" placeholder="e.g. pourdawgz.biz/book — your booking page (optional)">
+        <div class="s">When set, customer estimates &amp; invoices end with a “Book online” line pointing here.</div>
+        <label class="f">Book-ahead discount line</label>
+        <input type="text" id="set-bookAheadLine">
+        <div class="s">Prints inside the Book-Ahead block on customer documents. Clear it to leave the offer off.</div>
+        <div class="iconrow"><button class="btn primary grow" id="settingsSaveBtn">Save settings</button></div>
+      </div>
+      <div class="card">
+        <div class="t">Export backup</div>
+        <div class="s">One file with everything — contacts, jobs, schedule, crew, estimates, invoices, price book, photos, and business settings.</div>
+        <label class="f">Add a code (optional)</label>
+        <input type="text" id="exportCode" placeholder="Leave blank for no code">
+        <div class="iconrow"><button class="btn primary grow" id="exportBtn">⬇ Export JSON backup</button></div>
+      </div>
+      <div class="card">
+        <div class="t">Crew share pack</div>
+        <div class="s">A backup stamped with a code, for handing the book to a crew member.</div>
+        <label class="f">Pack code (min 4 characters)</label>
+        <input type="text" id="packCode" placeholder="Pick a word or number they'll type">
+        <div class="iconrow"><button class="btn primary grow" id="packExportBtn">⬇ Export Crew Pack</button></div>
+        <div class="s" style="margin-top:8px;">Give the pack file + the code to your crew. On their phone they open this same app file, go to Backup, import the pack, type the code — they get the clients, jobs, and schedule. Anything they change stays on THEIR phone unless they export a pack back to you. There is no live sync — packs are how copies move.</div>
+      </div>
+      <div class="card">
+        <div class="t">Import backup</div>
+        <div class="s">Pick a backup or crew pack file to restore. If the file has a code, you'll be asked to type it. A backup or crew pack <b>replaces</b> everything currently in the app. A <b>job pack</b> file is different — it just adds that one job to your book, nothing gets replaced.</div>
+        <div class="iconrow">
+          <label class="btn grow" for="importInput" style="text-align:center;">⬆ Import JSON backup</label>
+          <input type="file" id="importInput" accept=".json,application/json" style="display:none;">
+        </div>
+      </div>
+      <div class="card">
+        <div class="t">What's saved here</div>
+        <div class="s" id="bookIdentityLine"></div>
+        <div class="s" id="backupCounts"></div>
+      </div>
+      <div class="hint">Tip: after exporting, save the file in Google Drive (or email it to yourself) so it survives the phone.</div>
+    </section>
+  </main>
+  <div class="verfoot">Pour Dawgz — Field Book v2.11</div>
+</div>
+<div id="printSheet"></div>
+<div id="toast"></div>
+<script>
+"use strict";
+/* ================= Pour Dawgz — Field Book ================= */
+var BIZ_LINE = "Call Steven directly at 605-515-8327 or WhatsApp 605-639-0960";
+var BIZ_ADDR = "Newell, SD";
+var BIZ_SITE = "pourdawgz.biz";
+var BOOK_AHEAD_HEAD = "BOOK AHEAD & SAVE THE RUSH:";
+var BOOK_AHEAD_BODY = "Got another job coming up? Get it on our calendar ahead of time so we can have materials ready and hold your slot. Scheduled bookings come first — same-day calls are emergency work. Book ahead and we'll be ready.";
+var BOOK_AHEAD_DISCOUNT_DEFAULT = "Book at least 3 days ahead and take 5% off the labor — our thank-you for letting us plan.";
+
+/* ---------- storage ---------- */
+function storeGet(key, fallback){
+  try{ var v = localStorage.getItem("pd_" + key); return v ? JSON.parse(v) : fallback; }
+  catch(e){ return fallback; }
+}
+function storeSet(key, val){
+  try{ localStorage.setItem("pd_" + key, JSON.stringify(val)); return true; }
+  catch(e){ toast("Storage full — export a backup and remove some photos."); return false; }
+}
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+
+/* ---------- state ---------- */
+var contacts  = storeGet("contacts", []);
+var jobs      = storeGet("jobs", []);
+var docs      = storeGet("docs", []);
+var priceBook = storeGet("pricebook", null);
+var counters  = storeGet("counters", { est: 1001, inv: 1001 });
+if(!priceBook){
+  priceBook = [
+    { id: uid(), name: "Labor — job (flat)",        price: 0,     taxable: false },
+    { id: uid(), name: "Mileage — per mile",        price: 0.76,  taxable: false },
+    { id: uid(), name: "Materials run / parts pickup", price: 21.20, taxable: false },
+    { id: uid(), name: "Service call",              price: 0,     taxable: false }
+  ];
+  storeSet("pricebook", priceBook);
+}
+var schedule  = storeGet("schedule", []);
+var crew      = storeGet("crew", null);
+if(!crew){
+  crew = [{ id: uid(), name: "Terry", phone: "", role: "" }];
+  storeSet("crew", crew);
+}
+var settings  = storeGet("settings", null);
+if(!settings || typeof settings !== "object"){
+  settings = { bookingLink: "", bookAheadLine: BOOK_AHEAD_DISCOUNT_DEFAULT, ownerName: "", ownerPhone: "" };
+  storeSet("settings", settings);
+}
+if(settings.bookingLink === undefined) settings.bookingLink = "";
+if(settings.bookAheadLine === undefined) settings.bookAheadLine = BOOK_AHEAD_DISCOUNT_DEFAULT;
+if(settings.ownerName === undefined) settings.ownerName = "";
+if(settings.ownerPhone === undefined) settings.ownerPhone = "";
+function saveAll(){
+  storeSet("contacts", contacts); storeSet("jobs", jobs);
+  storeSet("docs", docs); storeSet("pricebook", priceBook); storeSet("counters", counters);
+  storeSet("schedule", schedule); storeSet("crew", crew); storeSet("settings", settings);
+}
+
+/* ---------- helpers ---------- */
+function $(id){ return document.getElementById(id); }
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+    return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c];
+  });
+}
+function num(v){ var n = parseFloat(v); return isNaN(n) ? 0 : n; }
+function money(n){
+  return "$" + num(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function todayISO(){
+  var d = new Date(), p = function(x){ return String(x).padStart(2, "0"); };
+  return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+}
+function fmtDate(iso){
+  if(!iso) return "";
+  var p = iso.split("-"); if(p.length !== 3) return iso;
+  return p[1] + "/" + p[2] + "/" + p[0];
+}
+function fmtTime(t){
+  if(!t) return "";
+  var p = String(t).split(":"); if(p.length < 2) return String(t);
+  var h = num(p[0]), ap = h >= 12 ? "PM" : "AM";
+  h = h % 12; if(h === 0) h = 12;
+  return h + ":" + p[1] + " " + ap;
+}
+function fmtClock(iso){
+  var d = new Date(iso); if(isNaN(d.getTime())) return "";
+  var h = d.getHours(), ap = h >= 12 ? "PM" : "AM";
+  h = h % 12; if(h === 0) h = 12;
+  return h + ":" + String(d.getMinutes()).padStart(2, "0") + " " + ap;
+}
+function toMin(t){
+  var p = String(t || "").split(":");
+  return p.length < 2 ? null : num(p[0]) * 60 + num(p[1]);
+}
+function fmtDurMs(ms){
+  var mins = Math.round(ms / 60000);
+  if(mins < 1) return "0 min";
+  var h = Math.floor(mins / 60), m = mins % 60;
+  return (h ? h + " hrs " : "") + m + " min";
+}
+function jobTotalMs(j){
+  var t = 0;
+  (j.timeLog || []).forEach(function(e){ if(e.end) t += (new Date(e.end) - new Date(e.start)); });
+  return t;
+}
+function contactById(id){ for(var i = 0; i < contacts.length; i++) if(contacts[i].id === id) return contacts[i]; return null; }
+function jobById(id){ for(var i = 0; i < jobs.length; i++) if(jobs[i].id === id) return jobs[i]; return null; }
+function docById(id){ for(var i = 0; i < docs.length; i++) if(docs[i].id === id) return docs[i]; return null; }
+function toast(msg){
+  var t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove("show"); }, 2600);
+}
+function processImageFile(file){
+  return new Promise(function(resolve){
+    var url = URL.createObjectURL(file);
+    var img = new Image();
+    img.onload = function(){
+      var scale = Math.min(1, 1024 / img.width);
+      var w = Math.max(1, Math.round(img.width * scale));
+      var h = Math.max(1, Math.round(img.height * scale));
+      var c = document.createElement("canvas"); c.width = w; c.height = h;
+      c.getContext("2d").drawImage(img, 0, 0, w, h);
+      URL.revokeObjectURL(url);
+      resolve(c.toDataURL("image/jpeg", 0.82));
+    };
+    img.onerror = function(){ URL.revokeObjectURL(url); resolve(null); };
+    img.src = url;
+  });
+}
+function addFilesTo(input, arr, renderFn){
+  var files = Array.prototype.slice.call(input.files || []);
+  if(!files.length) return;
+  var done = 0;
+  files.forEach(function(f){
+    processImageFile(f).then(function(d){
+      if(d) arr.push(d);
+      if(++done === files.length){ renderFn(); toast("Photo(s) added — remember to Save."); }
+    });
+  });
+  input.value = "";
+}
+
+/* ---------- tabs ---------- */
+$("tabBar").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-tab]"); if(!b) return;
+  showTab(b.getAttribute("data-tab"));
+});
+function showTab(name){
+  var btns = $("tabBar").querySelectorAll("button[data-tab]");
+  btns.forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-tab") === name); });
+  ["contacts","jobs","schedule","docs","price","backup"].forEach(function(t){
+    $("tab-" + t).classList.toggle("active", t === name);
+  });
+  if(name === "backup"){ renderBackupCounts(); renderSettings(); }
+  if(name === "schedule"){ renderCrew(); renderSchedule(); }
+  if(name === "jobs") renderJobs();
+  window.scrollTo(0, 0);
+}
+
+/* ================= CONTACTS ================= */
+var editingContactId = null;
+function renderContacts(){
+  var q = $("contactSearch").value.trim().toLowerCase();
+  var list = contacts.slice().sort(function(a, b){ return (a.name || "").localeCompare(b.name || ""); });
+  var wrap = $("contactList"); wrap.innerHTML = "";
+  var shown = 0;
+  list.forEach(function(c){
+    var hay = (c.name + " " + (c.company || "") + " " + (c.phone || "") + " " + (c.email || "")).toLowerCase();
+    if(q && hay.indexOf(q) === -1) return;
+    shown++;
+    var card = document.createElement("div"); card.className = "card";
+    var icons = "";
+    if(c.phone) icons += '<a class="iconbtn" href="tel:' + esc(c.phone) + '">📞 Call</a>' +
+                         '<a class="iconbtn" href="sms:' + esc(c.phone) + '">💬 Text</a>';
+    if(c.email) icons += '<a class="iconbtn" href="mailto:' + esc(c.email) + '">✉️ Email</a>';
+    card.innerHTML =
+      '<div class="row"><div class="grow"><div class="t">' + esc(c.name || "—") + "</div>" +
+      (c.company ? '<div class="s">' + esc(c.company) + "</div>" : "") + "</div>" +
+      '<button class="btn small" data-edit="' + c.id + '">Edit</button></div>' +
+      (c.phone ? '<div class="s">' + esc(c.phone) + "</div>" : "") +
+      (c.email ? '<div class="s">' + esc(c.email) + "</div>" : "") +
+      (c.address ? '<div class="s">' + esc(c.address) + "</div>" : "") +
+      (c.notes ? '<div class="s">' + esc(c.notes) + "</div>" : "") +
+      (icons ? '<div class="iconrow">' + icons + "</div>" : "");
+    wrap.appendChild(card);
+  });
+  if(!shown) wrap.innerHTML = '<div class="empty">' + (contacts.length ? "No matches." : "No contacts yet — tap + Add.") + "</div>";
+  wrap.querySelectorAll("[data-edit]").forEach(function(b){
+    b.addEventListener("click", function(){ openContactForm(b.getAttribute("data-edit")); });
+  });
+}
+function openContactForm(id){
+  editingContactId = id || null;
+  var c = id ? contactById(id) : null;
+  $("contactFormTitle").textContent = c ? "Edit contact" : "Add contact";
+  $("cf-name").value = c ? c.name || "" : "";
+  $("cf-company").value = c ? c.company || "" : "";
+  $("cf-phone").value = c ? c.phone || "" : "";
+  $("cf-email").value = c ? c.email || "" : "";
+  $("cf-address").value = c ? c.address || "" : "";
+  $("cf-notes").value = c ? c.notes || "" : "";
+  $("contactDeleteBtn").style.display = c ? "" : "none";
+  $("contactForm").style.display = "";
+  $("contactForm").scrollIntoView({ behavior: "smooth" });
+}
+$("contactAddBtn").addEventListener("click", function(){ openContactForm(null); });
+$("contactCancelBtn").addEventListener("click", function(){ $("contactForm").style.display = "none"; });
+$("contactSearch").addEventListener("input", renderContacts);
+$("contactSaveBtn").addEventListener("click", function(){
+  var name = $("cf-name").value.trim();
+  if(!name){ toast("Name is required."); return; }
+  var data = { name: name, company: $("cf-company").value.trim(), phone: $("cf-phone").value.trim(),
+    email: $("cf-email").value.trim(), address: $("cf-address").value.trim(), notes: $("cf-notes").value.trim() };
+  if(editingContactId){ var c = contactById(editingContactId); for(var k in data) c[k] = data[k]; }
+  else { data.id = uid(); contacts.push(data); }
+  saveAll(); $("contactForm").style.display = "none"; renderContacts(); toast("Contact saved.");
+});
+$("contactDeleteBtn").addEventListener("click", function(){
+  if(!editingContactId || !confirm("Delete this contact?")) return;
+  contacts = contacts.filter(function(c){ return c.id !== editingContactId; });
+  saveAll(); $("contactForm").style.display = "none"; renderContacts(); toast("Contact deleted.");
+});
+
+/* ---------- quick-add customer from the job / schedule / doc forms ----------
+   The Customer field in those forms is a picker; this lets Steven type a NEW
+   customer's name right where he is working instead of leaving for Contacts. */
+function wireQuickAdd(prefix){
+  var btn = $(prefix + "-newCustBtn"), box = $(prefix + "-quickAdd");
+  if(!btn || !box) return;
+  btn.addEventListener("click", function(){
+    box.style.display = (box.style.display === "none") ? "" : "none";
+    if(box.style.display !== "none"){ var n = $(prefix + "-qc-name"); if(n) n.focus(); }
+  });
+  $(prefix + "-qc-cancel").addEventListener("click", function(){ box.style.display = "none"; });
+  $(prefix + "-qc-add").addEventListener("click", function(){
+    var name = $(prefix + "-qc-name").value.trim();
+    if(!name){ toast("Type the customer's name first."); return; }
+    var c = { id: uid(), name: name, company: "", phone: $(prefix + "-qc-phone").value.trim(),
+              email: "", address: "", notes: "" };
+    contacts.push(c); saveAll(); renderContacts();
+    fillContactSelect($(prefix + "-contact"), c.id, "— No customer —");
+    $(prefix + "-contact").value = c.id;
+    $(prefix + "-qc-name").value = ""; $(prefix + "-qc-phone").value = "";
+    box.style.display = "none";
+    toast("Customer added: " + name);
+  });
+}
+wireQuickAdd("jf"); wireQuickAdd("sf"); wireQuickAdd("df");
+
+/* ---------- import contact cards (.vcf) ----------
+   iOS can't share a contact straight into a web page, so this is the short
+   route: card saved to Files -> Contacts tab -> Import card -> pick the file.
+   Handles single cards and multi-card files; a big file asks first, so a
+   whole phone book can never flood the book by accident again. */
+function parseVcards(text){
+  var out = [];
+  var unfolded = text.replace(/\r\n[ \t]/g, "").replace(/\n[ \t]/g, "");
+  var cards = unfolded.split(/BEGIN:VCARD/i).slice(1);
+  function unesc(s){ return (s || "").replace(/\\n/gi, " ").replace(/\\,/g, ",").replace(/\\;/g, ";").replace(/\\\\/g, "\\").trim(); }
+  cards.forEach(function(block){
+    var c = { name: "", company: "", phone: "", email: "", address: "", notes: "" };
+    var nParts = null;
+    block.split(/\r?\n/).forEach(function(line){
+      var m = line.match(/^(?:item\d+\.)?([A-Za-z0-9-]+)(;[^:]*)?:(.*)$/);
+      if(!m) return;
+      var key = m[1].toUpperCase(), val = m[3].trim();
+      if(key === "FN" && !c.name) c.name = unesc(val);
+      else if(key === "N" && !nParts) nParts = val.split(";");
+      else if(key === "ORG" && !c.company) c.company = unesc(val.split(";")[0]);
+      else if(key === "TEL" && !c.phone) c.phone = unesc(val.replace(/^tel:/i, ""));
+      else if(key === "EMAIL" && !c.email) c.email = unesc(val);
+      else if(key === "ADR" && !c.address){
+        var p = val.split(";").map(unesc);
+        c.address = [p[2], p[3], p[4], p[5]].filter(function(x){ return !!x; }).join(", ");
+      }
+      else if(key === "NOTE" && !c.notes) c.notes = unesc(val);
+    });
+    if(!c.name && nParts) c.name = [nParts[1], nParts[0]].filter(function(x){ return x && x.trim(); }).join(" ").trim();
+    if(c.name || c.phone) out.push(c);
+  });
+  return out;
+}
+function phoneKey(s){ var d = (s || "").replace(/\D/g, ""); if(d.length === 11 && d.charAt(0) === "1") d = d.slice(1); return d; }
+$("contactImportBtn").addEventListener("click", function(){ $("contactCardFile").click(); });
+$("contactCardFile").addEventListener("change", function(){
+  var f = this.files && this.files[0];
+  this.value = "";
+  if(!f) return;
+  var r = new FileReader();
+  r.onload = function(){
+    var parsed = parseVcards(String(r.result || ""));
+    if(!parsed.length){ toast("No contacts found in that file."); return; }
+    if(parsed.length > 5 && !confirm("This file has " + parsed.length + " contacts. Add them all to the book?")) return;
+    var added = 0, skipped = 0;
+    parsed.forEach(function(p){
+      var dup = contacts.some(function(c){ return (c.name || "").toLowerCase() === p.name.toLowerCase() && phoneKey(p.phone) !== "" && phoneKey(c.phone) === phoneKey(p.phone); });
+      if(dup){ skipped++; return; }
+      contacts.push({ id: uid(), name: p.name, company: p.company, phone: p.phone, email: p.email, address: p.address, notes: p.notes });
+      added++;
+    });
+    if(added){ saveAll(); renderContacts(); }
+    toast(added ? ("Added " + added + " contact" + (added === 1 ? "" : "s") + " from the card." + (skipped ? " " + skipped + " already in the book." : ""))
+                : "That contact is already in the book.");
+  };
+  r.readAsText(f);
+});
+
+/* ================= JOBS ================= */
+var editingJobId = null, jobFormPhotos = [];
+function statusBadge(s){ return '<span class="badge' + (s === "Paid" ? " paid" : "") + '">' + esc(s) + "</span>"; }
+function jobClockBadge(j){
+  var log = j.timeLog || [];
+  if(!log.length) return "";
+  var running = log.some(function(e){ return !e.end; });
+  return ' <span class="badge">⏱ ' + (running ? "running · " : "") + fmtDurMs(jobTotalMs(j)) + "</span>";
+}
+function renderJobs(){
+  var q = $("jobSearch").value.trim().toLowerCase();
+  var list = jobs.slice().sort(function(a, b){ return (b.createdAt || 0) - (a.createdAt || 0); });
+  var wrap = $("jobList"); wrap.innerHTML = "";
+  var shown = 0;
+  list.forEach(function(j){
+    var c = contactById(j.contactId);
+    var hay = (j.title + " " + (c ? c.name : "") + " " + (j.address || "") + " " + (j.status || "")).toLowerCase();
+    if(q && hay.indexOf(q) === -1) return;
+    shown++;
+    var linked = docs.filter(function(d){ return d.jobId === j.id; }).length;
+    var card = document.createElement("div"); card.className = "card";
+    card.innerHTML =
+      '<div class="row"><div class="grow"><div class="t">' + esc(j.title || "—") + "</div>" +
+      (c ? '<div class="s">' + esc(c.name) + (c.company ? " · " + esc(c.company) : "") + "</div>" : "") +
+      (j.address ? '<div class="s">' + esc(j.address) + "</div>" : "") + "</div>" +
+      '<button class="btn small" data-edit="' + j.id + '">Open</button></div>' +
+      '<div style="margin-top:6px;">' + statusBadge(j.status || "New") +
+      ' <span class="badge">📷 ' + (j.photos ? j.photos.length : 0) + "</span>" +
+      jobClockBadge(j) +
+      (linked ? ' <span class="badge">' + linked + " doc" + (linked > 1 ? "s" : "") + "</span>" : "") + "</div>" +
+      (j.description ? '<div class="s" style="margin-top:6px;">' + esc(j.description) + "</div>" : "");
+    wrap.appendChild(card);
+  });
+  if(!shown) wrap.innerHTML = '<div class="empty">' + (jobs.length ? "No matches." : "No jobs yet — tap + Add.") + "</div>";
+  wrap.querySelectorAll("[data-edit]").forEach(function(b){
+    b.addEventListener("click", function(){ openJobForm(b.getAttribute("data-edit")); });
+  });
+}
+function fillContactSelect(sel, selected, blankLabel){
+  sel.innerHTML = "";
+  var o = document.createElement("option"); o.value = ""; o.textContent = blankLabel; sel.appendChild(o);
+  contacts.slice().sort(function(a, b){ return (a.name || "").localeCompare(b.name || ""); }).forEach(function(c){
+    var op = document.createElement("option"); op.value = c.id;
+    op.textContent = c.name + (c.company ? " (" + c.company + ")" : "");
+    if(c.id === selected) op.selected = true;
+    sel.appendChild(op);
+  });
+}
+function renderJobFormPhotos(){
+  var wrap = $("jf-photos"); wrap.innerHTML = "";
+  jobFormPhotos.forEach(function(p, i){
+    var d = document.createElement("div"); d.className = "ph";
+    d.innerHTML = '<img src="' + p + '" alt="job photo"><button type="button" data-rm="' + i + '">×</button>';
+    wrap.appendChild(d);
+  });
+  wrap.querySelectorAll("[data-rm]").forEach(function(b){
+    b.addEventListener("click", function(){
+      jobFormPhotos.splice(num(b.getAttribute("data-rm")), 1); renderJobFormPhotos();
+    });
+  });
+}
+function openJobForm(id){
+  editingJobId = id || null;
+  var j = id ? jobById(id) : null;
+  $("jobFormTitle").textContent = j ? "Edit job" : "Add job";
+  $("jf-title").value = j ? j.title || "" : "";
+  $("jf-address").value = j ? j.address || "" : "";
+  $("jf-status").value = j ? j.status || "New" : "New";
+  $("jf-desc").value = j ? j.description || "" : "";
+  $("jf-notes").value = j ? j.notes || "" : "";
+  jobFormPhotos = j && j.photos ? j.photos.slice() : [];
+  fillContactSelect($("jf-contact"), j ? j.contactId : "", "— No customer —");
+  if(j && j.contactId) $("jf-contact").value = j.contactId;
+  renderJobFormPhotos();
+  var linked = j ? docs.filter(function(d){ return d.jobId === j.id; }) : [];
+  $("jf-docs-wrap").style.display = linked.length ? "" : "none";
+  var dw = $("jf-docs"); dw.innerHTML = "";
+  linked.forEach(function(d){
+    var b = document.createElement("button"); b.className = "btn small block"; b.style.marginBottom = "6px";
+    b.textContent = (d.type === "invoice" ? "Invoice " : "Estimate ") + d.number + " — " + money(computeDoc(d).balance) + " due";
+    b.addEventListener("click", function(){ $("jobForm").style.display = "none"; showTab("docs"); openDocView(d.id); });
+    dw.appendChild(b);
+  });
+  $("jobDeleteBtn").style.display = j ? "" : "none";
+  $("jobPackBtn").style.display = j ? "" : "none";
+  $("jobPackHint").style.display = j ? "" : "none";
+  fillClockWho();
+  renderJobClock();
+  jobFormSignoff = (j && j.signoff) ? { name: j.signoff.name, sig: j.signoff.sig, at: j.signoff.at } : null;
+  $("jf-signName").value = jobFormSignoff ? (jobFormSignoff.name || "") : "";
+  clearSigPad();
+  renderSignoff();
+  $("jobForm").style.display = "";
+  $("jobForm").scrollIntoView({ behavior: "smooth" });
+}
+$("jobAddBtn").addEventListener("click", function(){ openJobForm(null); });
+$("jobCancelBtn").addEventListener("click", function(){ $("jobForm").style.display = "none"; });
+$("jobSearch").addEventListener("input", renderJobs);
+$("jf-photo-input").addEventListener("change", function(){ addFilesTo(this, jobFormPhotos, renderJobFormPhotos); });
+$("jobSaveBtn").addEventListener("click", function(){
+  var title = $("jf-title").value.trim();
+  if(!title){ toast("Job title is required."); return; }
+  var data = { title: title, contactId: $("jf-contact").value, address: $("jf-address").value.trim(),
+    status: $("jf-status").value, description: $("jf-desc").value.trim(), notes: $("jf-notes").value.trim(),
+    photos: jobFormPhotos.slice(), signoff: jobFormSignoff };
+  if(editingJobId){ var j = jobById(editingJobId); for(var k in data) j[k] = data[k]; }
+  else { data.id = uid(); data.createdAt = Date.now(); data.timeLog = []; jobs.push(data); }
+  saveAll(); $("jobForm").style.display = "none"; renderJobs(); toast("Job saved.");
+});
+$("jobDeleteBtn").addEventListener("click", function(){
+  if(!editingJobId || !confirm("Delete this job? Its photos go with it.")) return;
+  jobs = jobs.filter(function(j){ return j.id !== editingJobId; });
+  saveAll(); $("jobForm").style.display = "none"; renderJobs(); toast("Job deleted.");
+});
+$("jobPackBtn").addEventListener("click", function(){
+  if(!editingJobId) return;
+  var j = jobById(editingJobId); if(!j) return;
+  var c = j.contactId ? contactById(j.contactId) : null;
+  var sched = schedule.filter(function(e){ return e.jobId === j.id; });
+  var pack = { app: "pour-dawgz-field-book", kind: "jobpack", version: 2,
+    exportedAt: new Date().toISOString(),
+    owner: { name: settings.ownerName || "", phone: settings.ownerPhone || "" },
+    job: JSON.parse(JSON.stringify(j)),
+    contact: c ? JSON.parse(JSON.stringify(c)) : null,
+    schedule: JSON.parse(JSON.stringify(sched)) };
+  var blob = new Blob([JSON.stringify(pack)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "pour-dawgz-job-" + (j.title || "job").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") + ".json";
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 400);
+  toast("Job pack downloaded — text the file to your crew member.");
+});
+
+/* ---------- job time clock + customer sign-off (internal records — never on customer copies) ---------- */
+var jobFormSignoff = null, sigCtx = null, sigDrawing = false, sigDirty = false;
+function fillClockWho(){
+  var sel = $("jf-clockWho"); if(!sel) return;
+  var cur = sel.value || "Steven";
+  sel.innerHTML = "";
+  var names = ["Steven"].concat(crew.map(function(m){ return m.name; }));
+  names.forEach(function(n){
+    var op = document.createElement("option"); op.value = n; op.textContent = n; sel.appendChild(op);
+  });
+  sel.value = names.indexOf(cur) !== -1 ? cur : "Steven";
+}
+function renderJobClock(){
+  var j = editingJobId ? jobById(editingJobId) : null;
+  var status = $("jf-clockStatus"), logWrap = $("jf-timelog"), tot = $("jf-clockTotal");
+  if(!j){
+    $("jf-clockStart").disabled = true; $("jf-clockStop").disabled = true;
+    status.textContent = "Save the job first — then you can run the clock on it.";
+    logWrap.innerHTML = ""; tot.textContent = "";
+    return;
+  }
+  var log = j.timeLog || [], open = null;
+  log.forEach(function(e){ if(!e.end) open = e; });
+  $("jf-clockStart").disabled = !!open;
+  $("jf-clockStop").disabled = !open;
+  status.textContent = open
+    ? ("▶ Running — " + open.who + " since " + fmtClock(open.start) + " (" + fmtDate(String(open.start).slice(0, 10)) + ")")
+    : "Clock is stopped.";
+  logWrap.innerHTML = "";
+  log.slice().sort(function(a, b){ return String(a.start).localeCompare(String(b.start)); }).forEach(function(e){
+    var row = document.createElement("div"); row.className = "row"; row.style.marginTop = "4px";
+    var dur = e.end ? fmtDurMs(new Date(e.end) - new Date(e.start)) : "running";
+    row.innerHTML = '<div class="grow" style="font-size:14px;">' + esc(e.who) + " · " +
+      esc(fmtDate(String(e.start).slice(0, 10))) + " " + esc(fmtClock(e.start)) + " → " +
+      (e.end ? esc(fmtClock(e.end)) : "…") + " · " + dur + "</div>" +
+      '<button type="button" class="btn small danger" data-tdel="' + e.id + '">Delete</button>';
+    logWrap.appendChild(row);
+  });
+  logWrap.querySelectorAll("[data-tdel]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var jj = jobById(editingJobId); if(!jj) return;
+      jj.timeLog = (jj.timeLog || []).filter(function(e){ return e.id !== b.getAttribute("data-tdel"); });
+      saveAll(); renderJobClock();
+    });
+  });
+  tot.textContent = log.length ? "Total time on this job: " + fmtDurMs(jobTotalMs(j)) : "";
+}
+$("jf-clockStart").addEventListener("click", function(){
+  var j = jobById(editingJobId); if(!j){ toast("Save the job first."); return; }
+  j.timeLog = j.timeLog || [];
+  j.timeLog.push({ id: uid(), who: $("jf-clockWho").value || "Steven", start: new Date().toISOString(), end: null });
+  saveAll(); renderJobClock(); toast("Clock started for " + ($("jf-clockWho").value || "Steven") + ".");
+});
+$("jf-clockStop").addEventListener("click", function(){
+  var j = jobById(editingJobId); if(!j) return;
+  var open = null;
+  (j.timeLog || []).forEach(function(e){ if(!e.end) open = e; });
+  if(!open){ toast("Clock isn't running."); return; }
+  open.end = new Date().toISOString();
+  saveAll(); renderJobClock();
+  toast("Clock stopped — " + fmtDurMs(new Date(open.end) - new Date(open.start)) + " logged.");
+});
+function initSigPad(){
+  var c = $("jf-signPad"); if(!c || c._init) return; c._init = true;
+  sigCtx = c.getContext("2d");
+  sigCtx.lineWidth = 2.5; sigCtx.lineCap = "round"; sigCtx.lineJoin = "round"; sigCtx.strokeStyle = "#1a1a1a";
+  function pos(e){
+    var r = c.getBoundingClientRect();
+    return { x: (e.clientX - r.left) * c.width / r.width, y: (e.clientY - r.top) * c.height / r.height };
+  }
+  c.addEventListener("pointerdown", function(e){
+    e.preventDefault(); sigDrawing = true; sigDirty = true;
+    var p = pos(e);
+    sigCtx.beginPath(); sigCtx.moveTo(p.x, p.y); sigCtx.lineTo(p.x + 0.1, p.y + 0.1); sigCtx.stroke();
+    try{ c.setPointerCapture(e.pointerId); }catch(err){}
+  });
+  c.addEventListener("pointermove", function(e){
+    if(!sigDrawing) return;
+    var p = pos(e); sigCtx.lineTo(p.x, p.y); sigCtx.stroke();
+  });
+  ["pointerup", "pointercancel"].forEach(function(ev){
+    c.addEventListener(ev, function(){ sigDrawing = false; });
+  });
+}
+function clearSigPad(){
+  var c = $("jf-signPad");
+  if(c && sigCtx) sigCtx.clearRect(0, 0, c.width, c.height);
+  sigDirty = false;
+}
+function renderSignoff(){
+  var w = $("jf-signView");
+  if(jobFormSignoff && jobFormSignoff.sig){
+    w.innerHTML = '<div class="s">Work approved by <b>' + esc(jobFormSignoff.name) + "</b> — " +
+      esc(fmtDate(String(jobFormSignoff.at || "").slice(0, 10))) + "</div>" +
+      '<img class="sigimg" src="' + jobFormSignoff.sig + '" alt="customer signature">' +
+      '<div style="margin-top:6px;"><button type="button" class="btn small danger" data-signremove="1">Remove sign-off</button></div>' +
+      '<div class="s">Draw a new signature below and tap Save sign-off to replace it.</div>';
+    w.querySelector("[data-signremove]").addEventListener("click", function(){
+      jobFormSignoff = null;
+      if(editingJobId){ var j = jobById(editingJobId); if(j){ j.signoff = null; saveAll(); } }
+      $("jf-signName").value = ""; clearSigPad(); renderSignoff(); toast("Sign-off removed.");
+    });
+  } else {
+    w.innerHTML = '<div class="s">No sign-off recorded yet.</div>';
+  }
+}
+$("jf-signClear").addEventListener("click", function(){ clearSigPad(); });
+$("jf-signSave").addEventListener("click", function(){
+  var name = $("jf-signName").value.trim();
+  if(!name){ toast("Type the customer's name first."); return; }
+  var sig = sigDirty ? $("jf-signPad").toDataURL("image/png") : (jobFormSignoff ? jobFormSignoff.sig : null);
+  if(!sig){ toast("Have the customer sign in the box first."); return; }
+  jobFormSignoff = { name: name, sig: sig, at: new Date().toISOString() };
+  sigDirty = false;
+  if(editingJobId){ var j = jobById(editingJobId); if(j){ j.signoff = jobFormSignoff; saveAll(); } toast("Sign-off saved on the job."); }
+  else toast("Sign-off ready — it saves with the job.");
+  renderSignoff();
+});
+
+/* ================= DOCS ================= */
+function computeDoc(d){
+  var sub = 0, taxBase = 0;
+  (d.items || []).forEach(function(it){
+    var amt = num(it.qty) * num(it.price);
+    sub += amt; if(it.taxable) taxBase += amt;
+  });
+  var discount = Math.min(num(d.discount), sub);
+  var taxBaseAfter = sub > 0 ? taxBase * (1 - discount / sub) : 0;
+  var tax = taxBaseAfter * num(d.taxPct) / 100;
+  var total = sub - discount + tax;
+  var balance = total - num(d.deposit);
+  return { subtotal: sub, discount: discount, tax: tax, total: total,
+           deposit: num(d.deposit), balance: balance };
+}
+function docLabel(d){ return (d.type === "invoice" ? "Invoice " : "Estimate ") + d.number; }
+
+function renderDocs(){
+  var filter = $("docFilter").value;
+  var q = $("docSearch").value.trim().toLowerCase();
+  var list = docs.slice().sort(function(a, b){ return (b.createdAt || 0) - (a.createdAt || 0); });
+  var wrap = $("docList"); wrap.innerHTML = "";
+  var shown = 0;
+  list.forEach(function(d){
+    if(filter !== "all" && d.type !== filter) return;
+    var c = contactById(d.contactId);
+    var j = jobById(d.jobId);
+    var hay = (d.number + " " + (c ? c.name : "") + " " + (j ? j.title : "")).toLowerCase();
+    if(q && hay.indexOf(q) === -1) return;
+    shown++;
+    var t = computeDoc(d);
+    var card = document.createElement("div"); card.className = "card";
+    card.innerHTML =
+      '<div class="row"><div class="grow"><div class="t">' +
+      '<span class="badge ' + (d.type === "invoice" ? "inv" : "est") + '">' +
+      (d.type === "invoice" ? "INVOICE" : "ESTIMATE") + "</span> " + esc(d.number) + "</div>" +
+      (c ? '<div class="s">' + esc(c.name) + (c.company ? " · " + esc(c.company) : "") + "</div>" : "") +
+      (j ? '<div class="s">' + esc(j.title) + "</div>" : "") +
+      '<div class="s">' + fmtDate(d.date) + "</div></div>" +
+      '<div style="text-align:right;"><div class="amt">' + money(t.total) + "</div>" +
+      (t.balance > 0.004 ? '<div class="s">' + money(t.balance) + " due</div>"
+                         : '<div class="s" style="color:var(--good); font-weight:700;">Paid in full</div>') + "</div></div>";
+    card.style.cursor = "pointer";
+    card.addEventListener("click", function(){ openDocView(d.id); });
+    wrap.appendChild(card);
+  });
+  if(!shown) wrap.innerHTML = '<div class="empty">' + (docs.length ? "No matches." : "No estimates or invoices yet.") + "</div>";
+}
+$("docFilter").addEventListener("change", renderDocs);
+$("docSearch").addEventListener("input", renderDocs);
+
+/* ---------- doc editor ---------- */
+var editingDocId = null, editingDocType = "invoice", docFormItems = [], docFormPhotos = [];
+function fillJobSelect(sel, selected){
+  sel.innerHTML = "";
+  var o = document.createElement("option"); o.value = ""; o.textContent = "— No job —"; sel.appendChild(o);
+  jobs.slice().sort(function(a, b){ return (b.createdAt || 0) - (a.createdAt || 0); }).forEach(function(j){
+    var op = document.createElement("option"); op.value = j.id; op.textContent = j.title;
+    if(j.id === selected) op.selected = true;
+    sel.appendChild(op);
+  });
+}
+function fillPbSelect(){
+  var sel = $("df-pbSelect"); sel.innerHTML = "";
+  priceBook.slice().sort(function(a, b){ return (a.name || "").localeCompare(b.name || ""); }).forEach(function(p){
+    var op = document.createElement("option"); op.value = p.id;
+    op.textContent = p.name + " — " + money(p.price);
+    sel.appendChild(op);
+  });
+  if(!priceBook.length){ var op = document.createElement("option"); op.value = ""; op.textContent = "Price book empty"; sel.appendChild(op); }
+}
+function renderDocItems(){
+  var wrap = $("df-items"); wrap.innerHTML = "";
+  docFormItems.forEach(function(it, i){
+    var row = document.createElement("div"); row.className = "itemrow";
+    row.innerHTML =
+      '<input type="text" data-f="desc" data-i="' + i + '" placeholder="Description" value="' + esc(it.desc) + '">' +
+      '<div class="grid" style="margin-top:8px;">' +
+        '<input type="number" data-f="qty" data-i="' + i + '" inputmode="decimal" min="0" step="any" placeholder="Qty" value="' + esc(it.qty) + '">' +
+        '<input type="number" data-f="price" data-i="' + i + '" inputmode="decimal" min="0" step="0.01" placeholder="Price $" value="' + esc(it.price) + '">' +
+        '<div class="amtline" data-amt="' + i + '">' + money(num(it.qty) * num(it.price)) + "</div>" +
+      "</div>" +
+      '<div class="grid2">' +
+        '<label style="font-size:14px;"><input type="checkbox" data-f="taxable" data-i="' + i + '"' + (it.taxable ? " checked" : "") + ' style="width:20px;height:20px;vertical-align:-4px;accent-color:var(--accent);"> Taxable</label>' +
+        '<button type="button" class="btn small danger" data-del="' + i + '">Remove</button>' +
+      "</div>";
+    wrap.appendChild(row);
+  });
+  wrap.querySelectorAll("input[data-f]").forEach(function(inp){
+    inp.addEventListener("input", function(){
+      var i = num(inp.getAttribute("data-i")), f = inp.getAttribute("data-f");
+      docFormItems[i][f] = inp.type === "checkbox" ? inp.checked : inp.value;
+      var amtEl = wrap.querySelector('[data-amt="' + i + '"]');
+      if(amtEl) amtEl.textContent = money(num(docFormItems[i].qty) * num(docFormItems[i].price));
+      renderDocTotals();
+    });
+    inp.addEventListener("change", function(){
+      var i = num(inp.getAttribute("data-i")), f = inp.getAttribute("data-f");
+      if(inp.type === "checkbox"){ docFormItems[i][f] = inp.checked; renderDocTotals(); }
+    });
+  });
+  wrap.querySelectorAll("[data-del]").forEach(function(b){
+    b.addEventListener("click", function(){
+      docFormItems.splice(num(b.getAttribute("data-del")), 1);
+      renderDocItems(); renderDocTotals();
+    });
+  });
+}
+function gatherDocFromForm(){
+  return {
+    type: editingDocType,
+    contactId: $("df-contact").value, jobId: $("df-job").value,
+    date: $("df-date").value || todayISO(),
+    items: docFormItems.map(function(it){
+      return { desc: String(it.desc || ""), qty: num(it.qty) || 0, price: num(it.price) || 0, taxable: !!it.taxable };
+    }),
+    discount: num($("df-discount").value), taxPct: num($("df-tax").value),
+    deposit: num($("df-deposit").value), showPrices: $("df-showPrices").checked,
+    payLink: $("df-paylink").value.trim(), notes: $("df-notes").value,
+    photos: docFormPhotos.slice()
+  };
+}
+function renderDocTotals(){
+  var t = computeDoc(gatherDocFromForm());
+  $("df-totals").innerHTML =
+    '<div class="tr"><span>Subtotal</span><span>' + money(t.subtotal) + "</span></div>" +
+    (t.discount ? '<div class="tr"><span>Discount</span><span>−' + money(t.discount) + "</span></div>" : "") +
+    (t.tax ? '<div class="tr"><span>Tax</span><span>' + money(t.tax) + "</span></div>" : "") +
+    '<div class="tr"><span>Total</span><span>' + money(t.total) + "</span></div>" +
+    (t.deposit ? '<div class="tr"><span>Deposit paid</span><span>−' + money(t.deposit) + "</span></div>" : "") +
+    '<div class="tr grand"><span>Balance due</span><span>' + money(t.balance) + "</span></div>";
+}
+function renderDocFormPhotos(){
+  var wrap = $("df-photos"); wrap.innerHTML = "";
+  docFormPhotos.forEach(function(p, i){
+    var d = document.createElement("div"); d.className = "ph";
+    d.innerHTML = '<img src="' + p + '" alt="document photo"><button type="button" data-rm="' + i + '">×</button>';
+    wrap.appendChild(d);
+  });
+  wrap.querySelectorAll("[data-rm]").forEach(function(b){
+    b.addEventListener("click", function(){
+      docFormPhotos.splice(num(b.getAttribute("data-rm")), 1); renderDocFormPhotos();
+    });
+  });
+}
+function openDocForm(type, existing){
+  editingDocId = existing ? existing.id : null;
+  editingDocType = existing ? existing.type : type;
+  $("docHome").style.display = "none"; $("docView").style.display = "none"; $("docForm").style.display = "";
+  $("docFormTitle").textContent = (existing ? "Edit " : "New ") + (editingDocType === "invoice" ? "Invoice" : "Estimate");
+  $("df-number").textContent = existing ? existing.number : "New — number assigned when saved";
+  fillContactSelect($("df-contact"), existing ? existing.contactId : "", "— No customer —");
+  if(existing && existing.contactId) $("df-contact").value = existing.contactId;
+  fillJobSelect($("df-job"), existing ? existing.jobId : "");
+  if(existing && existing.jobId) $("df-job").value = existing.jobId;
+  $("df-date").value = existing ? existing.date || todayISO() : todayISO();
+  docFormItems = existing && existing.items ? existing.items.map(function(it){
+    return { desc: it.desc || "", qty: it.qty, price: it.price, taxable: !!it.taxable };
+  }) : [{ desc: "", qty: 1, price: 0, taxable: false }];
+  $("df-discount").value = existing ? num(existing.discount) : 0;
+  $("df-tax").value = existing ? num(existing.taxPct) : 0;
+  $("df-deposit").value = existing ? num(existing.deposit) : 0;
+  $("df-showPrices").checked = existing ? existing.showPrices !== false : true;
+  $("df-paylink").value = existing ? existing.payLink || "" : "";
+  $("df-notes").value = existing ? existing.notes || "" : "";
+  docFormPhotos = existing && existing.photos ? existing.photos.slice() : [];
+  fillPbSelect(); renderDocItems(); renderDocFormPhotos(); renderDocTotals();
+  window.scrollTo(0, 0);
+}
+$("newEstBtn").addEventListener("click", function(){ openDocForm("estimate", null); });
+$("newInvBtn").addEventListener("click", function(){ openDocForm("invoice", null); });
+$("df-addItem").addEventListener("click", function(){
+  docFormItems.push({ desc: "", qty: 1, price: 0, taxable: false });
+  renderDocItems(); renderDocTotals();
+});
+$("df-addFromPb").addEventListener("click", function(){
+  var id = $("df-pbSelect").value; if(!id){ toast("Price book is empty."); return; }
+  var p = null; priceBook.forEach(function(x){ if(x.id === id) p = x; });
+  if(!p) return;
+  docFormItems.push({ desc: p.name, qty: 1, price: p.price, taxable: !!p.taxable });
+  renderDocItems(); renderDocTotals(); toast("Added: " + p.name);
+});
+["df-discount", "df-tax", "df-deposit"].forEach(function(id){
+  $(id).addEventListener("input", renderDocTotals);
+});
+$("df-photo-input").addEventListener("change", function(){ addFilesTo(this, docFormPhotos, renderDocFormPhotos); });
+$("df-pullPhotos").addEventListener("click", function(){
+  var j = jobById($("df-job").value);
+  if(!j){ toast("Pick a job first."); return; }
+  if(!j.photos || !j.photos.length){ toast("That job has no photos yet."); return; }
+  j.photos.forEach(function(p){ if(docFormPhotos.indexOf(p) === -1) docFormPhotos.push(p); });
+  renderDocFormPhotos(); toast(j.photos.length + " photo(s) pulled from the job.");
+});
+$("docCancelBtn").addEventListener("click", function(){
+  $("docForm").style.display = "none";
+  if(editingDocId) openDocView(editingDocId); else { $("docHome").style.display = ""; }
+});
+$("docSaveBtn").addEventListener("click", function(){
+  var data = gatherDocFromForm();
+  data.items = data.items.filter(function(it){ return it.desc.trim() !== "" || num(it.price) > 0; });
+  if(editingDocId){
+    var d = docById(editingDocId); for(var k in data) d[k] = data[k];
+    saveAll(); $("docForm").style.display = "none"; renderDocs(); openDocView(d.id); toast("Saved.");
+  } else {
+    data.id = uid(); data.createdAt = Date.now();
+    if(data.type === "invoice"){ data.number = "INV-" + counters.inv; counters.inv++; }
+    else { data.number = "EST-" + counters.est; counters.est++; }
+    docs.push(data); saveAll();
+    $("docForm").style.display = "none"; renderDocs(); openDocView(data.id); toast("Saved as " + data.number + ".");
+  }
+});
+$("docDeleteBtn").addEventListener("click", function(){
+  if(!editingDocId || !confirm("Delete this document?")) return;
+  docs = docs.filter(function(d){ return d.id !== editingDocId; });
+  saveAll(); $("docForm").style.display = "none"; $("docHome").style.display = ""; renderDocs(); toast("Deleted.");
+});
+
+/* ---------- doc customer copy ---------- */
+var viewingDocId = null;
+function bookAheadParts(){
+  return {
+    head: BOOK_AHEAD_HEAD, body: BOOK_AHEAD_BODY,
+    disc: (settings.bookAheadLine || "").trim(),
+    link: (settings.bookingLink || "").trim()
+  };
+}
+function docToText(d){
+  var c = contactById(d.contactId), t = computeDoc(d);
+  var L = [];
+  L.push("Pour Dawgz — " + BIZ_ADDR);
+  L.push(BIZ_SITE);
+  L.push(BIZ_LINE);
+  L.push("");
+  L.push(docLabel(d) + " · " + fmtDate(d.date));
+  if(c){ L.push("Customer: " + c.name + (c.company ? " (" + c.company + ")" : "")); if(c.address) L.push(c.address); }
+  var j = jobById(d.jobId); if(j) L.push("Job: " + j.title);
+  if(j && j.signoff && j.signoff.sig)
+    L.push("Work approved by: " + (j.signoff.name || "") + " — " + fmtDate(String(j.signoff.at || "").slice(0, 10)));
+  L.push("");
+  (d.items || []).forEach(function(it){
+    if(d.showPrices !== false)
+      L.push("• " + it.desc + " — " + num(it.qty) + " × " + money(it.price) + " = " + money(num(it.qty) * num(it.price)));
+    else
+      L.push("• " + it.desc);
+  });
+  L.push("");
+  if(d.showPrices !== false){
+    L.push("Subtotal: " + money(t.subtotal));
+    if(t.discount) L.push("Discount: −" + money(t.discount));
+    if(t.tax) L.push("Tax: " + money(t.tax));
+  }
+  L.push("Total: " + money(t.total));
+  if(t.deposit) L.push("Deposit paid: −" + money(t.deposit));
+  L.push("Balance due: " + money(t.balance));
+  if(d.payLink) L.push("\nPay here: " + d.payLink);
+  if(d.notes) L.push("\n" + d.notes);
+  var bap = bookAheadParts();
+  L.push("");
+  L.push(bap.head + " " + bap.body);
+  if(bap.disc) L.push(bap.disc);
+  if(bap.link) L.push("Book online: " + bap.link);
+  L.push("\n" + BIZ_LINE);
+  return L.join("\n");
+}
+function docPaperHTML(d){
+  var c = contactById(d.contactId), j = jobById(d.jobId), t = computeDoc(d);
+  var show = d.showPrices !== false;
+  var h = '<div class="paper">';
+  h += '<div class="p-head"><div><div class="p-biz">Pour Dawgz</div>' +
+       '<div style="font-size:13px;color:#444;">' + BIZ_SITE + "</div>" +
+       '<div style="font-size:13px;color:#444;">Handyman Services · ' + BIZ_ADDR + "</div>" +
+       '<div style="font-size:13px;color:#444;">' + BIZ_LINE + "</div></div>" +
+       '<div class="p-meta"><div style="font-size:17px;font-weight:800;color:#111;">' +
+       (d.type === "invoice" ? "INVOICE" : "ESTIMATE") + "</div>" +
+       "<div>" + esc(d.number) + "</div><div>" + fmtDate(d.date) + "</div></div></div>";
+  if(c){
+    h += '<div class="p-title">' + esc(c.name) + "</div>";
+    if(c.company) h += '<div style="font-size:14px;color:#444;">' + esc(c.company) + "</div>";
+    if(c.address) h += '<div style="font-size:14px;color:#444;">' + esc(c.address) + "</div>";
+    if(c.phone) h += '<div style="font-size:14px;color:#444;">' + esc(c.phone) + "</div>";
+  }
+  if(j) h += '<div style="font-size:14px;color:#444;margin-top:4px;">Job: ' + esc(j.title) + (j.address ? " — " + esc(j.address) : "") + "</div>";
+  h += "<table><tr><th>Description</th>" + (show ? '<th class="num">Qty</th><th class="num">Price</th><th class="num">Amount</th>' : "") + "</tr>";
+  (d.items || []).forEach(function(it){
+    h += "<tr><td>" + esc(it.desc) + "</td>";
+    if(show) h += '<td class="num">' + num(it.qty) + '</td><td class="num">' + money(it.price) +
+                  '</td><td class="num">' + money(num(it.qty) * num(it.price)) + "</td>";
+    h += "</tr>";
+  });
+  h += "</table>";
+  h += '<div class="p-tot">';
+  if(show){
+    h += '<div class="tr"><span>Subtotal</span><span>' + money(t.subtotal) + "</span></div>";
+    if(t.discount) h += '<div class="tr"><span>Discount</span><span>−' + money(t.discount) + "</span></div>";
+    if(t.tax) h += '<div class="tr"><span>Tax</span><span>' + money(t.tax) + "</span></div>";
+  }
+  h += '<div class="tr grand"><span>Total</span><span>' + money(t.total) + "</span></div>";
+  if(t.deposit) h += '<div class="tr"><span>Deposit paid</span><span>−' + money(t.deposit) + "</span></div>";
+  h += '<div class="tr grand"><span>Balance due</span><span>' + money(t.balance) + "</span></div></div>";
+  if(d.payLink) h += '<div><a class="paybtn" href="' + esc(d.payLink) + '">Pay here</a></div>';
+  if(d.notes) h += '<div class="p-notes">' + esc(d.notes) + "</div>";
+  if(d.photos && d.photos.length){
+    h += '<div class="p-photos">' + d.photos.map(function(p){ return '<img src="' + p + '" alt="job photo">'; }).join("") + "</div>";
+  }
+  if(j && j.signoff && j.signoff.sig){
+    h += '<div style="margin-top:14px;border-top:1px solid #e4ddd0;padding-top:10px;">' +
+      '<div style="font-size:13.5px;color:#333;">Work approved by: ' + esc(j.signoff.name) + " — " +
+      esc(fmtDate(String(j.signoff.at || "").slice(0, 10))) + '</div>' +
+      '<img src="' + j.signoff.sig + '" alt="customer signature" style="max-width:220px;max-height:80px;border:1px solid #ddd;border-radius:6px;margin-top:6px;background:#fff;"></div>';
+  }
+  var bap = bookAheadParts();
+  h += '<div style="margin-top:14px;background:#faf7f1;border:1px solid #e4ddd0;border-radius:8px;padding:10px;font-size:13.5px;line-height:1.45;">' +
+    "<div><b>" + esc(bap.head) + "</b> " + esc(bap.body) + "</div>" +
+    (bap.disc ? '<div style="margin-top:6px;">' + esc(bap.disc) + "</div>" : "") +
+    (bap.link ? '<div style="margin-top:6px;">Book online: <a href="' + esc(bap.link) + '">' + esc(bap.link) + "</a></div>" : "") +
+    "</div>";
+  h += '<div style="margin-top:14px;font-size:12.5px;color:#666;">' + BIZ_LINE + " · Pour Dawgz · " + BIZ_ADDR + "</div>";
+  h += "</div>";
+  return h;
+}
+function openDocView(id){
+  var d = docById(id); if(!d) return;
+  viewingDocId = id;
+  $("docHome").style.display = "none"; $("docForm").style.display = "none"; $("docView").style.display = "";
+  $("docPaperWrap").innerHTML = docPaperHTML(d);
+  $("dv-convert").style.display = d.type === "estimate" ? "" : "none";
+  var c = contactById(d.contactId), t = computeDoc(d);
+  var smsBody = "Pour Dawgz — " + docLabel(d) + ". " +
+    (d.type === "invoice" ? "Balance due: " + money(t.balance) + ". " : "Total: " + money(t.total) + ". ") +
+    (d.payLink ? "Pay here: " + d.payLink + " " : "") +
+    "Full copy available — just reply and I'll send it. " + BIZ_LINE;
+  var txt = $("dv-text");
+  if(c && c.phone) txt.href = "sms:" + c.phone + "?&body=" + encodeURIComponent(smsBody);
+  else txt.href = "#";
+  txt.onclick = function(){ if(!(c && c.phone)){ toast("No phone number on the customer."); return false; } };
+  var em = $("dv-email");
+  if(c && c.email) em.href = "mailto:" + c.email + "?subject=" + encodeURIComponent("Pour Dawgz — " + docLabel(d)) +
+                             "&body=" + encodeURIComponent(docToText(d));
+  else em.href = "#";
+  em.onclick = function(){ if(!(c && c.email)){ toast("No email on the customer."); return false; } };
+  window.scrollTo(0, 0);
+}
+$("dv-back").addEventListener("click", function(){ $("docView").style.display = "none"; $("docHome").style.display = ""; renderDocs(); });
+$("dv-edit").addEventListener("click", function(){ var d = docById(viewingDocId); if(d) openDocForm(d.type, d); });
+$("dv-print").addEventListener("click", function(){
+  var d = docById(viewingDocId); if(!d) return;
+  $("printSheet").innerHTML = docPaperHTML(d);
+  window.print();
+});
+$("dv-copy").addEventListener("click", function(){
+  var d = docById(viewingDocId); if(!d) return;
+  var text = docToText(d);
+  function done(){ toast("Copied — paste it anywhere."); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+});
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand("copy"); }catch(e){}
+  document.body.removeChild(ta);
+}
+$("dv-convert").addEventListener("click", function(){
+  var src = docById(viewingDocId); if(!src) return;
+  var copy = JSON.parse(JSON.stringify(src));
+  delete copy.id; delete copy.number; copy.type = "invoice";
+  openDocForm("invoice", null);
+  editingDocType = "invoice";
+  $("docFormTitle").textContent = "New Invoice (from " + src.number + ")";
+  if(copy.contactId) $("df-contact").value = copy.contactId;
+  if(copy.jobId) $("df-job").value = copy.jobId;
+  $("df-date").value = todayISO();
+  docFormItems = copy.items && copy.items.length ? copy.items : [{ desc: "", qty: 1, price: 0, taxable: false }];
+  $("df-discount").value = num(copy.discount); $("df-tax").value = num(copy.taxPct); $("df-deposit").value = num(copy.deposit);
+  $("df-showPrices").checked = copy.showPrices !== false;
+  $("df-paylink").value = copy.payLink || ""; $("df-notes").value = copy.notes || "";
+  docFormPhotos = copy.photos ? copy.photos.slice() : [];
+  renderDocItems(); renderDocFormPhotos(); renderDocTotals();
+  toast("Estimate copied — Save to create the invoice.");
+});
+
+/* ================= CREW ================= */
+var editingCrewId = null;
+function crewByName(name){
+  var n = String(name || "").trim().toLowerCase();
+  for(var i = 0; i < crew.length; i++)
+    if((crew[i].name || "").trim().toLowerCase() === n) return crew[i];
+  return null;
+}
+function crewPhone(name){
+  if(String(name || "").trim().toLowerCase() === "steven") return "";
+  var m = crewByName(name);
+  return m ? (m.phone || "") : "";
+}
+function fillCrewDatalist(){
+  var dl = $("crewNames"); if(!dl) return;
+  dl.innerHTML = "";
+  ["Steven"].concat(crew.map(function(m){ return m.name; })).forEach(function(n){
+    var o = document.createElement("option"); o.value = n; dl.appendChild(o);
+  });
+}
+function renderCrew(){
+  fillCrewDatalist();
+  var wrap = $("crewList"); wrap.innerHTML = "";
+  if(!crew.length){ wrap.innerHTML = '<div class="empty">No crew yet — add your first crew member.</div>'; return; }
+  crew.slice().sort(function(a, b){ return (a.name || "").localeCompare(b.name || ""); }).forEach(function(m){
+    var card = document.createElement("div"); card.className = "card";
+    card.innerHTML = '<div class="row"><div class="grow"><div class="t" style="font-size:16px;">' + esc(m.name) + "</div>" +
+      (m.role ? '<div class="s">' + esc(m.role) + "</div>" : "") +
+      (m.phone ? '<div class="s">' + esc(m.phone) + "</div>" : '<div class="s">No phone yet</div>') + "</div>" +
+      '<button class="btn small" data-cedit="' + m.id + '">Edit</button></div>';
+    wrap.appendChild(card);
+  });
+  wrap.querySelectorAll("[data-cedit]").forEach(function(b){
+    b.addEventListener("click", function(){ openCrewForm(b.getAttribute("data-cedit")); });
+  });
+}
+function openCrewForm(id){
+  editingCrewId = id || null;
+  var m = null; crew.forEach(function(x){ if(x.id === id) m = x; });
+  $("crewFormTitle").textContent = m ? "Edit crew member" : "Add crew member";
+  $("crf-name").value = m ? m.name || "" : "";
+  $("crf-phone").value = m ? m.phone || "" : "";
+  $("crf-role").value = m ? m.role || "" : "";
+  $("crewDeleteBtn").style.display = m ? "" : "none";
+  $("crewForm").style.display = "";
+  $("crewForm").scrollIntoView({ behavior: "smooth" });
+}
+$("crewAddBtn").addEventListener("click", function(){ openCrewForm(null); });
+$("crewCancelBtn").addEventListener("click", function(){ $("crewForm").style.display = "none"; });
+$("crewSaveBtn").addEventListener("click", function(){
+  var name = $("crf-name").value.trim();
+  if(!name){ toast("Name is required."); return; }
+  var data = { name: name, phone: $("crf-phone").value.trim(), role: $("crf-role").value.trim() };
+  if(editingCrewId){
+    crew.forEach(function(x){ if(x.id === editingCrewId){ x.name = data.name; x.phone = data.phone; x.role = data.role; } });
+  } else { data.id = uid(); crew.push(data); }
+  saveAll(); $("crewForm").style.display = "none"; renderCrew(); toast("Crew member saved.");
+});
+$("crewDeleteBtn").addEventListener("click", function(){
+  if(!editingCrewId || !confirm("Remove this crew member?")) return;
+  crew = crew.filter(function(m){ return m.id !== editingCrewId; });
+  saveAll(); $("crewForm").style.display = "none"; renderCrew(); toast("Crew member removed.");
+});
+
+/* ================= SCHEDULE ================= */
+var editingSchedId = null;
+function schedStatusBadge(s){
+  if(s === "Done") return '<span class="badge done">Done</span>';
+  if(s === "Cancelled") return '<span class="badge cancelled">Cancelled</span>';
+  return '<span class="badge">Scheduled</span>';
+}
+function renderSchedule(){
+  fillCrewDatalist();
+  var today = todayISO();
+  var items = schedule.filter(function(e){ return e.status !== "Cancelled"; }).slice()
+    .sort(function(a, b){ return (a.date + "T" + (a.start || "00:00")).localeCompare(b.date + "T" + (b.start || "00:00")); });
+  renderSchedList($("schedToday"), items.filter(function(e){ return e.date === today; }), "Nothing scheduled for today.");
+  renderSchedList($("schedUpcoming"), items.filter(function(e){ return e.date > today; }), "Nothing coming up.");
+}
+function renderSchedList(wrap, items, emptyMsg){
+  wrap.innerHTML = "";
+  if(!items.length){ wrap.innerHTML = '<div class="empty">' + emptyMsg + "</div>"; return; }
+  items.forEach(function(e){
+    var c = contactById(e.contactId), j = jobById(e.jobId);
+    var when = fmtDate(e.date) + (e.start ? " · " + fmtTime(e.start) + (e.end ? "–" + fmtTime(e.end) : "") : "");
+    var card = document.createElement("div"); card.className = "card";
+    card.innerHTML =
+      '<div class="row"><div class="grow"><div class="t">' + esc(e.title || "—") + "</div>" +
+      '<div class="s">' + esc(when) + "</div>" +
+      (e.assigned ? '<div class="s">👤 ' + esc(e.assigned) + "</div>" : "") +
+      (c ? '<div class="s">' + esc(c.name) + (c.company ? " · " + esc(c.company) : "") + "</div>" : "") +
+      (j ? '<div class="s">Job: ' + esc(j.title) + "</div>" : "") +
+      (e.address ? '<div class="s">' + esc(e.address) + "</div>" : "") +
+      (e.notes ? '<div class="s">' + esc(e.notes) + "</div>" : "") + "</div>" +
+      '<button class="btn small" data-sedit="' + e.id + '">Edit</button></div>' +
+      '<div style="margin-top:6px;">' + schedStatusBadge(e.status || "Scheduled") + "</div>" +
+      '<div class="iconrow"><button class="iconbtn" data-textcrew="' + e.id + '">💬 Text crew</button></div>';
+    wrap.appendChild(card);
+  });
+  wrap.querySelectorAll("[data-sedit]").forEach(function(b){
+    b.addEventListener("click", function(){ openSchedForm(b.getAttribute("data-sedit")); });
+  });
+  wrap.querySelectorAll("[data-textcrew]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var e = null; schedule.forEach(function(x){ if(x.id === b.getAttribute("data-textcrew")) e = x; });
+      if(!e) return;
+      var phone = crewPhone(e.assigned);
+      if(!phone){ toast("No phone on file for " + (e.assigned || "that person") + " — add it in the Crew list above."); return; }
+      var msg = "Pour Dawgz schedule: " + e.title + " — " + fmtDate(e.date) +
+        (e.start ? " " + fmtTime(e.start) : "") +
+        (e.address ? ", " + e.address : "") + "." +
+        (e.notes ? " Job notes: " + e.notes + "." : "") +
+        " Questions — call Steven at 605-515-8327.";
+      window.location.href = "sms:" + phone + "?&body=" + encodeURIComponent(msg);
+    });
+  });
+}
+function checkOverlap(){
+  var date = $("sf-date").value, start = $("sf-start").value, end = $("sf-end").value;
+  var warn = $("sf-warn");
+  if(!date || !start){ warn.style.display = "none"; return null; }
+  var s = toMin(start), e2 = end ? toMin(end) : s + 60, hit = null;
+  schedule.forEach(function(x){
+    if(hit || x.id === editingSchedId || x.status === "Cancelled" || x.date !== date || !x.start) return;
+    var xs = toMin(x.start), xe = x.end ? toMin(x.end) : xs + 60;
+    if(s < xe && xs < e2) hit = x;
+  });
+  if(hit){ warn.textContent = "Heads up: overlaps with " + hit.title; warn.style.display = ""; }
+  else warn.style.display = "none";
+  return hit;
+}
+function openSchedForm(id){
+  editingSchedId = id || null;
+  var e = null; schedule.forEach(function(x){ if(x.id === id) e = x; });
+  $("schedFormTitle").textContent = e ? "Edit schedule entry" : "Add to schedule";
+  $("sf-date").value = e ? (e.date || todayISO()) : todayISO();
+  $("sf-start").value = e ? e.start || "" : "";
+  $("sf-end").value = e ? e.end || "" : "";
+  $("sf-title").value = e ? e.title || "" : "";
+  fillJobSelect($("sf-job"), e ? e.jobId : "");
+  if(e && e.jobId) $("sf-job").value = e.jobId;
+  fillContactSelect($("sf-contact"), e ? e.contactId : "", "— No customer —");
+  if(e && e.contactId) $("sf-contact").value = e.contactId;
+  fillCrewDatalist();
+  $("sf-assigned").value = e ? e.assigned || "" : "";
+  $("sf-address").value = e ? e.address || "" : "";
+  $("sf-status").value = e ? e.status || "Scheduled" : "Scheduled";
+  $("sf-notes").value = e ? e.notes || "" : "";
+  $("schedDeleteBtn").style.display = e ? "" : "none";
+  $("schedForm").style.display = "";
+  checkOverlap();
+  $("schedForm").scrollIntoView({ behavior: "smooth" });
+}
+$("schedAddBtn").addEventListener("click", function(){ openSchedForm(null); });
+$("schedCancelBtn").addEventListener("click", function(){ $("schedForm").style.display = "none"; });
+$("sf-job").addEventListener("change", function(){
+  var j = jobById(this.value); if(!j) return;
+  if(!$("sf-title").value.trim()) $("sf-title").value = j.title || "";
+  if(!$("sf-address").value.trim()) $("sf-address").value = j.address || "";
+  if(!$("sf-contact").value && j.contactId) $("sf-contact").value = j.contactId;
+});
+["sf-date", "sf-start", "sf-end"].forEach(function(id){
+  $(id).addEventListener("input", checkOverlap);
+  $(id).addEventListener("change", checkOverlap);
+});
+$("schedSaveBtn").addEventListener("click", function(){
+  var j = jobById($("sf-job").value);
+  var title = $("sf-title").value.trim() || (j ? j.title : "");
+  if(!title){ toast("Give it a title, or pick a job."); return; }
+  if(!$("sf-date").value){ toast("Pick a date."); return; }
+  var hit = checkOverlap();
+  var data = { date: $("sf-date").value, start: $("sf-start").value, end: $("sf-end").value,
+    title: title, jobId: $("sf-job").value, contactId: $("sf-contact").value,
+    assigned: $("sf-assigned").value.trim(), address: $("sf-address").value.trim(),
+    status: $("sf-status").value, notes: $("sf-notes").value.trim() };
+  if(editingSchedId){
+    schedule.forEach(function(x){ if(x.id === editingSchedId){ for(var k in data) x[k] = data[k]; } });
+  } else { data.id = uid(); data.createdAt = Date.now(); schedule.push(data); }
+  saveAll(); $("schedForm").style.display = "none"; renderSchedule();
+  toast(hit ? ("Saved — heads up: overlaps with " + hit.title + ".") : "Scheduled.");
+});
+$("schedDeleteBtn").addEventListener("click", function(){
+  if(!editingSchedId || !confirm("Delete this schedule entry?")) return;
+  schedule = schedule.filter(function(e){ return e.id !== editingSchedId; });
+  saveAll(); $("schedForm").style.display = "none"; renderSchedule(); toast("Entry deleted.");
+});
+
+/* ================= PRICE BOOK ================= */
+var editingPbId = null;
+function renderPriceBook(){
+  var q = $("pbSearch").value.trim().toLowerCase();
+  var list = priceBook.slice().sort(function(a, b){ return (a.name || "").localeCompare(b.name || ""); });
+  var wrap = $("pbList"); wrap.innerHTML = "";
+  var shown = 0;
+  list.forEach(function(p){
+    if(q && (p.name || "").toLowerCase().indexOf(q) === -1) return;
+    shown++;
+    var card = document.createElement("div"); card.className = "card";
+    card.innerHTML = '<div class="row"><div class="grow"><div class="t" style="font-size:16px;">' + esc(p.name) + "</div>" +
+      '<div class="s">' + (p.taxable ? "Taxable" : "Not taxable") + '</div></div>' +
+      '<div class="amt">' + money(p.price) + '</div>' +
+      '<button class="btn small" data-edit="' + p.id + '">Edit</button></div>';
+    wrap.appendChild(card);
+  });
+  if(!shown) wrap.innerHTML = '<div class="empty">' + (priceBook.length ? "No matches." : "Price book is empty.") + "</div>";
+  wrap.querySelectorAll("[data-edit]").forEach(function(b){
+    b.addEventListener("click", function(){ openPbForm(b.getAttribute("data-edit")); });
+  });
+}
+function openPbForm(id){
+  editingPbId = id || null;
+  var p = null; priceBook.forEach(function(x){ if(x.id === id) p = x; });
+  $("pbFormTitle").textContent = p ? "Edit item" : "Add item";
+  $("pf-name").value = p ? p.name || "" : "";
+  $("pf-price").value = p ? p.price : "";
+  $("pf-taxable").checked = p ? !!p.taxable : false;
+  $("pbDeleteBtn").style.display = p ? "" : "none";
+  $("pbForm").style.display = "";
+  $("pbForm").scrollIntoView({ behavior: "smooth" });
+}
+$("pbAddBtn").addEventListener("click", function(){ openPbForm(null); });
+$("pbCancelBtn").addEventListener("click", function(){ $("pbForm").style.display = "none"; });
+$("pbSearch").addEventListener("input", renderPriceBook);
+$("pbSaveBtn").addEventListener("click", function(){
+  var name = $("pf-name").value.trim();
+  if(!name){ toast("Item name is required."); return; }
+  var data = { name: name, price: num($("pf-price").value), taxable: $("pf-taxable").checked };
+  if(editingPbId){ priceBook.forEach(function(x){ if(x.id === editingPbId){ x.name = data.name; x.price = data.price; x.taxable = data.taxable; } }); }
+  else { data.id = uid(); priceBook.push(data); }
+  saveAll(); $("pbForm").style.display = "none"; renderPriceBook(); toast("Item saved.");
+});
+$("pbDeleteBtn").addEventListener("click", function(){
+  if(!editingPbId || !confirm("Delete this price book item?")) return;
+  priceBook = priceBook.filter(function(p){ return p.id !== editingPbId; });
+  saveAll(); $("pbForm").style.display = "none"; renderPriceBook(); toast("Item deleted.");
+});
+
+/* ================= BACKUP ================= */
+/* ---------- business settings ---------- */
+function renderSettings(){
+  $("set-ownerName").value = settings.ownerName || "";
+  $("set-ownerPhone").value = settings.ownerPhone || "";
+  $("set-bookingLink").value = settings.bookingLink || "";
+  $("set-bookAheadLine").value = settings.bookAheadLine == null ? "" : settings.bookAheadLine;
+}
+$("settingsSaveBtn").addEventListener("click", function(){
+  settings.ownerName = $("set-ownerName").value.trim();
+  settings.ownerPhone = $("set-ownerPhone").value.trim();
+  settings.bookingLink = $("set-bookingLink").value.trim();
+  settings.bookAheadLine = $("set-bookAheadLine").value.trim();
+  saveAll(); renderBackupNag(); toast("Business settings saved.");
+});
+
+/* ---------- book identity + backup watchdog ----------
+   The identity (owner name/phone) lives on THIS phone only: imports never
+   overwrite it. Every export is stamped with it and named after it, so
+   Terry's book, Johnny's book, and Steven's book can always be told apart.
+   The watchdog nags on open when this copy has data but no backup in 7+ days. */
+function ownerSlug(){
+  return (settings.ownerName || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+function gotoBackupTab(){
+  var b = document.querySelector('#tabBar button[data-tab="backup"]');
+  if(b) b.click();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+/* ---------- Steven's starter book: real clients + the deck job, ONE tap ----------
+   Built after the Nov 3 starter-pack mistake (a whole phone-book dump).
+   One tap replaces everything in this copy with just the client set. */
+function loadStarterBook(){
+  if(!confirm("Replace EVERYTHING in this book with your client starter book? The phone-book clutter goes away; only your clients, the deck job, and its estimate stay.")) return;
+  var jobId = uid();
+  contacts = [
+    { id: uid(), name: "Ben Jackson", company: "Family Dollar", phone: "(401) 382-3298",
+      email: "Ben@bkrnational.com", address: "", notes: "White Clay install — invoice #000013, $325, PAID Oct 29, 2026." },
+    { id: uid(), name: "Ryan", company: "Califix LLC", phone: "(904) 638-2487",
+      email: "ryan.h@califixca.com", address: "", notes: "Rapid City TJ Maxx photo run — invoice #000014, $280.72, disputed and unpaid (Nov 3, 2026)." },
+    { id: uid(), name: "Thad Olson", company: "", phone: "(605) 641-1349",
+      email: "", address: "", notes: "Dispatch contact for plumbing jobs." },
+    { id: uid(), name: "Diane Berry", company: "", phone: "+1 (605) 393-9667",
+      email: "", address: "3855 Cambell St Lot 110", notes: "Old client — treat her nice." },
+    { id: uid(), name: "Heidi & Michael Mittleider", company: "", phone: "+1 (909) 297-8009",
+      email: "Heidimittleider@gmail.com", address: "313 Mill St, Lead, SD 57754", notes: "Lead, SD — downspout job (repeat customer; waits on the ladder). Contact card from Steven, Nov 4, 2026." }
+  ];
+  jobs = [{
+    id: jobId, title: "Deck lattice job — Spearfish", contactId: "",
+    address: "Shockey Lane, Spearfish, SD", status: "In progress",
+    desc: "Lattice + redwood framing under the deck, critter barrier, steps.",
+    notes: "White plastic lattice to the bottom 2x4 only, framed with redwood 2x4 (outside) + 2x4 down each 4x4 post. Hardware cloth critter barrier behind the lattice. Front run 29 ft 2 in; side run 4 ft out x 36 ft long. Client already paid a $1,100 check for this job (Oct 30). Maestro's Oct 30 estimate total: $917.45 (EST-1001). Materials run list (Oct 31, Menards Rapid City): about $539 incl. tax.",
+    photos: [], timeLog: [], signoff: null
+  }];
+  docs = [{
+    id: uid(), type: "estimate", number: "EST-1001", contactId: "", jobId: jobId,
+    date: "2026-10-30",
+    items: [{ desc: "Deck lattice job — lattice, redwood framing, critter barrier, steps (flat total, Maestro's Oct 30 estimate)", qty: 1, price: 917.45, taxable: false }],
+    discount: 0, taxPct: 0, deposit: 0, showPrices: true, createdAt: Date.now()
+  }];
+  counters = { est: 1002, inv: 1001 };
+  schedule = [];
+  saveAll();
+  storeSet("starterLoaded", true);
+  renderContacts(); renderJobs(); renderDocs(); renderPriceBook(); renderCrew(); renderSchedule(); renderBackupCounts(); renderBackupNag();
+  toast("Starter book loaded — clients only.");
+}
+
+function renderBackupNag(){
+  var nag0 = $("backupNag");
+  if(nag0 && !storeGet("starterLoaded", false) && contacts.length > 4){
+    nag0.innerHTML = "📇 <b>This book is stuffed with your whole phone book</b> (" + contacts.length + " contacts). Want just your clients in here instead? " +
+      '<button type="button" class="btn small primary" id="nagStarterBtn" style="margin-top:8px;">Swap in my client book</button>';
+    nag0.style.display = "";
+    $("nagStarterBtn").addEventListener("click", loadStarterBook);
+    var idl0 = $("bookIdentityLine");
+    if(idl0) idl0.textContent = "This book belongs to: " + ((settings.ownerName || "").trim() || "— not set") + " · Last backup: " + (storeGet("lastExport", 0) ? new Date(storeGet("lastExport", 0)).toLocaleDateString() : "never");
+    return;
+  }
+  var hasData = (contacts.length + jobs.length + docs.length + schedule.length) > 0;
+  var last = storeGet("lastExport", 0);
+  var overdue = hasData && (!last || (Date.now() - last > 7 * 24 * 60 * 60 * 1000));
+  var noOwner = !(settings.ownerName || "").trim();
+  var nag = $("backupNag");
+  if(nag){
+    if(hasData && noOwner){
+      nag.innerHTML = "🏷️ <b>This book has no name on it yet.</b> Put your name on it in Backup settings so your book never gets mixed up with anybody else's. " +
+        '<button type="button" class="btn small primary" id="nagBtn" style="margin-top:8px;">Put my name on it</button>';
+      nag.style.display = "";
+      $("nagBtn").addEventListener("click", gotoBackupTab);
+    } else if(overdue){
+      nag.innerHTML = "⚠️ <b>" + (last ? "No backup in over a week." : "This book has never been backed up.") + "</b> " +
+        "If this phone dies, everything in this book dies with it. Back it up now — it takes two taps. " +
+        '<button type="button" class="btn small primary" id="nagBtn" style="margin-top:8px;">Back up now</button>';
+      nag.style.display = "";
+      $("nagBtn").addEventListener("click", function(){ gotoBackupTab(); $("exportBtn").click(); });
+    } else {
+      nag.style.display = "none"; nag.innerHTML = "";
+    }
+  }
+  var idl = $("bookIdentityLine");
+  if(idl){
+    var who = (settings.ownerName || "").trim();
+    idl.textContent = "This book belongs to: " + (who ? who + (settings.ownerPhone ? " · " + settings.ownerPhone : "") : "— not set (add your name in Business settings above)") +
+      " · Last backup: " + (last ? new Date(last).toLocaleDateString() : "never");
+  }
+}
+function renderBackupCounts(){
+  var photos = 0;
+  jobs.forEach(function(j){ photos += (j.photos || []).length; });
+  docs.forEach(function(d){ photos += (d.photos || []).length; });
+  $("backupCounts").textContent = contacts.length + " contacts · " + jobs.length + " jobs · " +
+    schedule.length + " scheduled · " + crew.length + " crew · " +
+    docs.length + " estimates/invoices · " + priceBook.length + " price book items · " + photos + " photos";
+}
+function downloadBackup(code, filename){
+  var data = { app: "pour-dawgz-field-book", version: 2, exportedAt: new Date().toISOString(),
+    owner: { name: settings.ownerName || "", phone: settings.ownerPhone || "" },
+    contacts: contacts, jobs: jobs, docs: docs, pricebook: priceBook, counters: counters,
+    schedule: schedule, crew: crew, settings: settings };
+  if(code) data.code = code;
+  var blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 400);
+  storeSet("lastExport", Date.now());
+  renderBackupNag();
+}
+$("starterBookBtn").addEventListener("click", loadStarterBook);
+$("exportBtn").addEventListener("click", function(){
+  var slug = ownerSlug();
+  downloadBackup($("exportCode").value.trim(), "pour-dawgz-field-book-backup-" + (slug ? slug + "-" : "") + todayISO() + ".json");
+  toast("Backup downloaded — save it to Google Drive.");
+});
+$("packExportBtn").addEventListener("click", function(){
+  var code = $("packCode").value.trim();
+  if(code.length < 4){ toast("Pack code needs at least 4 characters."); return; }
+  var slug = ownerSlug();
+  downloadBackup(code, "pour-dawgz-field-book-crew-pack-" + (slug ? slug + "-" : "") + todayISO() + ".json");
+  toast("Crew pack downloaded — send the file AND the code to your crew.");
+});
+$("importInput").addEventListener("change", function(){
+  var f = this.files && this.files[0]; this.value = "";
+  if(!f) return;
+  var reader = new FileReader();
+  reader.onload = function(){
+    try{
+      var data = JSON.parse(reader.result);
+      if(data && data.kind === "jobpack" && data.job){
+        if(!confirm("Add this job to your book?\n\n" + (data.job.title || "Job") + (data.owner && data.owner.name ? " — from " + data.owner.name + "'s book" : "") + "\n\nIt ADDS the job, its customer, and its schedule. Nothing else in your book changes.")) return;
+        var pc = data.contact, localContactId = "";
+        if(pc){
+          var match = contactById(pc.id);
+          if(!match && pc.phone){ var pk = phoneKey(pc.phone); if(pk) match = contacts.filter(function(x){ return phoneKey(x.phone) === pk && (x.name || "").toLowerCase() === (pc.name || "").toLowerCase(); })[0]; }
+          if(match){ for(var ck in pc) match[ck] = pc[ck]; localContactId = match.id; }
+          else { contacts.push(pc); localContactId = pc.id; }
+        }
+        var pj = data.job;
+        if(localContactId) pj.contactId = localContactId;
+        var existing = jobById(pj.id);
+        if(existing){
+          var localLog = existing.timeLog || [];
+          for(var jk in pj) existing[jk] = pj[jk];
+          var seenKeys = {}; (existing.timeLog || []).forEach(function(t){ seenKeys[(t.who || "") + "|" + (t.start || t.in || t.startedAt || "")] = true; });
+          localLog.forEach(function(t){ var key = (t.who || "") + "|" + (t.start || t.in || t.startedAt || ""); if(!seenKeys[key]){ existing.timeLog.push(t); seenKeys[key] = true; } });
+        } else jobs.push(pj);
+        if(Array.isArray(data.schedule)) data.schedule.forEach(function(pe){
+          if(localContactId && data.contact && pe.contactId === data.contact.id) pe.contactId = localContactId;
+          pe.jobId = pj.id;
+          var se = null; schedule.forEach(function(x){ if(x.id === pe.id) se = x; });
+          if(se){ for(var sk in pe) se[sk] = pe[sk]; } else schedule.push(pe);
+        });
+        saveAll();
+        renderContacts(); renderJobs(); renderDocs(); renderPriceBook(); renderCrew(); renderSchedule(); renderBackupCounts(); renderSettings(); renderBackupNag();
+        toast("Job added: " + (pj.title || "Job"));
+        return;
+      }
+      if(!data || !Array.isArray(data.contacts) || !Array.isArray(data.jobs) ||
+         !Array.isArray(data.docs) || !Array.isArray(data.pricebook))
+        throw new Error("bad file");
+      if(data.code){
+        var entered = prompt("This file is protected by a code. Type the code:");
+        if(entered !== data.code){ toast("Wrong code — import stopped."); return; }
+      }
+      if(!confirm("Import this backup? It REPLACES everything currently in the app.")) return;
+      contacts = data.contacts; jobs = data.jobs; docs = data.docs; priceBook = data.pricebook;
+      counters = data.counters && num(data.counters.est) ? data.counters : { est: 1001, inv: 1001 };
+      if(Array.isArray(data.schedule)) schedule = data.schedule;
+      if(Array.isArray(data.crew)) crew = data.crew;
+      if(data.settings){
+        settings = { bookingLink: String(data.settings.bookingLink || ""),
+          bookAheadLine: data.settings.bookAheadLine == null ? "" : String(data.settings.bookAheadLine),
+          ownerName: settings.ownerName || "", ownerPhone: settings.ownerPhone || "" };
+      }
+      saveAll();
+      renderContacts(); renderJobs(); renderDocs(); renderPriceBook(); renderCrew(); renderSchedule(); renderBackupCounts(); renderSettings(); renderBackupNag();
+      toast(data.owner && data.owner.name ? ("Backup restored — this file came from " + data.owner.name + "'s book.") : "Backup restored.");
+    }catch(e){ toast("That file doesn't look like a Field Book backup."); }
+  };
+  reader.readAsText(f);
+});
+
+/* ================= INIT ================= */
+renderContacts();
+renderJobs();
+renderDocs();
+renderPriceBook();
+renderCrew();
+renderSchedule();
+renderSettings();
+renderBackupNag();
+initSigPad();
+</script>
+</body>
+</html>
