@@ -997,3 +997,29 @@ const PRODUCT_IMAGE_FIXES = {
   "pvc-powder": "https://www.pyrochemsource.com/assets/images/PVC%20Powder.jpg"
 };
 PRODUCTS.forEach((p) => { if (PRODUCT_IMAGE_FIXES[p.id]) p.image = PRODUCT_IMAGE_FIXES[p.id]; });
+
+// PacTool Gecko Gauge additions — Square checkout through Pour Dawgz.
+PRODUCTS.push(
+{
+    id: "pactool-gecko-gauge-sa903",
+    name: "PacTool Gecko Gauge SA903 — LP / SmartSide Siding Gauges (Pair)",
+    price: 99.99,
+    description: "The siding installer's second set of hands. The Gecko Gauge SA903 clamps onto each course and supports 3/8 in. LP engineered wood siding (LP SmartSide) for true one-person installation — no layout lines, consistent reveals from 4 to 8 inches. Sold as a pair (one set does the job). When you order, Pour Dawgz orders it and ships it straight to your address.",
+    image: "https://mobileimages.lowes.com/productimages/d486bb2b-1302-4dd7-916c-9ea2085cf770/09159050.jpg?size=pdhism",
+    squareLink: "https://square.link/u/rF45dgYT",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+},
+{
+    id: "pactool-gecko-gauge-sa902",
+    name: "PacTool Gecko Gauge SA902 — Fiber Cement / Hardie Siding Gauges (Pair)",
+    price: 74.99,
+    description: "Hang fiber cement siding solo. The Gecko Gauge SA902 gauges and supports 5/16 in. fiber cement siding (Hardie board) for one-person installation, with adjustable reveals for 5, 6, 7 and 8 inch exposures. Sold as a pair. When you order, Pour Dawgz orders it and ships it straight to your address.",
+    image: "https://images.thdstatic.com/productImages/2c8c57db-91a0-4688-8e6c-398c9d8768db/svn/pactool-siding-tools-sa902-64_600.jpg",
+    squareLink: "https://square.link/u/Nv2mV9xx",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+}
+);
