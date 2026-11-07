@@ -1023,3 +1023,18 @@ PRODUCTS.push(
     available: true
 }
 );
+
+// Power Flame Gas Torch addition — Square checkout through Pour Dawgz.
+PRODUCTS.push(
+{
+  id: "power-flame-gas-torch-carbon-fiber",
+  name: "Power Flame Gas Torch — Carbon Fiber",
+  price: 34.99,
+  description: "Portable multi-functional outdoor gas torch with adjustable flame and one-hand control. Screws onto a standard butane gas canister for camping, barbecue, and outdoor jobs. Carbon fiber finish. Gas canister not included.",
+  image: "https://img.kwcdn.com/product/fancy/5e77f77d-f059-442c-a6bd-d1af4cccc4f9.jpg",
+  squareLink: "https://square.link/u/jnV8Ab4X",
+  seller: "Pour Dawgz Tools",
+  type: "fixed",
+  available: true
+}
+);
