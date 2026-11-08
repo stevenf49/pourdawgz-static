@@ -22,7 +22,7 @@ const PRODUCTS = [
       id: "one-of-a-kind-splatter-beanie",
       name: "One-of-a-Kind Splatter Beanie — Handmade by Pour Dawgz",
       price: 44.99,
-      description: "One of a kind — handmade by Pour Dawgz. Dark gray knit beanie with neon splatter paint, a hand-braided painted cord band, and painted spike strands. Exactly one was made, and when it is gone there will never be another like it. Ships to your address. Extra photo: images/steven-wearing-splatter-beanie-and-neon-skull-mask.jpg",
+      description: "One of a kind — handmade by Pour Dawgz. Dark gray knit beanie with neon splatter paint, a hand-braided painted cord band, and painted spike strands. Exactly one was made, and when it is gone there will never be another like it. Ships to your address.",
       image: "images/one-of-a-kind-splatter-beanie.jpg",
       squareLink: "https://square.link/u/L9lXm0UR",
       seller: "Pour Dawgz",
