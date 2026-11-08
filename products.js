@@ -1053,3 +1053,18 @@ PRODUCTS.push(
     available: true
 }
 );
+
+// Glow in the Dark Powder — Neutral Green (8 oz) — Square checkout through Pour Dawgz.
+PRODUCTS.push(
+{
+  id: "glow-in-the-dark-powder-green-8oz",
+  name: "Glow in the Dark Powder — Neutral Green (8 oz)",
+  price: 49.99,
+  description: "Brightest-class Art 'N Glow strontium aluminate glow powder in Neutral Green. Encapsulated, so it mixes into water-based and solvent clear coats, paints, and resin. Charge it with sunlight or UV and it glows for hours in the dark — it stores light and releases it in the dark, so charge it up first. One 8 oz (240 g) bag, plenty for custom hats, signs, mailbox numbers, and shop projects. Ships to your address.",
+  image: "https://cdn.shopify.com/s/files/1/1211/0334/products/green_7ba3fcbc-ff28-411a-b4f9-2c9dd19eb216-516039.webp?v=1739489763",
+  squareLink: "https://square.link/u/XUotwGqY",
+  seller: "Pour Dawgz",
+  type: "fixed",
+  available: true
+}
+);
