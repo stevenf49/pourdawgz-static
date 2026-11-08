@@ -1076,7 +1076,7 @@ PRODUCTS.push(
     name: "Toolbox Coffee Mug - 11 oz",
     price: 18.99,
     description: "An 11 oz ceramic mug printed like a mechanic's tool chest - wrenches, drawers and all. A fun gift for the handyman, mechanic, dad or husband who runs on coffee. Ships to your address.",
-    image: "https://i5.walmartimages.com/seo/Toolbox-Coffee-Mug-11Oz-Funny-Ceramic-Cup-Unique-Tool-Box-Design-Creativity-Auto-Mechanical-Set-Tea-Car-Wrench-Pattern-Cup-Gift-Men-Dad-Husband-Handy/19053703441?classType=undefined&variantFieldId=actual_color",
+    image: "https://i5.walmartimages.com/seo/Toolbox-Coffee-Mug-11Oz-Funny-Ceramic-Cup-Unique-Tool-Box-Design-Creativity-Auto-Mechanical-Set-Tea-Mug-Car-Wrench-Pattern-Cup-Gift-Men-Dad-Husband-H_1a319ec9-333f-4c06-9cb4-53a6f62e5535.64d57866936512fbd51e69c3d19c105b.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
     squareLink: "https://square.link/u/kJjUUzcw",
     seller: "Pour Dawgz",
     type: "fixed",
