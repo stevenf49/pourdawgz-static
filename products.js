@@ -1068,3 +1068,128 @@ PRODUCTS.push(
   available: true
 }
 );
+
+// Christmas 2026 - 11 gifts under the tree. Square checkout through Pour Dawgz.
+PRODUCTS.push(
+  {
+    id: "toolbox-coffee-mug-11oz",
+    name: "Toolbox Coffee Mug - 11 oz",
+    price: 18.99,
+    description: "An 11 oz ceramic mug printed like a mechanic's tool chest - wrenches, drawers and all. A fun gift for the handyman, mechanic, dad or husband who runs on coffee. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Toolbox-Coffee-Mug-11Oz-Funny-Ceramic-Cup-Unique-Tool-Box-Design-Creativity-Auto-Mechanical-Set-Tea-Car-Wrench-Pattern-Cup-Gift-Men-Dad-Husband-Handy/19053703441?classType=undefined&variantFieldId=actual_color",
+    squareLink: "https://square.link/u/kJjUUzcw",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "deneen-hand-thrown-mug-wind-cave-14oz",
+    name: "Deneen Pottery Hand-Thrown Mug - Wind Cave 14 oz",
+    price: 34.99,
+    description: "Hand-thrown stoneware mug from Deneen Pottery in St. Paul, Minnesota. Made in USA. Wind Cave National Park design, 14 oz - each one a little different, because a real person threw it on a wheel. Only a few left at the source. Ships to your address.",
+    image: "https://blackhillsparks.org/wp-content/uploads/bhpfa-product-photos/v1/47179-78daf8c0800dbd79/photo-100.jpg",
+    squareLink: "https://square.link/u/WtWa49Gc",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "holiday-time-shatterproof-ornaments-24ct",
+    name: "Holiday Time Shatterproof Ornaments - 24-Count",
+    price: 8.99,
+    description: "24 shatterproof ball ornaments, 2.8 inches, in classic Christmas red. Kid- and pet-proof decorating - they bounce, they don't break. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/24-Count-Burgundy-Ball-Shatterproof-Christmas-Ornaments-2-8-by-Holiday-Time_c8ad2a9d-7a6a-4947-9a50-870b5eea6451.6c0aab6b9a727e28d5d6898cc1f07558.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/iBIO5aCr",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "holiday-time-gingerbread-cookie-cutters-4pc",
+    name: "Holiday Time Gingerbread Cookie Cutters - 4-Piece",
+    price: 8.99,
+    description: "Four stainless steel cookie cutters - gingerbread man, bow, candy cane and wrapped candy. Food-safe, sturdy and ready for a flour-dusted afternoon. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Holiday-Time-4-Piece-Cookie-Cutters-Gingerbread-Brown-Red-and-Green_ed32dc97-9063-49cb-a68b-87a3e80b7c8a.75316ceb63767883ced6aae788e80f37.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/WzjhT1fg",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "cooplus-christmas-fuzzy-socks-4-pairs",
+    name: "COOPLUS Women's Christmas Fuzzy Socks - 4 Pairs",
+    price: 15.99,
+    description: "Four pairs of thick, fuzzy thermal crew socks in Christmas patterns. Soft, warm, and sized 9-11 - cozy feet all winter. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/COOPLUS-Womens-Fuzzy-Socks-Christmas-Socks-for-Women-Winter-Thick-Thermal-Socks-Size-9-11-Crew-Socks-4-Pairs_1e66b617-4e4b-4cc1-ab7a-06e275d05a20.00fedaf0aa2fb478a0fc93aece9865b2.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/gPhkVHIX",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "hothands-hand-warmers-10-pair",
+    name: "HotHands Hand Warmers - 10-Pair Value Pack",
+    price: 11.99,
+    description: "Ten pairs of air-activated hand warmers, up to 10 hours of heat each. Toss a pair in your pockets, gloves or boots and stay warm out in the cold. Ships to your address.",
+    image: "https://target.scene7.com/is/image/Target/GUEST_6cd89d0c-8a3a-485b-819b-358aa79a0fe3?wid=800&hei=800&qlt=80&fmt=pjpeg",
+    squareLink: "https://square.link/u/fTUrANNH",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "okeeffe-working-hands-cream-7oz",
+    name: "O'Keeffe's Working Hands Cream - 7 oz",
+    price: 22.99,
+    description: "The green tube every hardworking pair of hands knows. Unscented, non-greasy, guaranteed relief for dry, cracked skin - a winter staple. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/O-Keeffe-s-Working-Hands-Cream-7-Ounce-Tube_98e8a420-cbd8-47ab-989c-a3cde6b9f52c.2cab10bf94f8fadc1219958d6ecf85e8.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/aDWxr9rk",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "burts-bees-lip-balm-2-pack",
+    name: "Burt's Bees Moisturizing Lip Balm - 2-Pack",
+    price: 9.49,
+    description: "Two tubes of the original beeswax lip balm with a hint of peppermint. 100% natural origin - pocket-sized winter rescue. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Burt-s-Bees-100-Natural-Origin-Moisturizing-Lip-Balm-Original-Beeswax-2-Tubes_96732a97-f46d-4d5a-9467-683c8d94bd7b.1a6720e5cc53c0ebccc70798c53e2c8f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/tySyPi8L",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "everbrite-mini-flashlights-6-pack",
+    name: "EverBrite Mini Flashlights - 6-Pack",
+    price: 26.99,
+    description: "Six small multicolor LED flashlights with lanyards, 18 AAA batteries included. Stash them everywhere - car, kitchen drawer, stockings. Ships to your address.",
+    image: "https://www.everbritelight.store/cdn/shop/products/1d9f836cd619287e86bd8399233f2788.jpg?v=1646959572&width=1500",
+    squareLink: "https://square.link/u/Q1apsAc0",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "vevor-rechargeable-led-work-light-2-pack",
+    name: "VEVOR Rechargeable LED Work Light - 2-Pack",
+    price: 36.99,
+    description: "Two foldable rechargeable LED work lights with magnetic bases, 360-degree rotation and 5 modes. Lights up the job - and the tree. Ships to your address.",
+    image: "https://img.vevorstatic.com/us%2FKZDSCGZDCD2GIRK6C001V9%2Fgoods_thumb-v1%2Fwork-light-m100-1.2.jpg?timestamp=1752569871000&format=webp",
+    squareLink: "https://square.link/u/T3AqLib0",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "horusdy-magnetic-wristband",
+    name: "HORUSDY Magnetic Wristband",
+    price: 11.99,
+    description: "A wristband with strong magnets that holds screws, nails and drill bits right where you need them. Hands free, hardware close. Ships to your address.",
+    image: "https://m.media-amazon.com/images/I/81wCnNQI6nL._AC_US500_.jpg",
+    squareLink: "https://square.link/u/7CoCgSEi",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
