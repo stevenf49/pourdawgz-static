@@ -1038,3 +1038,18 @@ PRODUCTS.push(
   available: true
 }
 );
+
+// One-of-a-Kind Splatter Set (Beanie + Skull Mask) — Square checkout through Pour Dawgz.
+PRODUCTS.push(
+{
+    id: "one-of-a-kind-splatter-set",
+    name: "One-of-a-Kind Splatter Set — Beanie + Skull Mask",
+    price: 89.99,
+    description: "One of a kind — handmade by Pour Dawgz. The neon splatter beanie and the neon splatter skull mask, both hand-customized by Steven and sold together as a set. Buying the set saves about $20 versus the two pieces separately ($44.99 + $64.99). Exactly one set was made, and when it is gone there will never be another like it. Ships to your address. Extra photo: images/steven-wearing-splatter-beanie-and-neon-skull-mask.jpg.",
+    image: "images/splatter-beanie-mask-set.jpg",
+    squareLink: "https://square.link/u/e8YjsWji",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+}
+);
