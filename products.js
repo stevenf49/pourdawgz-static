@@ -1193,3 +1193,151 @@ PRODUCTS.push(
     available: true
   }
 );
+
+
+// Hunting + gift picks - added Nov 2026 (Pour Dawgz).
+PRODUCTS.push(
+  {
+    id: "allen-blaze-orange-hunting-vest",
+    name: "Allen Company Adult Blaze Orange Hunting Vest",
+    price: 26.99,
+    description: "Blaze orange you can spot from the next ridge. Quiet polyester shell, no zippers to clink, hook-and-loop front that fits right over your jacket. Rated 4.4 out of 5 stars by 3,337 hunters. Ships to your address.",
+    image: "https://byallen.com/cdn/shop/files/hunting-safety-vest.jpg?v=1793823142&width=1200",
+    squareLink: "https://square.link/u/4BbOw1Hz",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "hot-shot-reversible-fleece-beanie",
+    name: "HOT SHOT Men's Reversible Fleece Beanie - Blaze Orange / Realtree Camo",
+    price: 19.99,
+    description: "Two layers of polar fleece, two looks in one. Blaze orange on one side, Realtree camo on the other - flip it to match the day. Rated 4.7 out of 5 stars by 601 reviews. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Realtree-Reversible-Beanie-RTE-Orange-Blaze_aa4e58d6-31b2-43ce-ba92-a7f8492441e1.e15a180791ba50ba12af3b509fb4e743.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/CkzKgsTF",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "hot-shot-buzzard-shooters-gloves-blaze",
+    name: "HOT SHOT Buzzard Shooters Gloves - Blaze",
+    price: 11.99,
+    description: "Blaze-orange shooters gloves with a grip palm and exposed trigger fingertips, so your hands stay warm and your trigger finger stays honest. Rated 4.5 out of 5 stars (2 reviews). Ships to your address.",
+    image: "https://product-image.ebates.com/item-gsp/66b52e882d65d1c9e0d751541e7f8c31.jpeg",
+    squareLink: "https://square.link/u/ffjWxp1d",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "mossy-oak-cotton-hunting-hoodie",
+    name: "Mossy Oak Cotton Hunting Hoodie",
+    price: 21.99,
+    description: "Genuine Mossy Oak cotton hunting hoodie in Bottomland and New Break-Up camo - soft, everyday-warm, and honest camo. Youth sizes XS-XL. Rated 4.6 out of 5 stars. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Mossy-Oak-Cotton-Hunting-Hoodie-Mossy-Oak-Bottomland-XS_3c2d162c-8eb6-4697-bd76-bccc804eb1ba.8dd9642c13b0f249fe5d8b9b4828bb7f6.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/rUnB5oI6",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "mossy-oak-performance-fleece-hoodie",
+    name: "Mossy Oak Performance Fleece Hoodie",
+    price: 44.99,
+    description: "Genuine Mossy Oak performance fleece hoodie with the logo hood - soft fleece with scent control for cold mornings in the blind. Rated 4.4 out of 5 stars by 2,198 reviews. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Men-s-Camo-Hunting-Performance-Hoodie-Pullover-Sweatshirt-by-Mossy-Oak-Sizes-S-3XL_f6f3cf13-5cc3-4be1-aefd-07a8c496307c.f8737592ff2e3fc9d59c4de8d5305ea1.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/ufwXYYtR",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "tidewe-hunting-suit-next-camo-g2",
+    name: "TIDEWE Hunting Suit (Jacket + Pants) - Next Camo G2",
+    price: 142.99,
+    description: "TIDEWE's own Next Camo G2 hunting suit - fleece-lined, water-resistant jacket and pants in silent fabric. Not Mossy Oak - this is TIDEWE's own camo pattern. Rated 4.5 out of 5 stars by 2,587 reviews. Ships to your address.",
+    image: "https://www.tidewe.com/cdn/shop/files/HC001.png?v=1754899785",
+    squareLink: "https://square.link/u/hT6cnf6i",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "tiger-archery-30in-carbon-arrows-12-pack",
+    name: "Tiger Archery 30 in Carbon Arrows - 12-Pack",
+    price: 49.99,
+    description: "Twelve 30-inch carbon arrows with removable field tips, built for 35-60 lb bows. Straight, tough, and ready to fly. Rated 4.6 out of 5 stars. Ships to your address.",
+    image: "https://m.media-amazon.com/images/I/51qNwggBXPL._SL1200_.jpg",
+    squareLink: "https://square.link/u/wTEFMlVv",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "muzzy-trocar-100-grain-broadheads-3-pack",
+    name: "Muzzy Trocar 100 Grain Broadheads - 3-Pack",
+    price: 64.99,
+    description: "Three-pack of Muzzy Trocar 100-grain fixed-blade broadheads - 3-blade, 1-3/16-inch cut. A brand-reputation pick from a name bowhunters trust. Ships to your address.",
+    image: "https://media.mwstatic.com/product-images/src/Primary/386/386627.jpg?imwidth=680",
+    squareLink: "https://square.link/u/Rdi65gx3",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "bear-archery-cruzer-g3-compound-bow",
+    name: "Bear Archery Cruzer G3 Ready-to-Hunt Compound Bow",
+    price: 519.99,
+    description: "Bear Archery Cruzer G3 ready-to-hunt compound bow - 315 FPS, 10-70 lb draw weight, 14-30 in draw length, Trophy Ridge kit included. One bow that fits just about any hunter. Shipping restrictions may apply by state/ZIP. Ships to your address.",
+    image: "https://i5.walmartimages.com/seo/Bear-Cruzer-G3_0b4c447b-9a33-4849-b8ac-8bbec9005933.c233877018273dac53a347f2a615d4cd.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/jaLaldZZ",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "barnett-whitetail-hunter-ii-crossbow",
+    name: "Barnett Whitetail Hunter II Crossbow Package",
+    price: 479.99,
+    description: "Barnett Whitetail Hunter II crossbow package - 350 FPS with TriggerTech trigger, 4x32 scope, 2 arrows, rope cocker and quiver. Everything in the box, ready to hunt. Shipping restrictions may apply by state/ZIP. Ships to your address.",
+    image: "https://media.mwstatic.com/product-images/src/Primary/557/557587.jpg?imwidth=680",
+    squareLink: "https://square.link/u/p4jYtFUp",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "killer-instinct-lethal-405hd-crossbow",
+    name: "Killer Instinct Lethal 405HD Crossbow Package",
+    price: 299.99,
+    description: "Killer Instinct Lethal 405HD crossbow package - 405 FPS, 210-lb draw, Lumix 4x32 scope and 2 bolts. A lot of crossbow for the money. Rated 4.2 out of 5 stars by 24 reviews. Shipping restrictions may apply by state/ZIP. Ships to your address.",
+    image: "https://media.mwstatic.com/product-images/src/Primary/147/147444.jpg?imwidth=680",
+    squareLink: "https://square.link/u/qweCTjVw",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "swiss-meats-state-champion-gift-basket",
+    name: "Swiss Meats State Champion Gift Basket",
+    price: 64.99,
+    description: "Shelf-stable State Champion gift basket from Swiss Meats - Swiss Recipe summer sausage, beef stick, sharp cheddar block, Pepperidge Farm crackers and a paring knife. Made in Hermann, MO by a maker since 1969. Ships to your address.",
+    image: "https://cdn11.bigcommerce.com/s-kpgo1yrtus/images/stencil/1000x1000/products/257/570/101198__60284.1773175471.jpg?c=1",
+    squareLink: "https://square.link/u/94enxaYM",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "swiss-colony-cheese-sausage-5-pack",
+    name: "The Swiss Colony Cheese & Sausage 5-Pack Gift Box",
+    price: 45.99,
+    description: "The Swiss Colony cheese and sausage 5-pack gift box - shelf-stable process cheese and cured summer sausages, 1 lb 6 oz total. Made in USA. A gift that eats well. Ships to your address.",
+    image: "https://target.scene7.com/is/image/Target/GUEST_fc0f930a-1a1d-42ce-a9bc-1902c70c85ba?wid=800&hei=800&qlt=80&fmt=pjpeg",
+    squareLink: "https://square.link/u/RL9ghkgk",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
