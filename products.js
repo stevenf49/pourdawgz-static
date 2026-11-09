@@ -878,9 +878,7 @@ const PRODUCTS = [
       squareLink: "https://square.link/u/VyjFbLVG",
       seller: "Pour Dawgz Tools",
       type: "fixed",
-      available: true
-   }
-];
+      available: true }, { id: "classic-lava-lamp-14-5", name: "Classic Lava Lamp — 14.5\"", price: 39.99, description: "The original motion lamp — 14.5-inch classic with yellow wax in purple liquid and a silver base and cap. Slow, mesmerizing flow with a soft glow. Perfect for the desk, the shop, or the living room. Plugs in and does its thing.", image: "https://b3593572.assetcdn.net/2.0/3593572/wp-content/uploads/2016/08/2125_1500x2000-copy.jpg", squareLink: "https://square.link/u/m4feDuDL", seller: "Pour Dawgz", type: "fixed", available: true } ];
 /* My Kit + Stanley J509 additions — Square checkout through Pour Dawgz. */
 PRODUCTS.push(
   {
