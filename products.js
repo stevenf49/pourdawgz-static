@@ -1235,7 +1235,7 @@ PRODUCTS.push(
     name: "Mossy Oak Cotton Hunting Hoodie",
     price: 21.99,
     description: "Genuine Mossy Oak cotton hunting hoodie in Bottomland and New Break-Up camo - soft, everyday-warm, and honest camo. Youth sizes XS-XL. Rated 4.6 out of 5 stars. Ships to your address.",
-    image: "https://i5.walmartimages.com/seo/Mossy-Oak-Cotton-Hunting-Hoodie-Mossy-Oak-Bottomland-XS_3c2d162c-8eb6-4697-bd76-bccc804eb1ba.8dd9642c13b0f249fe5d8b9b4828bb7f6.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    image: "https://i5.walmartimages.com/seo/Mossy-Oak-Cotton-Hunting-Hoodie-Mossy-Oak-Bottomland-XS_39a8f6a0-cf1c-4b0d-a8b8-982fa3cc0d63.f99d644ccb917f4fb9c5b0143c13b2b2.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
     squareLink: "https://square.link/u/rUnB5oI6",
     seller: "Pour Dawgz",
     type: "fixed",
