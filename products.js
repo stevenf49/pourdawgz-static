@@ -1339,3 +1339,29 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Adhesive magnetic sheets - Square checkout through Pour Dawgz.
+PRODUCTS.push(
+  {
+    id: "adhesive-magnetic-sheets-60-mil-25-pack",
+    name: "Adhesive Magnetic Sheets 8x10 - 60 Mil - 25 Pack",
+    price: 64.99,
+    description: "Heavy-duty 60 mil adhesive magnetic sheets, 8 x 10 inches — the thickest magnet sheet made. Magnet on one side, peel-and-stick adhesive on the other. Stick on a business card, photo, or printed logo, cut to size with scissors, and it holds strong — even as a logo magnet on a vehicle door. About 10 business-card magnets per sheet. 25 sheets per pack.",
+    image: "https://i5.walmartimages.com/seo/Flexible-Magnets-Adhesive-Magnetic-Sheets-8-x-10-1-Pack-60-Mil-Stick-On-Magnetic-Sheets-for-Crafts-Labels-Photos-DIY-Projects_e08414ed-672b-4416-a65e-80f48b5a36d5.cb941d6ee85ae587438b54c41b077a51.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/ry6WT1Sr",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  },
+  {
+    id: "adhesive-magnetic-sheet-roll-40-mil",
+    name: "Adhesive Magnetic Sheet Roll 12in x 5ft - 40 Mil",
+    price: 64.99,
+    description: "Adhesive magnetic sheet roll, 12 inches wide by 5 feet long, 40 mil thick. Magnet on one side, peel-and-stick adhesive on the other. Stick on business cards, photos, or signs and cut to size with scissors. One roll makes roughly 90 business-card magnets.",
+    image: "https://i5.walmartimages.com/seo/Matte-12-Inch-X-5-ft-X-40-Mil-Adhesive-Magnetic-Sheet-Roll-Craft-Supply_5c774e41-8e98-4ebb-bebe-0adce2ed6f29.d47bbd75c6ca973284b9f761b5ba7700.png?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/9svknRL2",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
