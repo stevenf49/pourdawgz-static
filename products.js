@@ -904,17 +904,6 @@ PRODUCTS.push(
     available: true
   },
   {
-    id: "biofreeze-gel",
-    name: "Biofreeze Pain Relief Gel — 3 oz",
-    price: 17.99,
-    description: "Cooling menthol gel I reach for on stiff, overworked hands and sore muscles — fast relief after a hard day. Stuff I actually use.",
-    image: "https://www.biofreeze.com/cdn/shop/files/biofreeze-gel-3oz.jpg",
-    squareLink: "https://square.link/u/kOvPsysg",
-    seller: "Pour Dawgz Tools",
-    type: "fixed",
-    available: true
-  },
-  {
     id: "slime-2-in-1-sealant",
     name: "Slime 2-in-1 Tire & Tube Sealant — 16 oz",
     price: 14.99,
@@ -1076,17 +1065,6 @@ PRODUCTS.push(
     description: "An 11 oz ceramic mug printed like a mechanic's tool chest - wrenches, drawers and all. A fun gift for the handyman, mechanic, dad or husband who runs on coffee. Ships to your address.",
     image: "https://i5.walmartimages.com/seo/Toolbox-Coffee-Mug-11Oz-Funny-Ceramic-Cup-Unique-Tool-Box-Design-Creativity-Auto-Mechanical-Set-Tea-Mug-Car-Wrench-Pattern-Cup-Gift-Men-Dad-Husband-H_1a319ec9-333f-4c06-9cb4-53a6f62e5535.64d57866936512fbd51e69c3d19c105b.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
     squareLink: "https://square.link/u/kJjUUzcw",
-    seller: "Pour Dawgz",
-    type: "fixed",
-    available: true
-  },
-  {
-    id: "deneen-hand-thrown-mug-wind-cave-14oz",
-    name: "Deneen Pottery Hand-Thrown Mug - Wind Cave 14 oz",
-    price: 34.99,
-    description: "Hand-thrown stoneware mug from Deneen Pottery in St. Paul, Minnesota. Made in USA. Wind Cave National Park design, 14 oz - each one a little different, because a real person threw it on a wheel. Only a few left at the source. Ships to your address.",
-    image: "https://blackhillsparks.org/wp-content/uploads/bhpfa-product-photos/v1/47179-78daf8c0800dbd79/photo-100.jpg",
-    squareLink: "https://square.link/u/WtWa49Gc",
     seller: "Pour Dawgz",
     type: "fixed",
     available: true
