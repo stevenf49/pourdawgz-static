@@ -1379,3 +1379,33 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Heat transfer paper for light & white T-shirts - Square checkout through Pour Dawgz Tools.
+PRODUCTS.push(
+  {
+    id: "heat-transfer-paper-light-shirts-15-sheets",
+    name: "Heat Transfer Paper for Light & White T-Shirts — Inkjet, 8.5×11, 15 Sheets",
+    price: 24.99,
+    description: "Inkjet heat transfer paper for light and white fabrics, 8.5 x 11 inches, 15 sheets. Print your logo or photo, mirror the image, and iron it on. INKJET PRINTERS ONLY — never use in a laser printer. For white and light-colored shirts and fabric.",
+    image: "https://i5.walmartimages.com/seo/TransOurDream-Transfer-Paper-for-Light-T-Shirts-8-5x11-15-Sheets-Heat-Transfer-Printable-HTV-nbsp-Inkjet_031247d7-4b70-465e-aeb1-7d07b7185584.9ed2c4ac40cad17e9003590cdb799c97.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/Y8d6d7Vy",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  }
+);
+
+// Heat transfer paper for dark & black T-shirts - Square checkout through Pour Dawgz Tools.
+PRODUCTS.push(
+  {
+    id: "heat-transfer-paper-dark-shirts-20-sheets",
+    name: "Heat Transfer Paper for Dark & Black T-Shirts — Inkjet, 8.5×11, 20 Sheets",
+    price: 29.99,
+    description: "Inkjet heat transfer paper for dark and black fabrics, 8.5 x 11 inches, 20 sheets. Print your logo or photo regular (do NOT mirror), peel the backing, and iron it on face-up under parchment paper. INKJET PRINTERS ONLY — never use in a laser printer. For black and dark-colored shirts and fabric.",
+    image: "https://i5.walmartimages.com/seo/TransOurDream-Printable-Iron-on-Heat-Transfers-Paper-20-Sheets-for-Dark-T-Shirts-Inkjet-Printer-8-5x11_910bfcbf-b7f2-4892-b39e-562b1bccdb4d.b74d5134426532d9810aeef0fcdc6d1e.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/AJzkcwNR",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  }
+);
