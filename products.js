@@ -1365,3 +1365,17 @@ PRODUCTS.push(
     available: true
   }
 );
+// Rechargeable LED headlamp - Square checkout through Pour Dawgz Tools.
+PRODUCTS.push(
+  {
+    id: "rechargeable-led-headlamp-350-lumen-motion-sensor",
+    name: "Rechargeable LED Headlamp — 350 Lumen, Motion Sensor, 230° Wide Beam",
+    price: 29.99,
+    description: "Rechargeable LED headlamp with a 230-degree wide COB light strip plus XPE side spotlight, 350 lumens, wave motion sensor — wave your hand to turn it on and off with greasy hands. 5 light modes, USB rechargeable, waterproof. Built for working after dark: under the truck, in the attic, on the job.",
+    image: "https://i5.walmartimages.com/seo/Rechargeable-LED-Headlamp-230-Wide-Beam-COB-Head-Light-with-Motion-Sensor-350LM-Waterproof-Headband-Flashlight-for-Running-Camping_6d276ad9-3b5c-4fa8-8742-1f844f8e2821.a3aee6945d9cc36767b0a2f84d49bf70.png?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+    squareLink: "https://square.link/u/USd1AgPT",
+    seller: "Pour Dawgz Tools",
+    type: "fixed",
+    available: true
+  }
+);
