@@ -36,6 +36,10 @@
 #top-sellers-grid .card .body, #featured-grid .card .body { padding: 12px; }
 #top-sellers-grid .card h3, #featured-grid .card h3 { font-size: 15px; }
 #top-sellers-grid .card .desc, #featured-grid .card .desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.work-grid figure { margin: 0; }
+.work-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; display: block; }
+.work-grid figcaption { font-size: 13px; color: var(--muted); padding: 6px 2px 0; }
 @media (max-width: 700px) { .pd-banner-grid { grid-template-columns: 1fr 1fr !important; text-align: center !important; gap: 12px !important; } .pd-banner-grid > div { grid-column: 1 / -1; grid-row: 1; } .pd-banner-grid > a:nth-of-type(1) { grid-column: 1; grid-row: 2; } .pd-banner-grid > a:nth-of-type(2) { grid-column: 2; grid-row: 2; } .pd-banner-side { text-align: center !important; } .pd-tiles { grid-template-columns: 1fr 1fr !important; gap: 12px !important; } .pd-tile img { height: 220px; } .pd-tile-reel { height: 220px; } .pd-tile-caption { padding: 12px; } .pd-tile-caption strong { font-size: 19px; } .pd-tile-caption span { font-size: 13px; line-height: 1.3; } #top-sellers-grid, #featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; } }
 </style>
 </head>
@@ -63,17 +67,37 @@
     <div class="pd-tiles" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
       <a class="pd-tile" href="shop.html">
         <span class="pd-tile-reel" id="big-market-reel"><img src="images/one-of-a-kind-splatter-beanie.jpg" alt="Flea Market &amp; Store" style="transition:opacity 1s;opacity:1"><img src="images/one-of-a-kind-neon-skull-mask.jpg" alt="Flea Market &amp; Store" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/trailer-plate.jpg" alt="Flea Market &amp; Store" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/pourdawgz-glow-logo-transfer.png" alt="Flea Market &amp; Store" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"></span>
-        <span class="pd-tile-caption"><strong>FLEA MARKET &amp; STORE</strong><span>Shop the booths — shop the Pour Dawgz store</span><span>Post your items for sale &bull; Auctions &mdash; no reserve</span></span>
+        <span class="pd-tile-caption"><strong>FLEA MARKET &amp; STORE</strong><span>Buy, sell, trade, barter, auction</span><span>Post your items for sale &bull; Auctions &mdash; no reserve</span></span>
       </a>
       <a class="pd-tile" href="handyman.html">
-        <span class="pd-tile-reel" id="big-handyman-reel"><img src="images/work-reel-1.jpg" alt="Handyman Services" style="transition:opacity 1s;opacity:1"><img src="images/work-reel-2.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work-reel-3.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work-reel-4.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"></span>
+        <span class="pd-tile-reel" id="big-handyman-reel"><img src="images/work/bonnie-deck-1.jpg" alt="Handyman Services" style="transition:opacity 1s;opacity:1"><img src="images/work/bonnie-deck-2.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work/bonnie-deck-3.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work/bonnie-deck-4.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"></span>
         <span class="pd-tile-caption"><strong>HANDYMAN SERVICES</strong><span>Repair, remodel, install, build</span></span>
       </a>
     </div>
-    <p style="text-align:right;margin:10px 0 0;"><a href="shop.html">Shop the Store</a></p>
+    <p style="text-align:right;margin:10px 0 0;"><a href="shop.html">Shop work gear</a></p>
   </div>
 </section>
 <div class="stripe"></div>
+
+<section class="block" id="featured-work">
+  <div class="wrap">
+    <h2>Featured work — done work</h2>
+    <p class="lede">Real jobs, real results. Finished work only — here's what done looks like.</p>
+    <div class="work-grid">
+      <figure><img src="images/work/bonnie-deck-1.jpg" alt="Finished deck with new lattice skirting" loading="lazy"><figcaption>Deck rebuild — finished</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-2.jpg" alt="New deck stairs with lattice skirting" loading="lazy"><figcaption>New stairs &amp; lattice skirting</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-3.jpg" alt="Happy customer standing on her new deck" loading="lazy"><figcaption>Happy customer on her new deck</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-4.jpg" alt="Happy customer giving a thumbs up on her new deck" loading="lazy"><figcaption>Bonnie's new deck — thumbs up</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-5.jpg" alt="New deck stairs and lattice from the side" loading="lazy"><figcaption>New deck stairs, finished</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-6.jpg" alt="Finished deck and railing, side view" loading="lazy"><figcaption>Finished deck &amp; railing</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-7.jpg" alt="New lattice skirting on the finished deck" loading="lazy"><figcaption>New lattice skirting, finished</figcaption></figure>
+      <figure><img src="images/work/bonnie-deck-8.jpg" alt="Happy customer giving a thumbs up on her finished deck" loading="lazy"><figcaption>Happy customer, new deck</figcaption></figure>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a class="btn ghost" href="handyman.html">See all our finished work</a>
+    </div>
+  </div>
+</section>
 
 <section class="block" id="top-sellers">
   <div class="wrap">
@@ -85,32 +109,32 @@
 
 <section class="block">
   <div class="wrap">
-    <h2>Featured finds</h2>
+    <h2>Good picks</h2>
     <p class="lede">Real listings from real sellers. Secure checkout through Square &mdash; no account needed.</p>
     <div class="product-grid" id="featured-grid"></div>
     <div style="text-align:center; margin-top:28px;">
-      <a class="btn ghost" href="shop.html">See everything in the shop</a>
+      <a class="btn ghost" href="shop.html">See all the work gear</a>
     </div>
   </div>
 </section>
 
 <section class="block" style="background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="wrap">
-    <h2>A flea market with booths that travel online</h2>
-    <p class="lede">Search the finds, meet independent sellers, and grab local goods without the big-box runaround.</p>
+    <h2>Flea market marketplace — sell your items</h2>
+    <p class="lede">Buy, sell, trade, barter, auction. Start a booth for free — everybody's booths in one marketplace.</p>
     <div class="cols">
+      <div class="col-card">
+        <h3>Handyman services</h3>
+        <p>Repair, remodel, install, build — Pour Dawgz started as a handyman outfit.</p> <p><a class="btn primary" href="handyman.html">Get a handyman quote</a></p>
+      </div>
       <div class="col-card">
         <h3>Your own booth</h3>
         <p>The first 100 booths are free &mdash; after that, $10 flat-rate. Sell handmade goods, spare parts, tools, art, soap &mdash; whatever you sell. No cut of your sales, ever.</p>
-        <p><a class="btn primary" href="sell.html">Open your booth</a></p>
+        <p><a class="btn primary" href="sell.html">Start a booth for free</a></p>
       </div>
       <div class="col-card">
         <h3>Local pickup friendly</h3>
         <p>Items can be marked for pickup, shipping, or both. What you see is what you get, straight from the seller.</p>
-      </div>
-      <div class="col-card">
-        <h3>Handyman services</h3>
-        <p>Repair, remodel, install, build — Pour Dawgz started as a handyman outfit.</p> <p><a class="btn primary" href="handyman.html">Get a handyman quote</a></p>
       </div>
     </div>
   </div>
@@ -208,7 +232,7 @@
     });
   })();
   (function(){var g=document.getElementById("top-sellers-grid");if(!g||typeof PRODUCTS==="undefined"||typeof renderProducts!=="function")return;var sr=function(t){var m=/([0-9]+(?:\.[0-9]+)?)\s*-?\s*star/i.exec(t||"");return m?parseFloat(m[1],10):0;};var ids=PRODUCTS.filter(function(p){return p.available!==false;}).sort(function(a,b){return sr(b.description)-sr(a.description);}).slice(0,6).filter(function(p){return p.id!=="one-of-a-kind-splatter-beanie";}).map(function(p){return p.id;});renderProducts("top-sellers-grid",ids);var cs=[].slice.call(g.querySelectorAll(".card"));function pr(c){var e=c.querySelector(".price");if(!e)return Infinity;var v=parseFloat(e.textContent.replace(/[^0-9.]/g,""));return isNaN(v)?Infinity:v;}cs.sort(function(a,b){return pr(a)-pr(b);});cs.forEach(function(c){g.appendChild(c);});})();
-  (function(){var g=document.getElementById("top-sellers-grid");if(!g)return;g.querySelectorAll(".card").forEach(function(c){var h=c.querySelector("h3");if(h&&h.textContent.indexOf("Splatter")>-1)c.remove();});var a=document.createElement("a");a.href="handyman.html";a.className="card";a.style.cssText="text-decoration:none;color:inherit";a.innerHTML='<div class="img-wrap" style="position:relative;overflow:hidden"><img src="images/work-reel-1.jpg" alt="Handyman Services" style="transition:opacity 1s;opacity:1"><img src="images/work-reel-2.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work-reel-3.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work-reel-4.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"></div><div class="body"><h3>Handyman Services</h3><p class="desc">Decks, repairs, remodels &mdash; real work, done right.</p></div>';g.insertBefore(a,g.firstChild);var s=a.querySelectorAll("img"),i=0;setInterval(function(){s[i].style.opacity=0;i=(i+1)%s.length;s[i].style.opacity=1;},3500);})();
+  (function(){var g=document.getElementById("top-sellers-grid");if(!g)return;g.querySelectorAll(".card").forEach(function(c){var h=c.querySelector("h3");if(h&&h.textContent.indexOf("Splatter")>-1)c.remove();});var a=document.createElement("a");a.href="handyman.html";a.className="card";a.style.cssText="text-decoration:none;color:inherit";a.innerHTML='<div class="img-wrap" style="position:relative;overflow:hidden"><img src="images/work/bonnie-deck-5.jpg" alt="Handyman Services" style="transition:opacity 1s;opacity:1"><img src="images/work/bonnie-deck-6.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work/bonnie-deck-7.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"><img src="images/work/bonnie-deck-8.jpg" alt="Handyman Services" style="position:absolute;top:0;left:0;opacity:0;transition:opacity 1s"></div><div class="body"><h3>Handyman Services</h3><p class="desc">Decks, repairs, remodels &mdash; real work, done right.</p></div>';g.insertBefore(a,g.firstChild);var s=a.querySelectorAll("img"),i=0;setInterval(function(){s[i].style.opacity=0;i=(i+1)%s.length;s[i].style.opacity=1;},3500);})();
   (function(){var r=document.getElementById("big-handyman-reel");if(!r)return;var s=r.querySelectorAll("img"),i=0;setInterval(function(){s[i].style.opacity=0;i=(i+1)%s.length;s[i].style.opacity=1;},3500);})();
   (function(){var r=document.getElementById("big-market-reel");if(!r)return;var s=r.querySelectorAll("img"),i=0;setInterval(function(){s[i].style.opacity=0;i=(i+1)%s.length;s[i].style.opacity=1;},3500);})();
 </script>
