@@ -23,6 +23,7 @@
 .work-grid figure { margin: 0; }
 .work-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; display: block; }
 .work-grid figcaption { font-size: 13px; color: var(--muted); padding: 6px 2px 0; }
+#pd-music-btn { position: fixed; left: 16px; bottom: 16px; z-index: 9998; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: #221d14; color: #f2ede1; font-size: 14px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.45); }
 </style>
 </head>
 <body>
@@ -172,9 +173,31 @@
   <div class="wrap">
     <div>&copy; 2026 Pour Dawgz &middot; Newell, SD</div>
     <div><a href="mailto:pourdawgz@gmail.com">pourdawgz@gmail.com</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="https://fafo.name">FAFO — Survival & Prepper Supply</a></div>
+    <div class="fineprint">Music: &ldquo;Meditation Impromptu 01&rdquo; by Kevin MacLeod (incompetech.com) — CC BY 4.0</div>
   </div>
 </footer>
 
+<audio id="pd-ambient" src="audio/ambient.mp3" loop preload="none"></audio>
+<button id="pd-music-btn" type="button" style="display:none;">🔇 Music: off — tap to play</button>
+<script>
+(function () {
+  var audio = document.getElementById("pd-ambient");
+  var btn = document.getElementById("pd-music-btn");
+  if (!audio || !btn) return;
+  var pref = null;
+  try { pref = sessionStorage.getItem("pd-music"); } catch (e) {}
+  function showOn() { btn.style.display = ""; btn.textContent = "🔊 Music: on — tap to mute"; }
+  function showOff() { btn.style.display = ""; btn.textContent = "🔇 Music: off — tap to play"; }
+  btn.addEventListener("click", function () {
+    if (audio.paused) { audio.play(); try { sessionStorage.setItem("pd-music", "on"); } catch (e) {} showOn(); }
+    else { audio.pause(); try { sessionStorage.setItem("pd-music", "off"); } catch (e) {} showOff(); }
+  });
+  if (pref === "off") { showOff(); return; }
+  audio.volume = 0.5;
+  var pr = audio.play();
+  if (pr && pr.then) pr.then(showOn, showOff); else showOn();
+})();
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
