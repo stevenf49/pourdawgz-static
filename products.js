@@ -1402,3 +1402,18 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Farm Innovators C-250 Submergible Utility De-Icer, 250W — winter duck water.
+PRODUCTS.push(
+  {
+    id: "farm-innovators-c-250-submergible-utility-de-icer-250w",
+    name: "Farm Innovators C-250 Submergible Utility De-Icer, 250W",
+    price: 72.99,
+    description: "Drop-in 250W submergible de-icer for buckets and tubs up to 25 gallons. Thermostatically controlled cast-aluminum ring keeps small volumes ice-free in deep cold, per owner reports. Must stay submerged — it keeps heating out of water, so never run it dry. Safe in plastic. Maker says do not use with extension cords. Plug into a GFCI outlet.",
+    image: "https://image.chewy.com/catalog/general/images/farm-innovators-utility-cast-aluminum-de-icer-250-watt/img-774333._AC_SX500_SY400_QL75_V1_.jpg",
+    squareLink: "https://square.link/u/cc4Fmk7w",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
