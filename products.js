@@ -1447,3 +1447,18 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Farm Innovators IceChaser Floating Stock Tank De-Icer, 1,250W — winter duck water.
+PRODUCTS.push(
+  {
+    id: "farm-innovators-icechaser-floating-stock-tank-de-icer-1250w",
+    name: "Farm Innovators IceChaser Floating Stock Tank De-Icer, 1,250W",
+    price: 94.99,
+    description: "Floating 1,250W stock tank de-icer for 70–300 gallon tanks. Cast-aluminum body floats and keeps a drinking hole open in the ice — it does not warm the whole tank. Thermostatically controlled and safe in plastic, rubber and metal tanks. Plug into a GFCI outlet.",
+    image: "https://media.tractorsupply.com/is/image/TractorSupplyCompany/2170819?wid=554&hei=554&qlt=90&fmt=jpeg&resMode=sharp2&op_usm=0.9,1.0,8,0",
+    squareLink: "https://square.link/u/bpZeRyw8",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
