@@ -1462,3 +1462,18 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Farm Innovators Submergible Stock Tank De-Icer, 1,500W — winter duck water.
+PRODUCTS.push(
+  {
+    id: "farm-innovators-submergible-stock-tank-de-icer-1500w",
+    name: "Farm Innovators Submergible Stock Tank De-Icer, 1,500W",
+    price: 79.99,
+    description: "Sinking 1,500W submergible stock tank de-icer with attached guard. Rests at the bottom of the tank, out of livestock's reach, and keeps drinking water ice-free. Safe in plastic per the maker; the 1,500W size suits tanks up to about 300 gallons. Thermostatically controlled. Plug into a GFCI outlet.",
+    image: "https://image.chewy.com/catalog/general/images/farm-innovators-submergible-plastic-stock-tank-de-icer-attached-guard-1500-watt/img-41939._AC_SX500_SY400_QL75_V1_.jpg",
+    squareLink: "https://square.link/u/63SMmsq9",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
