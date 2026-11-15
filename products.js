@@ -1432,3 +1432,18 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Farm Innovators 16 gal Heated Tub (HT-200) — winter duck water.
+PRODUCTS.push(
+  {
+    id: "farm-innovators-16-gal-heated-tub-ht-200",
+    name: "Farm Innovators 16 gal Heated Tub (HT-200)",
+    price: 149.99,
+    description: "16-gallon open heated tub, 200W, thermostatically controlled. Big enough for ducks to dunk their whole head. Durable plastic with easy-grip handles; the heating element is hidden from animals. Plug into a GFCI outlet — GFCI required.",
+    image: "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1012883?wid=554&hei=554&qlt=90&fmt=jpeg&resMode=sharp2&op_usm=0.9,1.0,8,0",
+    squareLink: "https://square.link/u/rGQh7LuN",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
