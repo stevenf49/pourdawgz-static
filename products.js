@@ -1387,3 +1387,18 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Farm Innovators Heated Pet Bowl, 1.5 gal (P-60) — winter duck water.
+PRODUCTS.push(
+  {
+    id: "farm-innovators-heated-pet-bowl-1-5-gal-p-60",
+    name: "Farm Innovators Heated Pet Bowl, 1.5 gal (P-60)",
+    price: 47.99,
+    description: "Open 1.5-gallon (6 qt) heated pet bowl, 60W, with a built-in thermostat that switches on around 35°F and off around 45°F. Keeps drinking water ice-free in cold weather. Maker-rated to -10°F — in deep cold it is best in a sheltered spot and suits a small flock. Anti-chew cord protector. Plug into a GFCI outlet.",
+    image: "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1125957?wid=554&hei=554&qlt=90&fmt=jpeg&resMode=sharp2&op_usm=0.9,1.0,8,0",
+    squareLink: "https://square.link/u/4GFtndTL",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
