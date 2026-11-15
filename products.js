@@ -1417,3 +1417,18 @@ PRODUCTS.push(
     available: true
   }
 );
+
+// Farm Innovators Heated Bucket, 2 gal (HB-60) — winter duck water.
+PRODUCTS.push(
+  {
+    id: "farm-innovators-heated-bucket-2-gal-hb-60",
+    name: "Farm Innovators Heated Bucket, 2 gal (HB-60)",
+    price: 64.99,
+    description: "Open 2-gallon heated bucket, 60W, thermostatically controlled (on around 35°F, off around 45°F). Keeps drinking water ice-free for ducks and other animals. Maker-rated to -10°F — below that, use it in a sheltered spot. Heavy-duty handle and 6-ft cord with anti-chew protector. Plug into a GFCI outlet.",
+    image: "https://image.chewy.com/catalog/general/images/farm-innovators-heated-bucket-2gal/img-102430._AC_SX500_SY400_QL75_V1_.jpg",
+    squareLink: "https://square.link/u/ddhzaKx5",
+    seller: "Pour Dawgz",
+    type: "fixed",
+    available: true
+  }
+);
