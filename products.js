@@ -1489,3 +1489,113 @@ PRODUCTS.push({
    type: "fixed",
    available: true
 });
+
+PRODUCTS.push({
+
+                id: "luminar-outdoor-66-ft-warm-white-solar-rope-light",
+     name: "LUMINAR OUTDOOR 66 ft Warm White Solar Rope Light",
+     price: 29.99,
+     description: "66 ft solar rope light, warm white, for decks, railings, walkways and patios, no wiring needed.",
+     image: "",
+     squareLink: "https://square.link/u/pzSirRfi",
+     seller: "Pour Dawgz",
+   category: "Solar — No Wiring Needed",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "everbrite-solar-motion-sensor-security-light-3-adjustable-heads-2-pack",
+   name: "EverBrite Solar Motion Sensor Security Light, 3 Adjustable Heads, 2-Pack",
+   price: 29.99,
+   description: "Solar motion-sensor security light with 3 adjustable heads, 2-pack.",
+   image: "",
+   squareLink: "https://square.link/u/ZU6zwLqS",
+   seller: "Pour Dawgz",
+   category: "Solar — No Wiring Needed",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "brightech-ambience-pro-solar-string-lights-27-ft-12-shatterproof-edison-bulbs",
+   name: "Brightech Ambience Pro Solar String Lights, 27 ft, 12 Shatterproof Edison Bulbs",
+   price: 79.99,
+   description: "27 ft solar string lights, 12 shatterproof Edison bulbs, for patios and porches.",
+   image: "",
+   squareLink: "https://square.link/u/6IhfCwpC",
+   seller: "Pour Dawgz",
+   category: "String, Rope & Christmas",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "vevor-solar-barn-light-gooseneck-motion-sensor",
+   name: "VEVOR Solar Barn Light, Gooseneck, Motion Sensor",
+   price: 59.99,
+   description: "Solar barn light with gooseneck mount and motion sensor, for barns, sheds and shop doors.",
+   image: "",
+   squareLink: "https://square.link/u/9iHPxNwe",
+   seller: "Pour Dawgz",
+   category: "Solar — No Wiring Needed",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "braun-5500-lumen-4-ft-linkable-led-hanging-shop-light",
+   name: "BRAUN 5500 Lumen 4 ft Linkable LED Hanging Shop Light",
+   price: 34.99,
+   description: "5,500-lumen 4 ft linkable LED hanging shop light, bright even light for shop or garage.",
+   image: "",
+   squareLink: "https://square.link/u/4fEJgyLZ",
+   seller: "Pour Dawgz",
+   category: "LED Work & Shop Lights",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "vevor-4ft-led-wraparound-light-50w-5500lm-flush-mount-4-pack",
+   name: "VEVOR 4FT LED Wraparound Light, 50W, 5500LM, Flush Mount, 4-Pack",
+   price: 189.99,
+   description: "4-pack of 4 ft LED wraparound flush-mount lights, 50W, 5,500 lumens each.",
+   image: "",
+   squareLink: "https://square.link/u/NYbrpBBn",
+   seller: "Pour Dawgz",
+   category: "LED Work & Shop Lights",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "vevor-led-temporary-work-light-100w-14400-lm-linkable",
+   name: "VEVOR LED Temporary Work Light, 100W, 14,400 LM, Linkable",
+   price: 84.99,
+   description: "100W LED temporary work light, 14,400 lumens, linkable, for job sites and shops.",
+   image: "",
+   squareLink: "https://square.link/u/eGqsR41W",
+   seller: "Pour Dawgz",
+   category: "LED Work & Shop Lights",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "vevor-led-work-light-with-stand-10000-lumen-dual-head-tripod",
+   name: "VEVOR LED Work Light with Stand, 10,000 Lumen, Dual-Head Tripod",
+   price: 74.99,
+   description: "10,000-lumen dual-head LED work light on a tripod stand.",
+   image: "",
+   squareLink: "https://square.link/u/LOfZe4Gn",
+   seller: "Pour Dawgz",
+   category: "LED Work & Shop Lights",
+   type: "fixed",
+   available: true
+});
+PRODUCTS.push({
+   id: "luminar-outdoor-solar-dragonfly-led-string-lights-10-piece",
+   name: "LUMINAR OUTDOOR Solar Dragonfly LED String Lights, 10-Piece",
+   price: 14.99,
+   description: "10 dragonfly lights on a 15 ft solar string, for bushes, trees, patios and garden.",
+   image: "",
+   squareLink: "https://square.link/u/CRmORB7X",
+   seller: "Pour Dawgz",
+   category: "String, Rope & Christmas",
+   type: "fixed",
+   available: true
+});
