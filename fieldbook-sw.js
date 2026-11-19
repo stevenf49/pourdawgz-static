@@ -1,5 +1,5 @@
 /* Pour Dawgz Field Book — service worker (offline + installable) */
-var CACHE = "fieldbook-v1";
+var CACHE = "fieldbook-v2";
 var CORE = [
   "/fieldbook.html",
   "/fieldbook-d97a8d8f.html",
