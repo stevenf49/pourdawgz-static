@@ -1858,7 +1858,7 @@ $("importInput").addEventListener("change", function(){
 
 /* ================= INSTALL (home screen + offline) ================= */
 if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("/fieldbook-sw.js", { scope: "/fieldbook" }).catch(function(){});
+  navigator.serviceWorker.register("/fieldbook-sw.js").catch(function(){});
 }
 var deferredInstall = null;
 window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); deferredInstall = e; });
