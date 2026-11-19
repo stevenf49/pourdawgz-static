@@ -1477,3 +1477,15 @@ PRODUCTS.push(
     available: true
   }
 );
+PRODUCTS.push({
+   id: "braun-10000-lumen-4ft-linkable-diamond-plate-led-hanging-shop-light",
+   name: "BRAUN 10,000 Lumen 4 ft Linkable Diamond Plate LED Hanging Shop Light",
+   price: 84.99,
+   description: "10,000-lumen 4 ft linkable diamond plate LED hanging shop light. Bright, even light for the shop or garage. ETL listed.",
+   image: "",
+   squareLink: "https://square.link/u/PErp6gcI",
+   seller: "Pour Dawgz",
+   category: "LED Work & Shop Lights",
+   type: "fixed",
+   available: true
+});
